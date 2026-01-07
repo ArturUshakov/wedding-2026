@@ -1,9 +1,15 @@
 <!doctype html>
 <html lang="ru">
 <head>
+    <meta name="theme-color" content="#b8a78e">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="preload" as="image" href="./assets/hero.webp" fetchpriority="high">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Свадьба Артура и Дарьи — 22.08.2026" />
+    <meta name="description" content="Свадьба Артура и Дарьи — 22.08.2026 | 14:00" />
     <title>Артур & Дарья — 22.08.2026</title>
 
     <!-- Fonts -->
@@ -12,16 +18,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./main.js" defer></script>
 </head>
 
 <body>
 <div class="grain" aria-hidden="true"></div>
 
 <!-- HERO -->
-<header class="hero reveal" id="top">
+<header class="hero js-reveal" id="top">
     <div class="container hero__grid">
         <div class="hero__top">
-            <div class="kicker">
+            <div class="kicker" aria-label="Свадебный день">
                 <span class="kicker__line" aria-hidden="true"></span>
                 <span class="kicker__text">Wedding day</span>
                 <span class="kicker__line" aria-hidden="true"></span>
@@ -36,14 +43,16 @@
             </p>
         </div>
 
-        <div class="hero__media" id="heroMedia" aria-label="Фото Артура и Дарьи"></div>
+        <div class="hero__media" aria-label="Фото Артура и Дарьи">
+            <img class="hero__img" src="./assets/hero.webp" alt="Артур и Дарья" width="1600" height="2000" fetchpriority="high" decoding="async">
+        </div>
     </div>
 </header>
 
 <main class="main">
 
     <!-- INTRO -->
-    <section class="section reveal" id="intro">
+    <section class="section js-reveal" id="intro">
         <div class="container">
             <div class="sectionHead">
                 <h2>Мы официально станем семьёй</h2>
@@ -54,7 +63,7 @@
             </div>
 
             <div class="twoCol">
-                <div class="photoCard photoCard--tall" style="background-image:url('./assets/intro.webp')"></div>
+                <div class="photoCard photoCard--tall" style="background-image:url('./assets/intro.webp')" aria-label="Наше фото"></div>
 
                 <div class="noteCard">
                     <p class="noteCard__title">Немного тепла</p>
@@ -62,7 +71,7 @@
                         Этот сайт — маленькое приглашение в наш большой день.
                         Берите с собой улыбки, объятия и хорошее настроение — остальное мы уже приготовили.
                     </p>
-                    <div class="divider"></div>
+                    <div class="divider" aria-hidden="true"></div>
                     <p class="noteCard__text muted">
                         Дресс-кода нет. Просто приходите такими, какие вы есть.
                     </p>
@@ -72,7 +81,7 @@
     </section>
 
     <!-- STORY -->
-    <section class="section reveal" id="story">
+    <section class="section js-reveal" id="story">
         <div class="container">
             <div class="sectionHead">
                 <h2>Наша история</h2>
@@ -104,7 +113,7 @@
     </section>
 
     <!-- PLACE -->
-    <section class="section reveal" id="place">
+    <section class="section js-reveal" id="place">
         <div class="container">
             <div class="sectionHead">
                 <h2>Локация</h2>
@@ -124,8 +133,7 @@
                             frameborder="0"
                             loading="lazy"
                             title="Карта"
-                            allowfullscreen
-                    ></iframe>
+                            allowfullscreen></iframe>
 
                     <button class="map-overlay" id="mapOverlay" type="button" aria-label="Включить управление картой">
                         <span class="map-overlay__title">Карта</span>
@@ -144,51 +152,55 @@
     </section>
 
     <!-- TIMELINE -->
-    <section class="section reveal" id="schedule">
+    <section class="section js-reveal" id="schedule">
         <div class="container">
             <div class="sectionHead">
                 <h2>Программа дня</h2>
                 <p class="lead">Тайминг уточним ближе к дате — но настроение уже точно будет.</p>
             </div>
 
-            <div class="timeline">
-                <div class="tItem">
-                    <div class="tIcon" aria-hidden="true">💍</div>
-                    <div class="tBody">
-                        <p class="tTime">14:00</p>
-                        <p class="tText">Церемония</p>
+            <ol class="dayline" aria-label="Таймлайн программы дня">
+                <li class="dayline__item">
+                    <div class="dayline__dot" aria-hidden="true"></div>
+                    <div class="dayline__card">
+                        <p class="dayline__time">14:00</p>
+                        <p class="dayline__title">Церемония</p>
+                        <p class="dayline__desc">Самый трогательный момент дня.</p>
                     </div>
-                </div>
+                </li>
 
-                <div class="tItem">
-                    <div class="tIcon" aria-hidden="true">📸</div>
-                    <div class="tBody">
-                        <p class="tTime">15:30</p>
-                        <p class="tText">Фото и поздравления</p>
+                <li class="dayline__item">
+                    <div class="dayline__dot" aria-hidden="true"></div>
+                    <div class="dayline__card">
+                        <p class="dayline__time">15:30</p>
+                        <p class="dayline__title">Фото и поздравления</p>
+                        <p class="dayline__desc">Обнимемся и сделаем красивые кадры.</p>
                     </div>
-                </div>
+                </li>
 
-                <div class="tItem">
-                    <div class="tIcon" aria-hidden="true">🍽️</div>
-                    <div class="tBody">
-                        <p class="tTime">17:00</p>
-                        <p class="tText">Ужин</p>
+                <li class="dayline__item">
+                    <div class="dayline__dot" aria-hidden="true"></div>
+                    <div class="dayline__card">
+                        <p class="dayline__time">17:00</p>
+                        <p class="dayline__title">Ужин</p>
+                        <p class="dayline__desc">Тёплый семейный вечер.</p>
                     </div>
-                </div>
+                </li>
 
-                <div class="tItem">
-                    <div class="tIcon" aria-hidden="true">🎉</div>
-                    <div class="tBody">
-                        <p class="tTime">18:30</p>
-                        <p class="tText">Танцы и праздник</p>
+                <li class="dayline__item">
+                    <div class="dayline__dot" aria-hidden="true"></div>
+                    <div class="dayline__card">
+                        <p class="dayline__time">18:30</p>
+                        <p class="dayline__title">Танцы и праздник</p>
+                        <p class="dayline__desc">Музыка, улыбки и настроение.</p>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ol>
         </div>
     </section>
 
     <!-- COUNTDOWN -->
-    <section class="section reveal" id="countdown">
+    <section class="section js-reveal" id="countdown">
         <div class="container">
             <div class="sectionHead">
                 <h2>До нашей свадьбы осталось</h2>
@@ -206,7 +218,7 @@
     </section>
 
     <!-- GIFTS -->
-    <section class="section reveal" id="gifts">
+    <section class="section js-reveal" id="gifts">
         <div class="container">
             <div class="sectionHead">
                 <h2>Подарки</h2>
@@ -215,21 +227,21 @@
             <div class="giftCard">
                 <p class="giftText">
                     Мы будем очень рады вашему вниманию и тёплым словам.
-                    Пожалуйста, не дарите цветы — сразу после свадьбы мы уезжаем к морю
+                    Пожалуйста, не дарите цветы — сразу после свадьбы мы уезжаем к морю,
                     и не успеем насладиться их красотой так долго, как хотелось бы.
                 </p>
                 <p class="giftText">
-                    Если вы хотите сделать нам подарок, самым желанным вариантом для нас
-                    будет вклад в наши совместные мечты — он обязательно превратится
-                    в яркие впечатления и счастливые воспоминания.
+                    Если вы хотите сделать нам подарок, самым желанным вариантом для нас будет
+                    вклад в наши совместные мечты — он обязательно превратится в яркие впечатления
+                    и счастливые воспоминания.
                 </p>
-                <p class="giftNote">Самое главное — ваше присутствие и разделённая с нами радость 🤍</p>
+                <p class="giftNote">Самое главное — ваше присутствие 🤍</p>
             </div>
         </div>
     </section>
 
     <!-- CONTACTS -->
-    <section class="section reveal" id="contacts">
+    <section class="section js-reveal" id="contacts">
         <div class="container">
             <div class="sectionHead">
                 <h2>Контакты</h2>
@@ -293,7 +305,7 @@
     </section>
 
     <!-- FINAL -->
-    <section class="final reveal" id="final">
+    <section class="final js-reveal" id="final">
         <div class="container final__card">
             <div class="kicker kicker--light">
                 <span class="kicker__line" aria-hidden="true"></span>
@@ -328,6 +340,5 @@
 </audio>
 <button class="music" id="music-btn" type="button" aria-label="Музыка: включить">♪ Музыка</button>
 
-<script src="./main.js" defer></script>
 </body>
 </html>
