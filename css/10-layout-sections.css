@@ -1,0 +1,88 @@
+/* Sections: визуальное разделение без трюков со скроллом */
+.section{
+    padding: 92px 0;
+    position: relative;
+}
+@media (max-width: 720px){
+    .section{ padding: 78px 0; }
+}
+
+/* мягкие “перетекания” фона между секциями */
+.section::before{
+    content:"";
+    position:absolute;
+    left:0; right:0;
+    top:-1px;
+    height: 54px;
+    pointer-events:none;
+    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(184,167,142,.06));
+}
+.section::after{
+    content:"";
+    position:absolute;
+    left:0; right:0;
+    bottom:-1px;
+    height: 54px;
+    pointer-events:none;
+    background: linear-gradient(0deg, rgba(255,255,255,0), rgba(184,167,142,.06));
+}
+
+.sectionHead{
+    text-align: center;
+    margin-bottom: 28px;
+}
+.sectionHead::after{
+    content:"";
+    display:block;
+    width: 84px;
+    height: 2px;
+    background: rgba(184,167,142,.70);
+    margin: 18px auto 0;
+    border-radius: 99px;
+    opacity: .9;
+}
+
+/* reveal animations: безопасные */
+.js-reveal{
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .65s ease, transform .65s ease;
+    will-change: opacity, transform;
+}
+.js-reveal.is-in{
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+    .js-reveal{ transition: none; opacity: 1; transform: none; }
+}
+
+/* kicker */
+.kicker{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.kicker__line{
+    width: 56px;
+    height: 1px;
+    background: rgba(184,167,142,.70);
+    transform-origin: center;
+    animation: kickerBreath 3.8s ease-in-out infinite;
+}
+.kicker__line:first-child{ animation-delay: .2s; }
+.kicker__line:last-child{ animation-delay: 1.1s; }
+.kicker__text{
+    font-size: 12px;
+    letter-spacing: .20em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+@keyframes kickerBreath{
+    0%,100%{ transform: scaleX(1); opacity: .85; }
+    50%{ transform: scaleX(1.06); opacity: 1; }
+}
+.kicker--light .kicker__line{ background: rgba(255,255,255,.55); }
+.kicker--light .kicker__text{ color: rgba(255,255,255,.88); }

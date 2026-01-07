@@ -1,0 +1,131 @@
+/* Buttons */
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 999px;
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: rgba(22,19,15,.92);
+    box-shadow: var(--shadowSoft);
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn:active{ transform: translateY(1px); }
+.btn--primary{
+    background: linear-gradient(135deg, var(--champagne), var(--champagne-2));
+    color: #fff;
+    border-color: rgba(255,255,255,.25);
+    box-shadow: 0 18px 40px rgba(184,167,142,.24);
+}
+.btn--ghost{ background: rgba(255,255,255,.58); }
+.btn--sm{ padding: 10px 14px; font-size: 13px; }
+@media (hover:hover){ .btn:hover{ transform: translateY(-1px); } }
+
+/* Generic cards */
+.noteCard{
+    border-radius: var(--r-xl);
+    background: var(--card);
+    border: 1px solid rgba(22,19,15,.10);
+    box-shadow: var(--shadowSoft);
+    padding: 26px;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+.noteCard__title{
+    font-family: var(--serif);
+    font-weight: 700;
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+.noteCard__text{
+    margin: 0;
+    color: rgba(22,19,15,.76);
+    line-height: 1.9;
+    font-size: 18px;
+}
+.divider{
+    height: 1px;
+    background: rgba(184,167,142,.38);
+    margin: 18px 0;
+}
+.muted{ color: var(--muted); }
+
+/* Lightbox */
+.lightbox{
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: none;
+}
+.lightbox.is-open{ display:block; }
+
+.lightbox__backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,.72);
+    backdrop-filter: blur(6px);
+}
+.lightbox__panel{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(980px, calc(100% - 28px));
+    max-height: calc(100% - 28px);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 24px 90px rgba(0,0,0,.45);
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.18);
+    margin: 0;
+}
+.lightbox__img{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 28px);
+    object-fit: contain;
+    background: rgba(0,0,0,.20);
+}
+.lightbox__close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.12);
+    color: rgba(255,255,255,.95);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* Music button */
+.music{
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 9999;
+    border: 1px solid rgba(22,19,15,.10);
+    background: rgba(255,255,255,.86);
+    backdrop-filter: blur(10px);
+    color: rgba(22,19,15,.92);
+    border-radius: 999px;
+    padding: 12px 14px;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    cursor:pointer;
+    transition: transform .15s ease;
+}
+.music:active{ transform: translateY(1px); }
+.music--on{
+    border-color: rgba(184,167,142,.55);
+    background: linear-gradient(180deg, rgba(184,167,142,.26), rgba(255,255,255,.86));
+}

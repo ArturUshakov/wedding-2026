@@ -1,0 +1,18 @@
+/* Performance-focused overrides (mobile) */
+@media (max-width: 720px){
+    /* Отрубаем самые дорогие эффекты на мобилке */
+    .hero__top,
+    .noteCard,
+    .person{
+        backdrop-filter: none !important;
+    }
+
+    /* Фиксированный grain иногда мешает плавности на iOS */
+    .grain{
+        display: none !important;
+    }
+
+    body{
+        -webkit-overflow-scrolling: touch;
+    }
+}

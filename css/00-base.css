@@ -1,0 +1,99 @@
+:root{
+    --bg: #fffdf7;
+    --ink: #16130f;
+    --text: rgba(22,19,15,.92);
+    --muted: rgba(22,19,15,.64);
+
+    --champagne: #b8a78e;
+    --champagne-2: #a48e6f;
+    --gold: rgba(164,142,111,.95);
+
+    --card: rgba(255,255,255,.78);
+    --card2: rgba(255,255,255,.58);
+    --border: rgba(22,19,15,.11);
+
+    --shadow: 0 18px 60px rgba(22,19,15,.12);
+    --shadowSoft: 0 10px 26px rgba(22,19,15,.08);
+
+    --r-xl: 22px;
+    --r-lg: 18px;
+    --r-md: 14px;
+
+    --serif: "Playfair Display", serif;
+    --body: "Source Serif 4", ui-serif, Georgia, "Times New Roman", serif;
+
+    --container: 1040px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+html{ scroll-behavior: auto; } /* не включаем smooth глобально */
+
+body{
+    margin:0;
+    font-family: var(--body);
+    color: var(--text);
+    background:
+            radial-gradient(1200px 800px at 20% -10%, rgba(184,167,142,.16), transparent 55%),
+            radial-gradient(900px 600px at 90% 10%, rgba(184,167,142,.09), transparent 55%),
+            var(--bg);
+    line-height: 1.75;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    font-feature-settings: "liga" 1, "kern" 1;
+}
+
+@media (max-width: 520px){
+    body{ font-size: 17px; }
+}
+
+/* subtle grain (optional, can be disabled in perf file for mobile) */
+.grain{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .07;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.container{
+    width: min(var(--container), calc(100% - 36px));
+    margin: 0 auto;
+}
+
+.main{ padding-bottom: 24px; }
+
+/* typography */
+h1,h2{ margin:0; }
+h2{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(30px, 5.4vw, 56px);
+    letter-spacing: -0.02em;
+    color: rgba(22,19,15,.96);
+    text-wrap: balance;
+}
+
+.lead{
+    margin: 14px auto 0;
+    max-width: 780px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.85;
+}
+@media (max-width: 520px){
+    .lead{ font-size: 17px; }
+}
+.lead--center{ text-align:center; }
+
+a{ color: inherit; }
+a:hover{ opacity: .92; }
+
+:focus-visible{
+    outline: 2px solid rgba(184,167,142,.75);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
