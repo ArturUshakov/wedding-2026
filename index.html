@@ -3,250 +3,536 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Приглашение на свадьбу Артура и Дарьи — 22 августа 2026" />
-    <title>Артур & Дарья — 22 августа 2026</title>
+    <meta name="description" content="Свадьба Артура и Дарьи — 22.08.2026" />
+    <title>Артур & Дарья — 22.08.2026</title>
 
-    <!-- Open Graph для красивого превью в мессенджерах -->
-    <meta property="og:title" content="Артур & Дарья — свадьба 22 августа 2026" />
-    <meta property="og:description" content="Информация для гостей: место, время, фото." />
-    <meta property="og:image" content="./assets/og.jpg" />
-    <meta property="og:type" content="website" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-<header class="hero" role="banner">
-    <div class="hero__card">
-        <p class="hero__kicker">Приглашение на свадьбу</p>
-        <h1 class="hero__title">Артур и Дарья</h1>
+<div class="grain" aria-hidden="true"></div>
 
-        <div class="hero__meta" aria-label="Ключевая информация">
-            <div class="meta-item">
-                <span>Дата</span>
-                <b>22 августа 2026</b>
+<!-- HERO -->
+<header class="hero reveal" id="top">
+    <div class="container hero__grid">
+        <div class="hero__top">
+            <div class="kicker">
+                <span class="kicker__line" aria-hidden="true"></span>
+                <span class="kicker__text">Wedding day</span>
+                <span class="kicker__line" aria-hidden="true"></span>
             </div>
-            <div class="meta-item">
-                <span>Время</span>
-                <b>16:00</b>
-            </div>
-            <div class="meta-item">
-                <span>Место</span>
-                <b>Город, площадка</b>
-            </div>
+
+            <h1 class="hero__names">Артур <span class="amp">&amp;</span> Дарья</h1>
+
+            <p class="hero__meta">
+                <span>22.08.2026</span>
+                <span class="hero__metaSep" aria-hidden="true">•</span>
+                <span>14:00</span>
+            </p>
         </div>
 
-        <div class="countdown" id="countdown" aria-label="Обратный отсчёт до свадьбы">
-            <div class="cd-item">
-                <b id="cd-days">–</b>
-                <span>дней</span>
-            </div>
-            <div class="cd-item">
-                <b id="cd-hours">–</b>
-                <span>часов</span>
-            </div>
-            <div class="cd-item">
-                <b id="cd-minutes">–</b>
-                <span>минут</span>
-            </div>
-            <div class="cd-item">
-                <b id="cd-seconds">–</b>
-                <span>секунд</span>
-            </div>
-        </div>
-
-        <div class="hero__actions">
-            <a class="btn" href="#details">Информация</a>
-            <a class="btn btn--ghost" href="#gallery">Фото</a>
-            <a class="btn btn--ghost" href="#faq">FAQ</a>
-        </div>
-
-        <p class="hero__note">
-            Будем очень рады видеть вас рядом в этот день.
-        </p>
+        <div class="hero__media" id="heroMedia" aria-label="Фото Артура и Дарьи"></div>
     </div>
 </header>
 
-<main class="main" role="main">
-    <section id="details" class="section">
-        <h2>Информация</h2>
+<main class="main">
 
-        <div class="grid">
-            <article class="card">
-                <h3>Где</h3>
-                <p>Город, улица, дом, название площадки/зала.</p>
-                <p class="muted small">Добавьте ориентиры: вход, этаж, парковка и т.д.</p>
+    <!-- INTRO -->
+    <section class="section reveal" id="intro">
+        <div class="container">
+            <div class="sectionHead">
+                <h2>Мы официально станем семьёй</h2>
+                <p class="lead">
+                    Если вы читаете эти строки — значит вы очень важны для нас.
+                    Совсем скоро мы станем мужем и женой и будем счастливы разделить этот день вместе с вами.
+                </p>
+            </div>
 
-                <div class="card__actions">
-                    <!-- Замените ссылку на вашу точную -->
-                    <a
-                            class="btn btn--small"
-                            href="https://yandex.ru/maps/?text=Вильнюс%20центр"
-                            target="_blank"
-                            rel="noreferrer"
-                    >
-                        Открыть в Яндекс.Картах
-                    </a>
+            <div class="twoCol">
+                <div class="photoCard photoCard--tall" style="background-image:url('./assets/intro.webp')"></div>
+
+                <div class="noteCard">
+                    <p class="noteCard__title">Немного тепла</p>
+                    <p class="noteCard__text">
+                        Этот сайт — маленькое приглашение в наш большой день.
+                        Берите с собой улыбки, объятия и хорошее настроение — остальное мы уже приготовили.
+                    </p>
+                    <div class="divider"></div>
+                    <p class="noteCard__text muted">
+                        Дресс-кода нет. Просто приходите такими, какие вы есть.
+                    </p>
                 </div>
-            </article>
-
-            <article class="card">
-                <h3>Во сколько</h3>
-                <ul>
-                    <li><b>16:00</b> — сбор гостей</li>
-                    <li><b>16:30</b> — церемония</li>
-                    <li><b>18:00</b> — ужин</li>
-                </ul>
-                <p class="muted small">Тайминг можно обновить позже.</p>
-            </article>
-
-            <article class="card">
-                <h3>Полезное</h3>
-                <ul>
-                    <li>Приходите, пожалуйста, за 10–15 минут до начала.</li>
-                    <li>Если планируете подарок — конверт будет самым удобным вариантом.</li>
-                    <li>Если потерялись — пишите или звоните (контакты ниже).</li>
-                </ul>
-            </article>
-        </div>
-    </section>
-
-    <section id="gallery" class="section">
-        <h2>Фото</h2>
-
-        <div class="carousel" aria-label="Фотографии">
-            <div class="carousel__track">
-                <figure class="carousel__slide">
-                    <img src="./assets/photo1.jpg" alt="Артур и Дарья — фото 1" loading="lazy" />
-                </figure>
-                <figure class="carousel__slide">
-                    <img src="./assets/photo2.jpg" alt="Артур и Дарья — фото 2" loading="lazy" />
-                </figure>
-                <figure class="carousel__slide">
-                    <img src="./assets/photo3.jpg" alt="Артур и Дарья — фото 3" loading="lazy" />
-                </figure>
-                <figure class="carousel__slide">
-                    <img src="./assets/photo4.jpg" alt="Артур и Дарья — фото 4" loading="lazy" />
-                </figure>
-                <figure class="carousel__slide">
-                    <img src="./assets/photo5.jpg" alt="Артур и Дарья — фото 5" loading="lazy" />
-                </figure>
-                <figure class="carousel__slide">
-                    <img src="./assets/photo6.jpg" alt="Артур и Дарья — фото 6" loading="lazy" />
-                </figure>
             </div>
         </div>
-
-        <p class="muted small">Листается свайпом на телефоне и колесом/тачпадом на десктопе.</p>
     </section>
 
-    <section id="faq" class="section">
-        <h2>FAQ</h2>
+    <!-- STORY -->
+    <section class="section reveal" id="story">
+        <div class="container">
+            <div class="sectionHead">
+                <h2>Наша история</h2>
+                <p class="lead">Детство, взросление и путь друг к другу.</p>
+            </div>
 
-        <div class="grid grid--2">
-            <article class="card">
-                <h3>Что дарить?</h3>
-                <p class="muted">Будем рады конверту — так удобнее всего.</p>
-            </article>
+            <div class="grid4">
+                <button class="tile js-lightbox" type="button" data-full="./assets/story1_child.webp" aria-label="Открыть фото Артура в детстве">
+                    <img src="./assets/story1_child.webp" alt="Артур в детстве" loading="lazy" style="object-position:center top">
+                    <p>Артур — первые шаги</p>
+                </button>
 
-            <article class="card">
-                <h3>Как одеться?</h3>
-                <p class="muted">Дресс-кода нет — приходите как вам комфортно.</p>
-            </article>
+                <button class="tile js-lightbox" type="button" data-full="./assets/story2_child.webp" aria-label="Открыть фото Даши в детстве">
+                    <img src="./assets/story2_child.webp" alt="Даша в детстве" loading="lazy">
+                    <p>Даша — детский смех</p>
+                </button>
 
-            <article class="card">
-                <h3>Парковка / вход</h3>
-                <p class="muted">Добавьте здесь короткую подсказку, где парковаться и куда идти.</p>
-            </article>
+                <button class="tile js-lightbox" type="button" data-full="./assets/story3_now.webp" aria-label="Открыть фото сейчас">
+                    <img src="./assets/story3_now.webp" alt="Мы сегодня" loading="lazy">
+                    <p>Мы — сегодня</p>
+                </button>
 
-            <article class="card">
-                <h3>Если есть вопросы</h3>
-                <p class="muted">Пишите/звоните — контакты ниже.</p>
-            </article>
+                <button class="tile js-lightbox" type="button" data-full="./assets/story4_now2.webp" aria-label="Открыть фото вместе">
+                    <img src="./assets/story4_now2.webp" alt="Мы вместе" loading="lazy">
+                    <p>Мы — вместе</p>
+                </button>
+            </div>
         </div>
     </section>
 
-    <section id="contacts" class="section">
-        <h2>Контакты</h2>
+    <!-- PLACE -->
+    <section class="section reveal" id="place">
+        <div class="container">
+            <div class="sectionHead">
+                <h2>Локация</h2>
+                <p class="lead">
+                    ЗАГС Центрального и Ленинского районов<br>
+                    г. Воронеж, пл. Ленина, 11
+                </p>
+            </div>
 
-        <div class="grid grid--2">
-            <article class="card">
-                <h3>Артур</h3>
-                <p class="muted">Телефон / Telegram</p>
-                <p><a href="tel:+37000000000">+370 000 00000</a></p>
-                <p><a href="https://t.me/username" target="_blank" rel="noreferrer">@username</a></p>
-            </article>
+            <div class="map-card" id="mapCard">
+                <div class="map-frame">
+                    <iframe
+                            id="yandexMap"
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A78dc537ea84241fb034f070faba51992d7813e536184517f45c129044f135352&amp;source=constructor"
+                            width="100%"
+                            height="360"
+                            frameborder="0"
+                            loading="lazy"
+                            title="Карта"
+                            allowfullscreen
+                    ></iframe>
 
-            <article class="card">
-                <h3>Дарья</h3>
-                <p class="muted">Телефон / Telegram</p>
-                <p><a href="tel:+37000000000">+370 000 00000</a></p>
-                <p><a href="https://t.me/username" target="_blank" rel="noreferrer">@username</a></p>
-            </article>
+                    <button class="map-overlay" id="mapOverlay" type="button" aria-label="Включить управление картой">
+                        <span class="map-overlay__title">Карта</span>
+                        <span class="map-overlay__hint">Нажмите, чтобы взаимодействовать</span>
+                    </button>
+                </div>
+
+                <div class="map-actions">
+                    <a class="btn btn--primary"
+                       href="https://yandex.ru/maps/org/zags_tsentralnogo_i_leninskogo_rayonov/1058799727"
+                       target="_blank"
+                       rel="noreferrer">Как добраться</a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <p class="muted small">Можно оставить только Telegram и убрать телефоны.</p>
+    <!-- TIMELINE -->
+    <section class="section reveal" id="schedule">
+        <div class="container">
+            <div class="sectionHead">
+                <h2>Программа дня</h2>
+                <p class="lead">Тайминг уточним ближе к дате — но настроение уже точно будет.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="tItem">
+                    <div class="tIcon" aria-hidden="true">💍</div>
+                    <div class="tBody">
+                        <p class="tTime">14:00</p>
+                        <p class="tText">Церемония</p>
+                    </div>
+                </div>
+
+                <div class="tItem">
+                    <div class="tIcon" aria-hidden="true">📸</div>
+                    <div class="tBody">
+                        <p class="tTime">15:30</p>
+                        <p class="tText">Фото и поздравления</p>
+                    </div>
+                </div>
+
+                <div class="tItem">
+                    <div class="tIcon" aria-hidden="true">🍽️</div>
+                    <div class="tBody">
+                        <p class="tTime">17:00</p>
+                        <p class="tText">Ужин</p>
+                    </div>
+                </div>
+
+                <div class="tItem">
+                    <div class="tIcon" aria-hidden="true">🎉</div>
+                    <div class="tBody">
+                        <p class="tTime">18:30</p>
+                        <p class="tText">Танцы и праздник</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="section reveal" id="countdown">
+        <div class="container">
+            <div class="sectionHead">
+                <h2>До нашей свадьбы осталось</h2>
+            </div>
+
+            <div class="countdown" aria-label="Таймер">
+                <div class="cItem"><b id="cd-days">—</b><span>дней</span></div>
+                <div class="cItem"><b id="cd-hours">—</b><span>часов</span></div>
+                <div class="cItem"><b id="cd-minutes">—</b><span>минут</span></div>
+                <div class="cItem"><b id="cd-seconds">—</b><span>секунд</span></div>
+            </div>
+
+            <div class="countdown-photo" aria-label="Наше фото"></div>
+        </div>
+    </section>
+
+    <!-- GIFTS -->
+    <section class="section reveal" id="gifts">
+        <div class="container">
+            <div class="sectionHead">
+                <h2>Подарки</h2>
+            </div>
+
+            <div class="giftCard">
+                <p class="giftText">
+                    Мы будем очень рады вашему вниманию и тёплым словам.
+                    Пожалуйста, не дарите цветы — сразу после свадьбы мы уезжаем к морю
+                    и не успеем насладиться их красотой так долго, как хотелось бы.
+                </p>
+                <p class="giftText">
+                    Если вы хотите сделать нам подарок, самым желанным вариантом для нас
+                    будет вклад в наши совместные мечты — он обязательно превратится
+                    в яркие впечатления и счастливые воспоминания.
+                </p>
+                <p class="giftNote">Самое главное — ваше присутствие и разделённая с нами радость 🤍</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section class="section reveal" id="contacts">
+        <div class="container">
+            <div class="sectionHead">
+                <h2>Контакты</h2>
+                <p class="lead">Если возникнут вопросы — мы на связи.</p>
+            </div>
+
+            <div class="contacts">
+                <article class="person">
+                    <div class="person__top">
+                        <div class="monogram" aria-hidden="true">A</div>
+                        <div>
+                            <p class="person__name">Артур</p>
+                            <p class="person__hint">быстрее всего — Telegram</p>
+                        </div>
+                    </div>
+
+                    <div class="person__rows">
+                        <div class="row">
+                            <span class="row__k">Телефон</span>
+                            <a class="row__v" href="tel:+79103210599">+7 910 321 05 99</a>
+                        </div>
+                        <div class="row">
+                            <span class="row__k">Telegram</span>
+                            <a class="row__v" target="_blank" rel="noreferrer" href="https://t.me/Mariores">@Mariores</a>
+                        </div>
+                    </div>
+
+                    <div class="person__actions">
+                        <a class="btn btn--ghost btn--sm" href="tel:+79103210599">Позвонить</a>
+                        <a class="btn btn--primary btn--sm" target="_blank" rel="noreferrer" href="https://t.me/Mariores">Написать</a>
+                    </div>
+                </article>
+
+                <article class="person">
+                    <div class="person__top">
+                        <div class="monogram" aria-hidden="true">D</div>
+                        <div>
+                            <p class="person__name">Дарья</p>
+                            <p class="person__hint">быстрее всего — Telegram</p>
+                        </div>
+                    </div>
+
+                    <div class="person__rows">
+                        <div class="row">
+                            <span class="row__k">Телефон</span>
+                            <a class="row__v" href="tel:+79205813273">+7 920 581 32 73</a>
+                        </div>
+                        <div class="row">
+                            <span class="row__k">Telegram</span>
+                            <a class="row__v" target="_blank" rel="noreferrer" href="https://t.me/dashok_pirozhoc">@dashok_pirozhoc</a>
+                        </div>
+                    </div>
+
+                    <div class="person__actions">
+                        <a class="btn btn--ghost btn--sm" href="tel:+79205813273">Позвонить</a>
+                        <a class="btn btn--primary btn--sm" target="_blank" rel="noreferrer" href="https://t.me/dashok_pirozhoc">Написать</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL -->
+    <section class="final reveal" id="final">
+        <div class="container final__card">
+            <div class="kicker kicker--light">
+                <span class="kicker__line" aria-hidden="true"></span>
+                <span class="kicker__text">see you soon</span>
+                <span class="kicker__line" aria-hidden="true"></span>
+            </div>
+
+            <h2>До скорой встречи!</h2>
+            <p class="lead lead--center">Мы будем очень ждать вас и обнимем каждого 🤍</p>
+        </div>
     </section>
 
     <footer class="footer">
-        <p class="muted small">С любовью, Артур и Дарья • 22 августа 2026</p>
+        <div class="container footer__inner">
+            <span>© 2026 Артур &amp; Дарья</span>
+        </div>
     </footer>
 </main>
 
-<script>
-    // Плавная прокрутка по якорям
-    document.querySelectorAll('a[href^="#"]').forEach((a) => {
-        a.addEventListener("click", (e) => {
-            const id = a.getAttribute("href");
-            const el = document.querySelector(id);
-            if (!el) return;
-            e.preventDefault();
-            el.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-    });
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" data-close="1"></div>
+    <figure class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+        <button class="lightbox__close" type="button" data-close="1" aria-label="Закрыть">×</button>
+        <img class="lightbox__img" id="lightboxImg" alt="">
+    </figure>
+</div>
 
-    // Таймер до 22 августа 2026 16:00 (локальное время устройства)
+<!-- MUSIC -->
+<audio id="bg-music" preload="metadata" loop>
+    <source src="./assets/music.mp3" type="audio/mpeg" />
+</audio>
+<button class="music" id="music-btn" type="button" aria-label="Музыка: включить">♪ Музыка</button>
+
+<script>
+    /* ----------------- Reveal ----------------- */
     (function () {
-        const weddingDate = new Date(2026, 7, 22, 16, 0, 0);
+        const els = document.querySelectorAll(".reveal");
+        if (!els.length) return;
+
+        const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) {
+                    e.target.classList.add("is-in");
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.14 });
+
+        els.forEach((el) => io.observe(el));
+    })();
+
+    /* ---------------- Countdown ---------------- */
+    (function () {
+        const target = new Date(2026, 7, 22, 14, 0, 0);
 
         const d = document.getElementById("cd-days");
         const h = document.getElementById("cd-hours");
         const m = document.getElementById("cd-minutes");
         const s = document.getElementById("cd-seconds");
+        if (!d || !h || !m || !s) return;
 
-        function pad(n) {
-            return String(n).padStart(2, "0");
-        }
+        const pad = (n) => String(n).padStart(2, "0");
 
         function tick() {
-            const now = new Date();
-            let diff = weddingDate - now;
-
-            if (diff <= 0) {
-                d.textContent = "0";
-                h.textContent = "00";
-                m.textContent = "00";
-                s.textContent = "00";
-                return;
-            }
+            let diff = target.getTime() - Date.now();
+            if (diff < 0) diff = 0;
 
             const days = Math.floor(diff / 86400000);
-            diff %= 86400000;
-
-            const hours = Math.floor(diff / 3600000);
-            diff %= 3600000;
-
-            const minutes = Math.floor(diff / 60000);
-            const seconds = Math.floor((diff % 60000) / 1000);
+            const hours = Math.floor(diff / 3600000) % 24;
+            const mins = Math.floor(diff / 60000) % 60;
+            const secs = Math.floor(diff / 1000) % 60;
 
             d.textContent = String(days);
             h.textContent = pad(hours);
-            m.textContent = pad(minutes);
-            s.textContent = pad(seconds);
+            m.textContent = pad(mins);
+            s.textContent = pad(secs);
         }
 
         tick();
         setInterval(tick, 1000);
+    })();
+
+    /* ---------------- Lightbox ----------------- */
+    (function () {
+        const lb = document.getElementById("lightbox");
+        const img = document.getElementById("lightboxImg");
+        if (!lb || !img) return;
+
+        const triggers = document.querySelectorAll(".js-lightbox");
+        if (!triggers.length) return;
+
+        function open(src, alt) {
+            img.src = src;
+            img.alt = alt || "";
+            lb.classList.add("is-open");
+            lb.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+        }
+
+        function close() {
+            lb.classList.remove("is-open");
+            lb.setAttribute("aria-hidden", "true");
+            document.body.style.overflow = "";
+            img.src = "";
+            img.alt = "";
+        }
+
+        triggers.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const full = btn.getAttribute("data-full");
+                const alt = btn.querySelector("img")?.getAttribute("alt") || "";
+                if (full) open(full, alt);
+            }, { passive: true });
+        });
+
+        lb.addEventListener("click", (e) => {
+            const t = e.target;
+            if (t && t.getAttribute && t.getAttribute("data-close") === "1") close();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && lb.classList.contains("is-open")) close();
+        });
+    })();
+
+    /* --------- Map overlay + auto-disable ------- */
+    (function () {
+        const card = document.getElementById("mapCard");
+        const overlay = document.getElementById("mapOverlay");
+        if (!card || !overlay) return;
+
+        function enable() { card.classList.add("is-active"); }
+        function disable() { card.classList.remove("is-active"); }
+
+        overlay.addEventListener("click", enable, { passive: true });
+
+        // выключаем карту при любом скролле
+        window.addEventListener("scroll", () => {
+            if (card.classList.contains("is-active")) disable();
+        }, { passive: true });
+
+        // выключаем, если кликнули вне карты
+        document.addEventListener("click", (e) => {
+            if (!card.classList.contains("is-active")) return;
+            if (!card.contains(e.target)) disable();
+        }, { passive: true });
+    })();
+
+    /* --------------- Hero parallax -------------- */
+    (function () {
+        const heroMedia = document.getElementById("heroMedia");
+        if (!heroMedia) return;
+
+        const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) return;
+
+        let ticking = false;
+
+        function update() {
+            ticking = false;
+
+            const rect = heroMedia.getBoundingClientRect();
+            const vh = window.innerHeight || 800;
+
+            const center = rect.top + rect.height / 2;
+            const progress = (center - vh / 2) / (vh / 2);
+
+            const clamped = Math.max(-1, Math.min(1, progress));
+            const offset = clamped * 14; // px - очень мягко
+
+            heroMedia.style.setProperty("--hero-parallax", `${offset}px`);
+        }
+
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
+        }
+
+        update();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll, { passive: true });
+    })();
+
+    /* ------------------- Music ------------------ */
+    (function () {
+        const audio = document.getElementById("bg-music");
+        const btn = document.getElementById("music-btn");
+        if (!audio || !btn) return;
+
+        const KEY = "wedding_music_playing";
+        audio.volume = 0.25;
+
+        function setUI(on) {
+            btn.classList.toggle("music--on", on);
+            btn.textContent = on ? "♪ Музыка: on" : "♪ Музыка";
+            btn.setAttribute("aria-label", on ? "Музыка: выключить" : "Музыка: включить");
+        }
+
+        async function play() {
+            try {
+                await audio.play();
+                localStorage.setItem(KEY, "1");
+                setUI(true);
+                return true;
+            } catch (_) {
+                setUI(false);
+                return false;
+            }
+        }
+
+        function pause() {
+            audio.pause();
+            localStorage.setItem(KEY, "0");
+            setUI(false);
+        }
+
+        btn.addEventListener("click", () => {
+            if (audio.paused) play();
+            else pause();
+        }, { passive: true });
+
+        // best-effort autoplay: попробуем сразу (может быть заблокировано)
+        setUI(false);
+        if (localStorage.getItem(KEY) !== "0") {
+            play();
+        }
+
+        // гарантированный запуск на первом жесте пользователя (если он не выключал музыку)
+        const unlock = async () => {
+            if (localStorage.getItem(KEY) === "0") return;
+            if (!audio.paused) return;
+            await play();
+        };
+
+        ["pointerdown", "touchstart", "keydown", "wheel"].forEach((evt) => {
+            window.addEventListener(evt, unlock, { passive: true, once: true });
+        });
     })();
 </script>
 </body>
