@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Приглашение на свадьбу Артура и Дарьи — 22 августа 2026" />
+    <title>Артур & Дарья — 22 августа 2026</title>
+
+    <meta property="og:title" content="Артур & Дарья — свадьба 22 августа 2026" />
+    <meta property="og:description" content="Информация для гостей: место, время, программа и фото." />
+    <meta property="og:image" content="./assets/og.jpg" />
+    <meta property="og:type" content="website" />
+
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+<header class="hero" role="banner">
+    <div class="hero__card">
+        <p class="hero__kicker">Приглашение на свадьбу</p>
+        <h1 class="hero__title">Артур <span aria-hidden="true">и</span> Дарья</h1>
+
+        <div class="hero__meta" aria-label="Ключевая информация">
+            <div class="meta-item">
+                <span>Дата</span>
+                <b>22 августа 2026</b>
+            </div>
+            <div class="meta-item">
+                <span>Время</span>
+                <b>16:00</b>
+            </div>
+            <div class="meta-item">
+                <span>Место</span>
+                <b>Город, локация</b>
+            </div>
+        </div>
+
+        <div class="hero__actions">
+            <a class="btn" href="#details">Информация</a>
+            <a class="btn btn--ghost" href="#gallery">Фото</a>
+        </div>
+
+        <p class="hero__note">
+            Мы будем рады видеть вас рядом в этот день ❤️
+        </p>
+    </div>
+</header>
+
+<main class="main" role="main">
+    <section id="details" class="section">
+        <h2>Информация</h2>
+
+        <div class="grid">
+            <article class="card">
+                <h3>Адрес</h3>
+                <p>Улица, дом, название места/зала.</p>
+                <p class="muted small">Если есть парковка/вход/ориентиры — напишите тут.</p>
+
+                <div class="card__actions">
+                    <a class="btn btn--small" href="https://maps.google.com/?q=Vilnius" target="_blank" rel="noreferrer">
+                        Открыть в картах
+                    </a>
+                </div>
+                <p class="muted small">Замените ссылку на точный адрес.</p>
+            </article>
+
+            <article class="card">
+                <h3>Тайминг</h3>
+                <ul>
+                    <li><b>16:00</b> — сбор гостей</li>
+                    <li><b>16:30</b> — церемония</li>
+                    <li><b>18:00</b> — ужин</li>
+                </ul>
+                <p class="muted small">Время/пункты можно поменять как угодно.</p>
+            </article>
+
+            <article class="card">
+                <h3>Полезное</h3>
+                <ul>
+                    <li>Пожалуйста, приходите чуть заранее.</li>
+                    <li>Если планируете подарок — лучше конверт.</li>
+                    <li>Контакты для вопросов ниже.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Контакты</h2>
+
+        <div class="grid grid--2">
+            <article class="card">
+                <h3>Артур</h3>
+                <p class="muted">Телефон / Telegram</p>
+                <p><a href="tel:+37000000000">+370 000 00000</a></p>
+                <p><a href="https://t.me/username" target="_blank" rel="noreferrer">@username</a></p>
+            </article>
+
+            <article class="card">
+                <h3>Дарья</h3>
+                <p class="muted">Телефон / Telegram</p>
+                <p><a href="tel:+37000000000">+370 000 00000</a></p>
+                <p><a href="https://t.me/username" target="_blank" rel="noreferrer">@username</a></p>
+            </article>
+        </div>
+
+        <p class="muted small">Поменяйте номера и ссылки. Можно оставить только Telegram.</p>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2>Фото</h2>
+
+        <div class="gallery">
+            <img src="./assets/photo1.jpg" alt="Артур и Дарья — фото 1" loading="lazy" />
+            <img src="./assets/photo2.jpg" alt="Артур и Дарья — фото 2" loading="lazy" />
+            <img src="./assets/photo3.jpg" alt="Артур и Дарья — фото 3" loading="lazy" />
+            <img src="./assets/photo4.jpg" alt="Артур и Дарья — фото 4" loading="lazy" />
+            <img src="./assets/photo5.jpg" alt="Артур и Дарья — фото 5" loading="lazy" />
+            <img src="./assets/photo6.jpg" alt="Артур и Дарья — фото 6" loading="lazy" />
+        </div>
+
+        <p class="muted small">
+            На мобильном фото идут одной колонкой, на десктопе — сеткой.
+        </p>
+    </section>
+
+    <footer class="footer">
+        <p class="muted small">С любовью, Артур и Дарья • 22 августа 2026</p>
+    </footer>
+</main>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+            const id = a.getAttribute("href");
+            const el = document.querySelector(id);
+            if (!el) return;
+            e.preventDefault();
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+    });
+</script>
+</body>
+</html>
