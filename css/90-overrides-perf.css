@@ -3,8 +3,22 @@
     /* Отрубаем самые дорогие эффекты на мобилке */
     .hero__top,
     .noteCard,
-    .person{
+    .person,
+    .hero__glass{
         backdrop-filter: none !important;
+    }
+
+    .js-tilt,
+    .hero__media,
+    .dayline__card,
+    .miniContact{
+        transform: none !important;
+    }
+
+    .hero__orb,
+    .hero__media::after,
+    .countdown-photo::after{
+        display: none !important;
     }
 
     /* Фиксированный grain иногда мешает плавности на iOS */

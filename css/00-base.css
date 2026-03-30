@@ -43,6 +43,12 @@ body{
     text-rendering: optimizeLegibility;
     font-kerning: normal;
     font-feature-settings: "liga" 1, "kern" 1;
+    overflow-x: hidden;
+}
+
+::selection{
+    background: rgba(184,167,142,.26);
+    color: rgba(22,19,15,.96);
 }
 
 @media (max-width: 520px){

@@ -40,18 +40,22 @@
     margin: 18px auto 0;
     border-radius: 99px;
     opacity: .9;
+    box-shadow: 0 0 18px rgba(184,167,142,.28);
 }
 
 /* reveal animations: безопасные */
 .js-reveal{
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity .65s ease, transform .65s ease;
+    transform: translateY(24px) scale(.985);
+    transition:
+        opacity .8s cubic-bezier(.19,1,.22,1),
+        transform .8s cubic-bezier(.19,1,.22,1);
+    transition-delay: var(--reveal-delay, 0ms);
     will-change: opacity, transform;
 }
 .js-reveal.is-in{
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 @media (prefers-reduced-motion: reduce){
     .js-reveal{ transition: none; opacity: 1; transform: none; }
@@ -79,6 +83,7 @@
     letter-spacing: .20em;
     text-transform: uppercase;
     color: var(--gold);
+    text-shadow: 0 0 12px rgba(184,167,142,.16);
 }
 @keyframes kickerBreath{
     0%,100%{ transform: scaleX(1); opacity: .85; }

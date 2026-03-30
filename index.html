@@ -29,8 +29,11 @@
 </head>
 
 <body>
+<div class="grain" aria-hidden="true"></div>
 
 <header class="hero">
+    <div class="hero__orb hero__orb--left" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--right" aria-hidden="true"></div>
     <div class="container hero__grid">
 
         <div class="hero__top js-reveal">
@@ -49,11 +52,31 @@
                 <span class="hero__metaSep">|</span>
                 <span>14:00</span>
             </div>
+
+            <p class="hero__lead">
+                Один день, в котором будет много тепла, объятий, красивых кадров и самых близких людей рядом.
+            </p>
+
+            <div class="hero__actions">
+                <a class="btn btn--primary" href="#place">Место проведения</a>
+                <a class="btn btn--ghost" href="#contacts">Контакты</a>
+            </div>
         </div>
 
-        <div class="hero__media js-reveal"></div>
+        <div class="hero__media js-reveal js-float" data-parallax="0.12">
+            <div class="hero__badge">August 2026</div>
+            <div class="hero__glass">
+                <span class="hero__glassLabel">Наш день</span>
+                <strong>Сохраняйте дату</strong>
+            </div>
+        </div>
 
     </div>
+
+    <a class="hero__scroll" href="#story" aria-label="Прокрутить к истории">
+        <span class="hero__scrollLine"></span>
+        <span class="hero__scrollText">листать вниз</span>
+    </a>
 </header>
 
 <main class="main">
@@ -62,9 +85,9 @@
     <section class="section">
         <div class="container twoCol">
 
-            <div class="photoCard photoCard--tall js-reveal"></div>
+            <div class="photoCard photoCard--tall js-reveal js-tilt"></div>
 
-            <div class="noteCard js-reveal">
+            <div class="noteCard js-reveal js-tilt">
                 <h2>Мы официально станем семьёй</h2>
                 <p class="noteCard__text">
                     Если вы читаете эти строки, значит совсем скоро мы скажем друг другу
@@ -113,7 +136,7 @@
 
                 <!-- Bottom: together -->
                 <div class="storyPath__bottom">
-                    <figure class="storyTogether js-lightbox" data-full="./assets/story_now.webp">
+                    <figure class="storyTogether js-lightbox js-tilt" data-full="./assets/story_now.webp">
                         <img src="./assets/story_now.webp"
                              alt="Мы вместе"
                              width="1000" height="800"
@@ -138,7 +161,7 @@
                 <h2>Место проведения</h2>
             </div>
 
-            <div class="map-card js-reveal" id="mapCard">
+            <div class="map-card js-reveal js-tilt" id="mapCard">
                 <div class="map-frame">
                     <iframe
                             src="https://yandex.ru/map-widget/v1/?um=constructor%3A78dc537ea84241fb034f070faba51992d7813e536184517f45c129044f135352&amp;source=constructor"
@@ -215,7 +238,7 @@
                 <div class="cItem"><b id="cd-seconds">—</b><span>секунд</span></div>
             </div>
 
-            <div class="countdown-photo js-reveal"></div>
+            <div class="countdown-photo js-reveal js-tilt"></div>
         </div>
     </section>
 
@@ -226,7 +249,7 @@
                 <h2>Пожелания</h2>
             </div>
 
-            <div class="giftCard js-reveal">
+            <div class="giftCard js-reveal js-tilt">
                 <p class="giftText">
                     Мы будем очень рады вашему вниманию и тёплым словам.
                     Пожалуйста, не дарите цветы — сразу после свадьбы мы уедем на море
@@ -289,7 +312,7 @@
     <!-- Final -->
     <section class="final">
         <div class="container">
-            <div class="final__card js-reveal">
+            <div class="final__card js-reveal js-tilt">
                 <h2>До скорой встречи!</h2>
                 <p class="lead lead--center">
                     Мы будем очень рады видеть вас в этот особенный для нас день.
@@ -314,12 +337,6 @@
         <img class="lightbox__img" id="lightboxImg" alt="">
     </figure>
 </div>
-
-<!-- Music -->
-<button class="music" id="music-btn" aria-label="Музыка">♪ Музыка</button>
-<audio id="bg-music" preload="none" loop>
-    <source src="./assets/music.mp3" type="audio/mpeg">
-</audio>
 
 <!-- Scripts -->
 <script src="./main.js" defer></script>

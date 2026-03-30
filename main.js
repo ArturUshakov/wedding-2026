@@ -1,13 +1,17 @@
 /* =========================================================
-   Reveal (легкий, без blur/filters)
+   Reveal with stagger
    ========================================================= */
 (function () {
-    const items = document.querySelectorAll('.js-reveal');
+    const items = Array.from(document.querySelectorAll('.js-reveal'));
     if (!items.length) return;
 
     const reduce =
         window.matchMedia &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    items.forEach((item, index) => {
+        item.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`);
+    });
 
     if (reduce) {
         items.forEach(el => el.classList.add('is-in'));
@@ -16,46 +20,54 @@
 
     const io = new IntersectionObserver(
         (entries, observer) => {
-            for (const entry of entries) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-in');
-                    observer.unobserve(entry.target);
-                }
-            }
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-in');
+                observer.unobserve(entry.target);
+            });
         },
-        { threshold: 0.14, rootMargin: '0px 0px -10% 0px' }
+        { threshold: 0.16, rootMargin: '0px 0px -12% 0px' }
     );
 
     items.forEach(el => io.observe(el));
 })();
 
 /* =========================================================
-   Countdown
+   Countdown with flip pulse on change
    ========================================================= */
 (function () {
-    const d = document.getElementById('cd-days');
-    const h = document.getElementById('cd-hours');
-    const m = document.getElementById('cd-minutes');
-    const s = document.getElementById('cd-seconds');
-    if (!d || !h || !m || !s) return;
+    const units = [
+        document.getElementById('cd-days'),
+        document.getElementById('cd-hours'),
+        document.getElementById('cd-minutes'),
+        document.getElementById('cd-seconds')
+    ];
+    if (units.some(unit => !unit)) return;
 
-    // 22 Aug 2026 14:00 (локальное время устройства)
     const target = new Date(2026, 7, 22, 14, 0, 0);
     const pad = n => String(n).padStart(2, '0');
+
+    function updateNode(node, value) {
+        if (node.textContent === value) return;
+        node.textContent = value;
+        node.parentElement?.classList.remove('is-ticking');
+        // Force restart of the pulse animation when a value changes.
+        void node.offsetWidth;
+        node.parentElement?.classList.add('is-ticking');
+    }
 
     function tick() {
         let diff = target.getTime() - Date.now();
         if (diff < 0) diff = 0;
 
-        const days = Math.floor(diff / 86400000);
-        const hours = Math.floor(diff / 3600000) % 24;
-        const minutes = Math.floor(diff / 60000) % 60;
-        const seconds = Math.floor(diff / 1000) % 60;
+        const values = [
+            String(Math.floor(diff / 86400000)),
+            pad(Math.floor(diff / 3600000) % 24),
+            pad(Math.floor(diff / 60000) % 60),
+            pad(Math.floor(diff / 1000) % 60)
+        ];
 
-        d.textContent = String(days);
-        h.textContent = pad(hours);
-        m.textContent = pad(minutes);
-        s.textContent = pad(seconds);
+        units.forEach((unit, index) => updateNode(unit, values[index]));
     }
 
     tick();
@@ -111,8 +123,7 @@
 })();
 
 /* =========================================================
-   Yandex Map overlay: включаем управление по тапу,
-   выключаем при скролле и клике вне карты
+   Yandex Map overlay
    ========================================================= */
 (function () {
     const card = document.getElementById('mapCard');
@@ -148,63 +159,90 @@
 })();
 
 /* =========================================================
-   Music: best-effort autoplay + unlock на первом жесте
+   Parallax for floating elements
    ========================================================= */
 (function () {
-    const audio = document.getElementById('bg-music');
-    const btn = document.getElementById('music-btn');
-    if (!audio || !btn) return;
+    const items = Array.from(document.querySelectorAll('[data-parallax]'));
+    if (!items.length) return;
 
-    const KEY = 'wedding_music_playing';
-    audio.volume = 0.25;
+    const reduce =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
 
-    function setUI(on) {
-        btn.classList.toggle('music--on', on);
-        btn.textContent = on ? '♪ Музыка: on' : '♪ Музыка';
-        btn.setAttribute('aria-label', on ? 'Музыка: выключить' : 'Музыка: включить');
+    let rafId = 0;
+
+    function render() {
+        const viewport = window.innerHeight || 1;
+        items.forEach(item => {
+            const speed = Number(item.getAttribute('data-parallax')) || 0.1;
+            const rect = item.getBoundingClientRect();
+            const center = rect.top + rect.height / 2;
+            const shift = ((center - viewport / 2) / viewport) * speed * 120;
+            item.style.setProperty('--parallax-shift', `${shift.toFixed(2)}px`);
+        });
+        rafId = 0;
     }
 
-    async function play() {
-        try {
-            await audio.play();
-            localStorage.setItem(KEY, '1');
-            setUI(true);
-            return true;
-        } catch (_) {
-            setUI(false);
-            return false;
-        }
+    function requestRender() {
+        if (rafId) return;
+        rafId = window.requestAnimationFrame(render);
     }
 
-    function pause() {
-        audio.pause();
-        localStorage.setItem(KEY, '0');
-        setUI(false);
-    }
+    render();
+    window.addEventListener('scroll', requestRender, { passive: true });
+    window.addEventListener('resize', requestRender, { passive: true });
+})();
 
-    btn.addEventListener(
-        'click',
-        () => {
-            if (audio.paused) play();
-            else pause();
-        },
-        { passive: true }
-    );
+/* =========================================================
+   Tilt micro-interaction
+   ========================================================= */
+(function () {
+    const cards = Array.from(document.querySelectorAll('.js-tilt'));
+    if (!cards.length) return;
 
-    // попытка автозапуска (может быть заблокирована браузером)
-    setUI(false);
-    if (localStorage.getItem(KEY) !== '0') {
-        play();
-    }
+    const reduce =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
 
-    // гарантированный запуск на первом жесте (если пользователь не отключал)
-    const unlock = async () => {
-        if (localStorage.getItem(KEY) === '0') return;
-        if (!audio.paused) return;
-        await play();
-    };
+    cards.forEach(card => {
+        const reset = () => {
+            card.style.setProperty('--tilt-x', '0deg');
+            card.style.setProperty('--tilt-y', '0deg');
+        };
 
-    ['pointerdown', 'touchstart', 'keydown', 'wheel'].forEach(evt => {
-        window.addEventListener(evt, unlock, { passive: true, once: true });
+        card.addEventListener('pointermove', event => {
+            if (window.innerWidth <= 720) return;
+            const rect = card.getBoundingClientRect();
+            const px = (event.clientX - rect.left) / rect.width;
+            const py = (event.clientY - rect.top) / rect.height;
+            const tiltY = (px - 0.5) * 7;
+            const tiltX = (0.5 - py) * 7;
+            card.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
+            card.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
+        });
+
+        card.addEventListener('pointerleave', reset);
+        card.addEventListener('pointercancel', reset);
+    });
+})();
+
+/* =========================================================
+   Smooth anchor scroll
+   ========================================================= */
+(function () {
+    const links = document.querySelectorAll('a[href^="#"]');
+    if (!links.length) return;
+
+    links.forEach(link => {
+        link.addEventListener('click', event => {
+            const id = link.getAttribute('href');
+            if (!id || id === '#') return;
+            const target = document.querySelector(id);
+            if (!target) return;
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     });
 })();
