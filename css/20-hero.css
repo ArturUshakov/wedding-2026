@@ -190,6 +190,14 @@
     line-height: 1.9;
 }
 
+.hero__script{
+    margin-top: 10px;
+    font-family: var(--accent);
+    font-size: 38px;
+    line-height: .95;
+    color: rgba(190,115,135,.92);
+}
+
 .hero__chips{
     display: flex;
     flex-wrap: wrap;
@@ -232,6 +240,17 @@
         url("../assets/hero.webp") center 35%/cover no-repeat;
     box-shadow: var(--shadow);
     transform: rotate(1.4deg);
+}
+
+.hero__scene::after{
+    content:"";
+    position: absolute;
+    inset: auto 24px -18px 24px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(163,111,128,.16), transparent 70%);
+    filter: blur(10px);
+    pointer-events: none;
 }
 
 .heroCard::after{
@@ -325,18 +344,18 @@
 
 @media (max-width: 720px){
     .hero{
-        padding: 12px 0 22px;
+        padding: 10px 0 18px;
         min-height: auto;
         background:
             radial-gradient(320px 180px at 50% 0%, rgba(244,217,223,.28), transparent 68%),
             linear-gradient(180deg, rgba(255,252,250,.98), rgba(255,241,236,.98));
     }
     .hero__layout{
-        gap: 14px;
+        gap: 12px;
         min-height: auto;
         align-content: start;
-        padding: 16px 14px 18px;
-        border-radius: 34px;
+        padding: 14px 12px 14px;
+        border-radius: 32px;
         background:
             linear-gradient(180deg, rgba(255,253,251,.98), rgba(255,245,241,.92));
         border: 1px solid rgba(112,77,89,.08);
@@ -353,21 +372,25 @@
         backdrop-filter: none;
     }
     .hero__title{
-        font-size: clamp(54px, 15vw, 84px);
-        line-height: .88;
+        font-size: clamp(50px, 14vw, 76px);
+        line-height: .9;
     }
     .hero__eyebrow{
         margin-bottom: 8px;
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .hero__script{
+        margin-top: 6px;
+        font-size: 30px;
     }
     .hero__intro{
-        margin-top: 12px;
-        font-size: 15px;
-        line-height: 1.68;
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.62;
     }
     .hero__chips{
         gap: 8px;
-        margin-top: 14px;
+        margin-top: 12px;
     }
     .heroChip{
         min-height: 36px;
@@ -377,11 +400,11 @@
     }
     .hero__actions{
         gap: 10px;
-        margin-top: 14px;
+        margin-top: 12px;
     }
     .hero__scene{
-        height: clamp(230px, 62vw, 290px);
-        min-height: 230px;
+        height: clamp(250px, 67vw, 316px);
+        min-height: 250px;
         aspect-ratio: auto;
         margin-top: 6px;
         border-radius: 30px;
@@ -391,7 +414,7 @@
     .heroCard{
         border-radius: 30px;
         background-size: cover;
-        background-position: center 34%;
+        background-position: center 32%;
         background-color: transparent;
         transform: none;
         box-shadow: none;
@@ -430,26 +453,26 @@
     }
     .hero__trail{
         left: auto;
-        right: 18px;
-        top: 150px;
-        width: 88px;
-        opacity: .22;
+        right: 14px;
+        top: 174px;
+        width: 72px;
+        opacity: .18;
     }
     .hero__trail path{
         stroke-width: 2.2;
     }
     .hero__plane{
         left: auto;
-        right: 76px;
-        top: 142px;
-        width: 28px;
+        right: 56px;
+        top: 166px;
+        width: 24px;
         transform: rotate(18deg);
     }
     .hero__heart--one{
         right: 16px;
-        top: 118px;
-        width: 18px;
-        opacity: .54;
+        top: 136px;
+        width: 16px;
+        opacity: .42;
     }
     .hero__heart--two{
         display: none;
