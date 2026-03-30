@@ -166,14 +166,57 @@
     z-index: 1;
 }
 
+.hero__layout::before,
+.hero__layout::after{
+    content:"";
+    position: absolute;
+    width: 112px;
+    height: 44px;
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.36), rgba(241,221,168,.24)),
+        linear-gradient(90deg, rgba(255,255,255,.24), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.10);
+    box-shadow: 0 8px 14px rgba(95,74,61,.05);
+    opacity: .74;
+    pointer-events: none;
+    z-index: 3;
+    filter: blur(.15px);
+}
+
+.hero__layout::before{
+    left: 8%;
+    top: 84px;
+    transform: rotate(-12deg);
+}
+
+.hero__layout::after{
+    right: 10%;
+    top: 110px;
+    transform: rotate(11deg);
+}
+
 .hero__content{
     position: relative;
     z-index: 1;
+    transform: rotate(-1.1deg);
+}
+
+.hero__content::before{
+    content:"";
+    position: absolute;
+    left: 6px;
+    top: -46px;
+    width: 92px;
+    height: 60px;
+    background: center/contain no-repeat url("../assets/handdrawn-rainbow.svg");
+    opacity: .78;
+    pointer-events: none;
 }
 
 .hero__eyebrow{
     margin-bottom: 18px;
-    font-family: var(--accent);
+    font-family: var(--scribble);
     font-size: 31px;
     line-height: 1;
     color: rgba(203,100,103,.96);
@@ -239,6 +282,25 @@
     position: relative;
     min-height: 640px;
     transform: translate3d(0, var(--parallax-shift, 0px), 0);
+}
+
+.hero__scene::before{
+    content:"";
+    position: absolute;
+    left: 32px;
+    top: -10px;
+    width: 120px;
+    height: 48px;
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.32), rgba(241,221,168,.22)),
+        linear-gradient(90deg, rgba(255,255,255,.24), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.10);
+    box-shadow: 0 8px 14px rgba(95,74,61,.05);
+    opacity: .68;
+    pointer-events: none;
+    z-index: 3;
+    transform: rotate(-10deg);
 }
 
 .heroCard{
@@ -353,6 +415,14 @@
         width: 260px;
         height: 330px;
     }
+    .hero__content::before{
+        left: auto;
+        right: 18px;
+        top: -22px;
+        width: 74px;
+        height: 48px;
+        opacity: .74;
+    }
 }
 
 @media (max-width: 720px){
@@ -385,6 +455,21 @@
             0 24px 40px rgba(115,86,72,.10),
             inset 0 1px 0 rgba(255,255,255,.72);
     }
+    .hero__layout::before,
+    .hero__layout::after{
+        width: 76px;
+        height: 28px;
+        top: 40px;
+        opacity: .56;
+    }
+    .hero__layout::before{
+        left: 8px;
+        transform: rotate(-14deg);
+    }
+    .hero__layout::after{
+        right: 10px;
+        transform: rotate(12deg);
+    }
     .hero__content{
         padding: 0;
         border-radius: 0;
@@ -400,6 +485,14 @@
     .hero__eyebrow{
         margin-bottom: 10px;
         font-size: 20px;
+    }
+    .hero__content::before{
+        left: auto;
+        right: 8px;
+        top: -28px;
+        width: 72px;
+        height: 46px;
+        opacity: .82;
     }
     .hero__intro{
         margin-top: 10px;
@@ -428,6 +521,12 @@
         border-radius: 26px;
         overflow: hidden;
         box-shadow: 0 20px 34px rgba(115,86,72,.12);
+    }
+    .hero__scene::before{
+        left: 12px;
+        top: -8px;
+        width: 78px;
+        height: 30px;
     }
     .heroCard{
         border-radius: 24px;

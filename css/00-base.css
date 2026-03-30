@@ -28,6 +28,7 @@
     --serif: "Cormorant Garamond", serif;
     --body: "Manrope", system-ui, sans-serif;
     --accent: "Caveat", cursive;
+    --scribble: "Shantell Sans", "Caveat", cursive;
 
     --container: 1140px;
 }
@@ -41,8 +42,8 @@ body{
     color: var(--text);
     font-family: var(--body);
     background:
-        linear-gradient(180deg, rgba(250,243,231,.88), rgba(245,234,214,.88)),
-        url("../assets/old-paper-texture.jpg") center top/760px auto repeat,
+        linear-gradient(180deg, rgba(248,239,223,.74), rgba(238,225,196,.78)),
+        url("../assets/crinkled-kraft-paper.jpg") center top/880px auto repeat,
         radial-gradient(920px 600px at 14% 0%, rgba(255,242,202,.52), transparent 58%),
         radial-gradient(820px 520px at 100% 10%, rgba(243,214,207,.54), transparent 60%),
         linear-gradient(180deg, #faf3e7 0%, var(--bg) 38%, #f2e3cb 100%);

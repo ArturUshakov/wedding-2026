@@ -6,6 +6,23 @@
     position: relative;
 }
 
+.scribbleNote{
+    position: absolute;
+    display: grid;
+    place-items: center;
+    min-width: 138px;
+    min-height: 110px;
+    padding: 22px 16px 16px;
+    background: center/contain no-repeat url("../assets/blank-sticky-note.svg");
+    font-family: var(--scribble);
+    font-size: 25px;
+    line-height: .96;
+    color: rgba(110,68,54,.9);
+    text-align: center;
+    pointer-events: none;
+    z-index: 3;
+}
+
 .section--intro{
     position: relative;
     padding-top: 72px;
@@ -67,12 +84,19 @@
 .introScene__photo::after{
     content:"";
     position: absolute;
-    inset: auto -32px -34px auto;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,.34), transparent 70%);
-    z-index: 0;
+    right: 20px;
+    top: -12px;
+    width: 122px;
+    height: 42px;
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.34), rgba(241,221,168,.22)),
+        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.10);
+    box-shadow: 0 8px 14px rgba(95,74,61,.05);
+    opacity: .72;
+    transform: rotate(8deg);
+    z-index: 2;
 }
 
 .introScene__text{
@@ -87,18 +111,25 @@
         url("../assets/old-paper-texture.jpg") center/560px auto repeat;
     border: 1px solid rgba(107,83,67,.08);
     box-shadow: var(--shadow-soft);
+    transform: rotate(.8deg);
 }
 
-.introScene__text::before{
+.introScene__text::after{
     content:"";
     position: absolute;
-    left: -48px;
-    bottom: 10px;
-    width: 128px;
-    height: 78px;
-    background: center/contain no-repeat url("../assets/handdrawn-arrow.svg");
-    opacity: .8;
+    right: 14px;
+    top: 14px;
+    width: 48px;
+    height: 48px;
+    background: center/contain no-repeat url("../assets/doodle-flower-4petal.svg");
+    opacity: .62;
     pointer-events: none;
+}
+
+.scribbleNote--intro{
+    right: 10px;
+    top: -16px;
+    transform: rotate(5deg);
 }
 
 .introScene__text .lead{
@@ -187,17 +218,48 @@
     box-shadow: var(--shadow-soft);
     position: sticky;
     top: 32px;
+    transform: rotate(-1deg);
 }
 
 .storyLead::before{
     content:"";
     position: absolute;
-    right: 18px;
-    top: -18px;
-    width: 76px;
-    height: 76px;
+    right: 14px;
+    top: -10px;
+    width: 56px;
+    height: 56px;
     background: center/contain no-repeat url("../assets/handdrawn-heart.svg");
+    opacity: .72;
     pointer-events: none;
+}
+
+.storyLead::after{
+    content:"";
+    position: absolute;
+    left: 18px;
+    top: -10px;
+    width: 82px;
+    height: 30px;
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.34), rgba(241,221,168,.22)),
+        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.10);
+    box-shadow: 0 8px 14px rgba(95,74,61,.05);
+    opacity: .58;
+    pointer-events: none;
+    transform: rotate(-10deg);
+}
+
+.scribbleNote--story{
+    position: relative;
+    left: auto;
+    top: auto;
+    min-width: 148px;
+    min-height: 98px;
+    justify-self: end;
+    margin-top: 8px;
+    transform: rotate(-7deg);
 }
 
 .storyGallery{
@@ -335,6 +397,7 @@
     border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow);
     overflow: hidden;
+    transform: rotate(-.8deg);
 }
 
 .letterPostcard::before{
@@ -344,6 +407,19 @@
     border-radius: 28px;
     border: 1px dashed rgba(107,83,67,.22);
     pointer-events: none;
+}
+
+.letterPostcard::after{
+    content:"";
+    position: absolute;
+    right: -8px;
+    bottom: 18px;
+    width: 112px;
+    height: 112px;
+    background: center/contain no-repeat url("../assets/postage-stamp.svg");
+    opacity: .12;
+    pointer-events: none;
+    transform: rotate(10deg);
 }
 
 .letterPostcard__stamp{
@@ -415,6 +491,7 @@
     border: 1px solid rgba(107,83,67,.08);
     box-shadow: var(--shadow-soft);
     overflow: hidden;
+    transform: rotate(1.2deg);
 }
 
 .letterNote::before{
@@ -637,6 +714,7 @@
     border: 1px solid rgba(107,83,67,.09);
     box-shadow: var(--shadow);
     overflow: hidden;
+    transform: rotate(-.8deg);
 }
 
 .countdown{
@@ -729,6 +807,179 @@
     background: radial-gradient(circle, rgba(255,255,255,.22), transparent 72%);
 }
 
+.section--flight{
+    position: relative;
+}
+
+.flightCard{
+    position: relative;
+    padding: 42px 34px 36px;
+    border-radius: 34px 40px 32px 40px;
+    background:
+        linear-gradient(180deg, rgba(255,250,241,.9), rgba(247,236,217,.92)),
+        url("../assets/old-paper-texture.jpg") center/640px auto repeat;
+    border: 1px solid rgba(107,83,67,.10);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.flightCard::before{
+    content:"";
+    position: absolute;
+    right: 20px;
+    top: 14px;
+    width: 96px;
+    height: 30px;
+    border-radius: 8px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.32), rgba(241,221,168,.20)),
+        linear-gradient(90deg, rgba(255,255,255,.20), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.10);
+    box-shadow: 0 8px 14px rgba(95,74,61,.05);
+    opacity: .64;
+    transform: rotate(8deg);
+    pointer-events: none;
+}
+
+.flightCard > .lead{
+    max-width: 38rem;
+}
+
+.flightPlay{
+    position: relative;
+    margin-top: 26px;
+    min-height: 260px;
+    border-radius: 30px;
+    background:
+        linear-gradient(180deg, rgba(255,248,236,.72), rgba(245,234,214,.78));
+    border: 1px dashed rgba(107,83,67,.18);
+    overflow: hidden;
+    isolation: isolate;
+    --flight-progress: 0;
+    --flight-x: 0px;
+    --flight-y: 0px;
+    --flight-rot: -8deg;
+    --flight-heart-ready: 0;
+    --flight-burst-ready: 0;
+}
+
+.flightPlay::before{
+    content:"";
+    position: absolute;
+    left: 24px;
+    top: 20px;
+    width: 102px;
+    height: 66px;
+    background: center/contain no-repeat url("../assets/handdrawn-rainbow.svg");
+    opacity: .62;
+    pointer-events: none;
+}
+
+.flightPlay::after{
+    content:"";
+    position: absolute;
+    right: 24px;
+    bottom: 18px;
+    width: 86px;
+    height: 64px;
+    background: center/contain no-repeat url("../assets/doodle-flower-4petal.svg");
+    opacity: .52;
+    pointer-events: none;
+}
+
+.flightTrail{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.flightTrail path{
+    fill: none;
+    stroke: rgba(203,100,103,.34);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 8 14;
+}
+
+.flightPlaneWrap,
+.flightHeartWrap,
+.flightBurst{
+    position: absolute;
+    pointer-events: none;
+}
+
+.flightPlaneWrap{
+    left: 50px;
+    bottom: 42px;
+    z-index: 2;
+    transform-origin: center;
+    transform: translate3d(var(--flight-x), var(--flight-y), 0) rotate(var(--flight-rot)) scale(1);
+    transition: transform .08s linear;
+}
+
+.flightPlane{
+    width: 48px;
+    filter: drop-shadow(0 10px 14px rgba(95,74,61,.10));
+}
+
+.flightHeartWrap{
+    right: 54px;
+    top: 54px;
+    z-index: 2;
+}
+
+.flightHeart{
+    width: 88px;
+    opacity: var(--flight-heart-ready);
+    transform: scale(calc(.82 + (var(--flight-heart-ready) * .24)));
+    transition: transform .2s ease, opacity .18s ease;
+    filter: drop-shadow(0 12px 18px rgba(203,100,103,.12));
+}
+
+.flightHeartGlow{
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,201,203,.34), transparent 68%);
+    opacity: calc(var(--flight-heart-ready) * .72);
+    transition: opacity .2s ease;
+    z-index: -1;
+}
+
+.flightBurst{
+    right: 72px;
+    top: 78px;
+    width: 78px;
+    height: 78px;
+    z-index: 1;
+    opacity: var(--flight-burst-ready);
+    transform: scale(calc(.66 + (var(--flight-burst-ready) * .44)));
+    transition: opacity .16s ease, transform .16s ease;
+}
+
+.flightBurst span{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(203,100,103,.36);
+}
+
+.flightBurst span:nth-child(2){
+    inset: 12px;
+    border-color: rgba(255,224,106,.46);
+}
+
+.flightBurst span:nth-child(3){
+    inset: 24px;
+    border-color: rgba(223,143,158,.46);
+}
+
 .wishesGrid{
     display: grid;
     grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
@@ -758,6 +1009,19 @@
 .contactsCard{
     display: grid;
     gap: 18px;
+    position: relative;
+}
+
+.contactsCard::before{
+    content:"";
+    position: absolute;
+    right: 10px;
+    bottom: -8px;
+    width: 72px;
+    height: 58px;
+    background: center/contain no-repeat url("../assets/doodle-flower-triple.svg");
+    opacity: .58;
+    pointer-events: none;
 }
 
 .contactsCard > .lead{
@@ -779,6 +1043,7 @@
     border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow);
     overflow: hidden;
+    transform: rotate(.8deg);
 }
 
 .contactsSheet::before{
@@ -788,6 +1053,33 @@
     border-radius: 26px;
     border: 1px dashed rgba(107,83,67,.22);
     pointer-events: none;
+}
+
+.contactsSheet::after{
+    content:"";
+    position: absolute;
+    right: 12px;
+    top: -8px;
+    width: 80px;
+    height: 30px;
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.34), rgba(241,221,168,.22)),
+        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.10);
+    box-shadow: 0 8px 14px rgba(95,74,61,.05);
+    opacity: .56;
+    pointer-events: none;
+    transform: rotate(10deg);
+}
+
+.scribbleNote--contacts{
+    right: 12px;
+    top: -14px;
+    min-width: 138px;
+    min-height: 96px;
+    font-size: 20px;
+    transform: rotate(6deg);
 }
 
 .contactsSheet__line{
@@ -885,6 +1177,7 @@
     border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow);
     color: rgba(70,53,47,.96);
+    transform: rotate(-.7deg);
 }
 
 .finalScene::before{
@@ -894,6 +1187,24 @@
     border-radius: 34px;
     border: 1px dashed rgba(107,83,67,.22);
     pointer-events: none;
+}
+
+.finalScene::after{
+    content:"";
+    position: absolute;
+    left: 14px;
+    top: -8px;
+    width: 82px;
+    height: 30px;
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.34), rgba(241,221,168,.22)),
+        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.10);
+    box-shadow: 0 8px 14px rgba(95,74,61,.05);
+    opacity: .56;
+    pointer-events: none;
+    transform: rotate(-9deg);
 }
 
 .finalScene h2{
@@ -935,6 +1246,44 @@
     border-radius: 50%;
     pointer-events:none;
     background: radial-gradient(circle, rgba(255,224,106,.22), transparent 72%);
+}
+
+.scribbleNote--final{
+    right: 12px;
+    bottom: 10px;
+    min-width: 124px;
+    min-height: 88px;
+    font-size: 19px;
+    transform: rotate(-8deg);
+}
+
+@media (max-width: 1200px){
+    .scribbleNote--intro{
+        right: 4px;
+        top: -8px;
+        min-width: 126px;
+        min-height: 90px;
+        font-size: 20px;
+    }
+    .scribbleNote--contacts{
+        right: 6px;
+        top: -10px;
+        min-width: 124px;
+        min-height: 88px;
+        font-size: 18px;
+    }
+    .scribbleNote--final{
+        right: 8px;
+        bottom: 8px;
+        min-width: 116px;
+        min-height: 82px;
+        font-size: 18px;
+    }
+    .contactsCard::before{
+        width: 62px;
+        height: 50px;
+        opacity: .5;
+    }
 }
 
 .finalScene__spark--one{
@@ -1037,6 +1386,17 @@
         right: auto;
         transform: translateY(-50%);
     }
+    .flightPlay{
+        min-height: 230px;
+    }
+    .flightHeartWrap{
+        right: 36px;
+        top: 44px;
+    }
+    .flightPlaneWrap{
+        left: 34px;
+        bottom: 34px;
+    }
 }
 
 @media (max-width: 720px){
@@ -1100,7 +1460,10 @@
         display: none;
     }
     .introScene__photo::after{
-        display: none;
+        right: 10px;
+        top: -8px;
+        width: 82px;
+        height: 30px;
     }
     .introScene__photo img{
         width: 100%;
@@ -1115,15 +1478,30 @@
         gap: 14px;
         padding: 20px 16px 16px;
         border-radius: 24px 28px 24px 28px;
+        transform: none;
     }
-    .introScene__text::before{
-        left: auto;
-        right: -14px;
-        bottom: -18px;
-        width: 82px;
-        height: 50px;
-        opacity: .72;
-        transform: rotate(-12deg);
+    .introScene__text::after{
+        right: 10px;
+        top: 12px;
+        width: 38px;
+        height: 38px;
+        opacity: .54;
+    }
+    .scribbleNote{
+        min-width: 110px;
+        min-height: 84px;
+        padding: 18px 12px 12px;
+        font-size: 18px;
+        background-size: contain;
+    }
+    .scribbleNote--intro{
+        position: relative;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        justify-self: end;
+        margin-top: 6px;
+        z-index: 1;
     }
     .introScene__text h2{
         font-size: clamp(38px, 11vw, 52px);
@@ -1197,6 +1575,25 @@
         gap: 12px;
         max-width: none;
         padding: 24px 20px 20px;
+        transform: none;
+    }
+    .storyLead::after{
+        left: 12px;
+        top: -10px;
+        width: 76px;
+        height: 28px;
+    }
+    .storyLead::before{
+        right: 10px;
+        top: -6px;
+        width: 42px;
+        height: 42px;
+        opacity: .62;
+    }
+    .scribbleNote--story{
+        justify-self: start;
+        margin-top: 2px;
+        transform: rotate(-6deg);
     }
     .storyLead h2{
         font-size: clamp(38px, 12vw, 54px);
@@ -1284,6 +1681,7 @@
     .letterPostcard{
         padding: 26px 20px 22px;
         border-radius: 28px;
+        transform: none;
     }
     .letterPostcard::before{
         inset: 12px;
@@ -1310,6 +1708,7 @@
     .letterNote{
         padding: 24px 20px;
         border-radius: 28px;
+        transform: none;
     }
     .letterNote strong{
         font-size: 34px;
@@ -1387,6 +1786,63 @@
         right: 12px;
         top: 12px;
     }
+    .flightCard{
+        padding: 28px 18px 22px;
+        border-radius: 28px;
+    }
+    .flightCard::before{
+        right: 12px;
+        top: 8px;
+        width: 72px;
+        height: 24px;
+    }
+    .flightPlay{
+        min-height: 180px;
+        margin-top: 18px;
+        border-radius: 24px;
+    }
+    .flightPlay::before{
+        left: 12px;
+        top: 12px;
+        width: 70px;
+        height: 44px;
+        opacity: .54;
+    }
+    .flightPlay::after{
+        right: 10px;
+        bottom: 10px;
+        width: 56px;
+        height: 42px;
+        opacity: .44;
+    }
+    .flightTrail path{
+        stroke-width: 3;
+        stroke-dasharray: 6 10;
+    }
+    .flightPlaneWrap{
+        left: 20px;
+        bottom: 26px;
+    }
+    .flightPlane{
+        width: 36px;
+    }
+    .flightHeartWrap{
+        right: 18px;
+        top: 22px;
+    }
+    .flightHeart{
+        width: 62px;
+    }
+    .flightHeartGlow{
+        width: 88px;
+        height: 88px;
+    }
+    .flightBurst{
+        right: 24px;
+        top: 34px;
+        width: 56px;
+        height: 56px;
+    }
     .wishCard,
     .contactsCard,
     .countdownPanel{
@@ -1406,6 +1862,13 @@
     .contactsCard{
         position: relative;
     }
+    .contactsCard::before{
+        right: 4px;
+        bottom: -10px;
+        width: 56px;
+        height: 46px;
+        opacity: .62;
+    }
     .contactsCard::after{
         content:"";
         position: absolute;
@@ -1420,10 +1883,25 @@
     .contactsSheet{
         padding: 12px;
         border-radius: 26px;
+        transform: none;
     }
     .contactsSheet::before{
         inset: 10px;
         border-radius: 18px;
+    }
+    .contactsSheet::after{
+        right: 8px;
+        top: -8px;
+        width: 74px;
+        height: 28px;
+    }
+    .scribbleNote--contacts{
+        right: 0;
+        top: auto;
+        bottom: -30px;
+        min-width: 124px;
+        min-height: 88px;
+        font-size: 18px;
     }
     .contactsSheet__line--horizontal{
         left: 18px;
@@ -1456,6 +1934,7 @@
     .finalScene{
         padding: 70px 20px 58px;
         border-radius: 30px;
+        transform: none;
     }
     .finalScene::before{
         inset: 12px;
@@ -1477,14 +1956,18 @@
         margin-top: 14px;
     }
     .finalScene::after{
-        content:"";
-        position: absolute;
         left: 10px;
-        bottom: 10px;
-        width: 68px;
-        height: 68px;
-        background: center/contain no-repeat url("../assets/mobile-flower.svg");
-        opacity: .54;
-        pointer-events: none;
+        top: -8px;
+        width: 74px;
+        height: 28px;
+        bottom: auto;
+        opacity: .64;
+    }
+    .scribbleNote--final{
+        right: 0;
+        bottom: -26px;
+        min-width: 118px;
+        min-height: 82px;
+        font-size: 17px;
     }
 }
