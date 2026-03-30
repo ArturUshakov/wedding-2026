@@ -64,7 +64,7 @@
     border-radius: 36px;
     background:
         linear-gradient(180deg, rgba(255,249,237,.86), rgba(248,235,209,.88)),
-        url("../assets/old-paper-texture.jpg") center/cover no-repeat;
+        url("../assets/old-paper-texture.webp") center/cover no-repeat;
     border: 1px solid rgba(107,83,67,.08);
     box-shadow: 0 30px 52px rgba(115,86,72,.10);
     transform: rotate(7deg);
@@ -365,7 +365,7 @@
     border-radius: 24px 28px 22px 28px;
     background:
         linear-gradient(180deg, rgba(255,248,235,.92), rgba(248,236,214,.94)),
-        url("../assets/old-paper-texture.jpg") center/360px auto repeat;
+        url("../assets/old-paper-texture.webp") center/360px auto repeat;
     border: 1px solid rgba(107,83,67,.12);
     box-shadow: var(--shadow-soft);
 }

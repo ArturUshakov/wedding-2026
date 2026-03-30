@@ -43,7 +43,7 @@ body{
     font-family: var(--body);
     background:
         linear-gradient(180deg, rgba(248,239,223,.74), rgba(238,225,196,.78)),
-        url("../assets/crinkled-kraft-paper.jpg") center top/880px auto repeat,
+        url("../assets/crinkled-kraft-paper.webp") center top/880px auto repeat,
         radial-gradient(920px 600px at 14% 0%, rgba(255,242,202,.52), transparent 58%),
         radial-gradient(820px 520px at 100% 10%, rgba(243,214,207,.54), transparent 60%),
         linear-gradient(180deg, #faf3e7 0%, var(--bg) 38%, #f2e3cb 100%);
