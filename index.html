@@ -152,19 +152,29 @@
     <section class="section section--letter">
         <div class="container">
             <div class="letterCard js-reveal js-tilt">
-                <div class="letterCard__stamp">A&amp;D</div>
-                <div class="letterCard__content">
-                    <p class="sectionHead__eyebrow">Немного от нас</p>
-                    <h2>Мы официально станем семьёй</h2>
-                    <p>
-                        Если вы читаете эти строки, значит совсем скоро мы скажем друг другу «да»
-                        и начнём новую главу нашей жизни. Нам очень хочется провести этот день не
-                        только красиво, но и по-настоящему душевно.
-                    </p>
-                    <p>
-                        Мы будем счастливы, если вы разделите с нами этот момент, который навсегда
-                        останется в нашей памяти.
-                    </p>
+                <div class="letterPostcard">
+                    <div class="letterPostcard__stamp">A&amp;D</div>
+                    <div class="letterPostcard__pin letterPostcard__pin--one" aria-hidden="true"></div>
+                    <div class="letterPostcard__pin letterPostcard__pin--two" aria-hidden="true"></div>
+                    <div class="letterCard__content">
+                        <p class="sectionHead__eyebrow">Немного от нас</p>
+                        <h2>Мы официально станем семьёй</h2>
+                        <p class="letterCard__script">С любовью приглашаем вас стать частью этого дня</p>
+                        <p>
+                            Если вы читаете эти строки, значит совсем скоро мы скажем друг другу «да»
+                            и начнём новую главу нашей жизни. Нам очень хочется провести этот день не
+                            только красиво, но и по-настоящему душевно.
+                        </p>
+                        <p>
+                            Мы будем счастливы, если вы разделите с нами этот момент, который навсегда
+                            останется в нашей памяти.
+                        </p>
+                    </div>
+                </div>
+                <div class="letterNote">
+                    <span class="letterNote__label">22 August</span>
+                    <strong>save our date</strong>
+                    <p>Пусть этот день будет тёплым, лёгким и очень нашим.</p>
                 </div>
             </div>
         </div>
@@ -208,23 +218,37 @@
                 <h2>Как пройдёт этот день</h2>
             </div>
 
-            <div class="scheduleCards">
-                <article class="scheduleCard js-reveal js-tilt">
-                    <span class="scheduleCard__time">14:00</span>
-                    <h3>Церемония</h3>
-                    <p>Самый трогательный момент дня, ради которого всё и начинается.</p>
+            <div class="dayMap js-reveal">
+                <div class="dayMap__line" aria-hidden="true"></div>
+
+                <article class="dayStop dayStop--one js-tilt">
+                    <span class="dayStop__dot" aria-hidden="true"></span>
+                    <span class="dayStop__time">14:00</span>
+                    <div class="dayStop__icon" aria-hidden="true">♡</div>
+                    <div class="dayStop__body">
+                        <h3>Церемония</h3>
+                        <p>Самый трогательный момент дня, ради которого всё и начинается.</p>
+                    </div>
                 </article>
 
-                <article class="scheduleCard js-reveal js-tilt">
-                    <span class="scheduleCard__time">15:30</span>
-                    <h3>Фото и поздравления</h3>
-                    <p>Обнимемся, скажем самые тёплые слова и сделаем красивые кадры на память.</p>
+                <article class="dayStop dayStop--two js-tilt">
+                    <span class="dayStop__dot" aria-hidden="true"></span>
+                    <span class="dayStop__time">15:30</span>
+                    <div class="dayStop__icon" aria-hidden="true">✦</div>
+                    <div class="dayStop__body">
+                        <h3>Фото и поздравления</h3>
+                        <p>Обнимемся, скажем самые тёплые слова и сделаем красивые кадры на память.</p>
+                    </div>
                 </article>
 
-                <article class="scheduleCard js-reveal js-tilt">
-                    <span class="scheduleCard__time">17:00</span>
-                    <h3>Ужин</h3>
-                    <p>Тёплый семейный вечер, разговоры, улыбки и ощущение, что всё именно так, как должно быть.</p>
+                <article class="dayStop dayStop--three js-tilt">
+                    <span class="dayStop__dot" aria-hidden="true"></span>
+                    <span class="dayStop__time">17:00</span>
+                    <div class="dayStop__icon" aria-hidden="true">✿</div>
+                    <div class="dayStop__body">
+                        <h3>Ужин</h3>
+                        <p>Тёплый семейный вечер, разговоры, улыбки и ощущение, что всё именно так, как должно быть.</p>
+                    </div>
                 </article>
             </div>
         </div>
