@@ -75,9 +75,57 @@ body::after{
     animation: backgroundDrift 20s ease-in-out infinite;
 }
 
+.pageOrnaments{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pageOrnaments__item{
+    position: absolute;
+    display: block;
+    opacity: .34;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: drop-shadow(0 12px 20px rgba(190,115,135,.08));
+}
+
+.pageOrnaments__item--one{
+    left: -28px;
+    top: 22%;
+    width: 168px;
+    height: 280px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='280' viewBox='0 0 168 280'%3E%3Cg fill='none' stroke='%23d89aa8' stroke-width='1.15' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M41 250c18-45 24-84 18-116-7-37-28-64-52-79M59 182c18-10 37-17 56-20 31-5 58 2 79 22M58 184c-2 26 5 49 22 69'/%3E%3Cpath d='M88 155c11-17 26-29 44-35M82 214c16-3 31-1 46 6'/%3E%3C/g%3E%3C/svg%3E");
+    animation: pageFloat 18s ease-in-out infinite;
+}
+
+.pageOrnaments__item--two{
+    right: -18px;
+    top: 8%;
+    width: 210px;
+    height: 210px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='210' height='210' viewBox='0 0 210 210'%3E%3Cg fill='none' stroke='%23e4c6a0' stroke-width='1.05' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='105' cy='105' r='70'/%3E%3Ccircle cx='105' cy='105' r='44'/%3E%3Cpath d='M105 22c0 24 11 42 31 56-20 14-31 32-31 56-1-24-11-42-31-56 20-14 31-32 31-56z'/%3E%3C/g%3E%3C/svg%3E");
+    animation: pageFloat 21s ease-in-out infinite reverse;
+}
+
+.pageOrnaments__item--three{
+    right: 8%;
+    bottom: 10%;
+    width: 200px;
+    height: 144px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='144' viewBox='0 0 200 144'%3E%3Cg fill='none' stroke='%23be7387' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M100 122c-15-22-37-35-56-35-22 0-38 15-38 36 0 38 43 61 94 94 51-33 94-56 94-94 0-21-16-36-38-36-19 0-41 13-56 35z'/%3E%3Cpath d='M58 26c8 4 14 10 18 19M142 26c-8 4-14 10-18 19M100 12c0 8-2 14-6 21M100 12c0 8 2 14 6 21'/%3E%3C/g%3E%3C/svg%3E");
+    animation: pageFloat 19s ease-in-out infinite;
+}
+
 @keyframes backgroundDrift{
     0%,100%{ transform: translate3d(0,0,0); }
     50%{ transform: translate3d(0,-12px,0); }
+}
+
+@keyframes pageFloat{
+    0%,100%{ transform: translate3d(0,0,0) rotate(0deg); }
+    50%{ transform: translate3d(0,-16px,0) rotate(2deg); }
 }
 
 ::selection{
@@ -182,4 +230,20 @@ img{
     .main{ padding-bottom: 28px; }
     .pageGlow{ display: none; }
     body::after{ opacity: .1; background-size: 180px 180px, 150px 150px; }
+    .pageOrnaments__item{
+        opacity: .18;
+        transform: scale(.74);
+    }
+    .pageOrnaments__item--one{
+        top: 18%;
+        left: -58px;
+    }
+    .pageOrnaments__item--two{
+        right: -54px;
+        top: 7%;
+    }
+    .pageOrnaments__item--three{
+        right: -26px;
+        bottom: 16%;
+    }
 }

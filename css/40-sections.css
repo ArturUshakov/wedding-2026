@@ -3,6 +3,7 @@
     grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
     gap: 24px;
     align-items: center;
+    position: relative;
 }
 
 .introScene > *,
@@ -25,6 +26,7 @@
     border: 1px solid rgba(112,77,89,.08);
     box-shadow: var(--shadow);
     cursor: pointer;
+    isolation: isolate;
 }
 
 .introScene__photo::before{
@@ -43,6 +45,17 @@
     object-fit: cover;
     object-position: center 28%;
     transition: transform .5s cubic-bezier(.19,1,.22,1);
+}
+
+.introScene__photo::after{
+    content:"";
+    position: absolute;
+    inset: auto -32px -34px auto;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.34), transparent 70%);
+    z-index: 0;
 }
 
 .introScene__text{
@@ -89,7 +102,9 @@
 .section--intro::before,
 .section--story::after,
 .section--countdown::before,
-.section--wishes::after{
+.section--wishes::after,
+.section--rsvp::before,
+.section--final::before{
     content:"";
     position:absolute;
     width: 180px;
@@ -126,6 +141,21 @@
     bottom: 14%;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23c6d2c0' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M90 30c0 25-12 42-34 56 22 14 34 31 34 56 0-25 12-42 34-56-22-14-34-31-34-56z'/%3E%3Cpath d='M90 86c-8-5-15-8-25-8M90 86c8-5 15-8 25-8'/%3E%3C/g%3E%3C/svg%3E");
     animation-delay: 2.2s;
+}
+
+.section--rsvp::before{
+    left: 4%;
+    bottom: 10%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23d89aa8' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='32' y='46' width='116' height='88' rx='18'/%3E%3Cpath d='M41 58l49 39 49-39'/%3E%3Cpath d='M65 27c10 4 18 12 25 24 7-12 15-20 25-24'/%3E%3C/g%3E%3C/svg%3E");
+    animation-delay: .4s;
+}
+
+.section--final::before{
+    right: 4%;
+    top: 10%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23fff6f3' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M90 137c-13-19-31-30-47-30-18 0-31 13-31 30 0 32 36 52 78 79 42-27 78-47 78-79 0-17-13-30-31-30-16 0-34 11-47 30z'/%3E%3Cpath d='M61 58c6 3 11 9 14 16M119 58c-6 3-11 9-14 16'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: .18;
+    animation-delay: 1.8s;
 }
 
 @keyframes ornamentFloat{
@@ -407,6 +437,61 @@
     border: 1px solid rgba(255,255,255,.34);
 }
 
+.countdownVisual::after{
+    content:"";
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.22), transparent 72%);
+}
+
+.rsvpCard{
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: center;
+    padding: 34px;
+    border-radius: 42px;
+    background:
+        linear-gradient(180deg, rgba(255,253,251,.9), rgba(255,247,245,.94));
+    border: 1px solid rgba(112,77,89,.08);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.rsvpCard::before{
+    content:"";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 12% 26%, rgba(244,217,223,.46), transparent 20%),
+        radial-gradient(circle at 86% 76%, rgba(255,241,232,.56), transparent 24%);
+    pointer-events: none;
+}
+
+.rsvpCard__content{
+    position: relative;
+    display: grid;
+    gap: 14px;
+    min-width: 0;
+}
+
+.rsvpCard__content .lead{
+    margin: 0;
+    max-width: 42rem;
+}
+
+.rsvpCard__actions{
+    position: relative;
+    display: grid;
+    gap: 12px;
+    min-width: min(280px, 100%);
+}
+
 .wishesGrid{
     display: grid;
     grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
@@ -547,6 +632,15 @@
     animation: sparkFloat 8.5s ease-in-out infinite reverse;
 }
 
+.finalScene__spark--three{
+    left: 50%;
+    top: 18%;
+    width: 128px;
+    height: 128px;
+    transform: translateX(-50%);
+    animation: sparkFloat 6.6s ease-in-out infinite;
+}
+
 @keyframes sparkFloat{
     0%,100%{ transform: scale(1); opacity: .55; }
     50%{ transform: scale(1.12); opacity: .92; }
@@ -587,6 +681,13 @@
     }
     .scheduleCards{
         grid-template-columns: 1fr;
+    }
+    .rsvpCard{
+        grid-template-columns: 1fr;
+    }
+    .rsvpCard__actions{
+        min-width: 0;
+        width: 100%;
     }
 }
 
@@ -633,10 +734,15 @@
     .section--intro::before,
     .section--story::after,
     .section--countdown::before,
-    .section--wishes::after{
+    .section--wishes::after,
+    .section--rsvp::before,
+    .section--final::before{
         width: 104px;
         height: 104px;
         opacity: .2;
+    }
+    .introScene{
+        gap: 18px;
     }
     .storyGallery{
         grid-template-columns: 1fr;
@@ -659,6 +765,7 @@
         aspect-ratio: auto;
     }
     .storyCard img{
+        width: 100%;
         height: auto;
         min-height: 0;
         aspect-ratio: auto;
@@ -689,6 +796,22 @@
     .countdownVisual{
         min-height: 360px;
         border-radius: 30px;
+    }
+    .rsvpCard{
+        gap: 18px;
+        padding: 24px 20px;
+        border-radius: 30px;
+    }
+    .rsvpCard__content h2{
+        font-size: clamp(38px, 11vw, 52px);
+        line-height: .95;
+    }
+    .rsvpCard__content .lead{
+        font-size: 15px;
+        line-height: 1.76;
+    }
+    .rsvpCard__actions .btn{
+        width: 100%;
     }
     .wishCard,
     .contactsCard,

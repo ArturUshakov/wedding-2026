@@ -25,6 +25,33 @@
     opacity: .7;
 }
 
+.hero__ornament{
+    position: absolute;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: .5;
+    z-index: 0;
+}
+
+.hero__ornament--one{
+    left: 4%;
+    top: 12%;
+    width: 132px;
+    height: 184px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='132' height='184' viewBox='0 0 132 184'%3E%3Cg fill='none' stroke='%23be7387' stroke-width='1.15' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M66 17c0 24-10 43-31 58 21 15 31 35 31 60 0-25 10-45 31-60-21-15-31-34-31-58z'/%3E%3Cpath d='M66 75c-8-6-16-9-28-10M66 75c8-6 16-9 28-10'/%3E%3C/g%3E%3C/svg%3E");
+    animation: heroOrnament 18s ease-in-out infinite;
+}
+
+.hero__ornament--two{
+    right: 9%;
+    bottom: 14%;
+    width: 164px;
+    height: 164px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'%3E%3Cg fill='none' stroke='%23e4c6a0' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M82 30c5 16 16 28 31 37-15 9-26 21-31 37-5-16-16-28-31-37 15-9 26-21 31-37z'/%3E%3Ccircle cx='82' cy='82' r='58'/%3E%3C/g%3E%3C/svg%3E");
+    animation: heroOrnament 16s ease-in-out infinite reverse;
+}
+
 .hero__petal--one{
     width: 280px;
     height: 280px;
@@ -46,6 +73,11 @@
 @keyframes petalFloat{
     0%,100%{ transform: translate3d(0,0,0) rotate(0deg) scale(1); }
     50%{ transform: translate3d(0,-20px,0) rotate(8deg) scale(1.06); }
+}
+
+@keyframes heroOrnament{
+    0%,100%{ transform: translate3d(0,0,0) rotate(0deg); }
+    50%{ transform: translate3d(0,-12px,0) rotate(4deg); }
 }
 
 .hero__layout{
@@ -138,6 +170,17 @@
     box-shadow: var(--shadow);
 }
 
+.heroCard::after{
+    content:"";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.28), transparent 20%),
+        radial-gradient(circle at 80% 70%, rgba(255,241,232,.18), transparent 24%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
 .heroCard::before{
     content:"";
     position:absolute;
@@ -208,6 +251,14 @@
     .hero__scene{
         min-height: 520px;
     }
+    .hero__ornament--one{
+        left: -14px;
+        top: 4%;
+    }
+    .hero__ornament--two{
+        right: -18px;
+        bottom: 10%;
+    }
 }
 
 @media (max-width: 720px){
@@ -219,6 +270,10 @@
     }
     .hero__scene{
         min-height: 430px;
+    }
+    .hero__ornament{
+        opacity: .26;
+        transform: scale(.82);
     }
     .heroCard{
         border-radius: 34px;
