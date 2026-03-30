@@ -14,7 +14,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Shantell+Sans:wght@500;600;700&display=swap"
           rel="stylesheet">
 
     <link rel="stylesheet" href="./css/00-base.css">
@@ -38,8 +38,8 @@
         <path d="M20 132C84 156 126 72 188 84C244 95 250 170 338 104"/>
     </svg>
     <img class="hero__plane" src="./assets/doodle-plane.svg" alt="" aria-hidden="true">
-    <img class="hero__heart hero__heart--one" src="./assets/doodle-heart.svg" alt="" aria-hidden="true">
-    <img class="hero__heart hero__heart--two" src="./assets/doodle-heart.svg" alt="" aria-hidden="true">
+    <img class="hero__heart hero__heart--one" src="./assets/handdrawn-heart.svg" alt="" aria-hidden="true">
+    <img class="hero__heart hero__heart--two" src="./assets/handdrawn-heart.svg" alt="" aria-hidden="true">
 
     <div class="container hero__layout">
         <div class="hero__content js-reveal">
@@ -85,8 +85,8 @@
 <main class="main">
     <section class="section section--intro" id="intro">
         <div class="container introScene">
-            <div class="introScene__photo js-reveal js-lightbox" data-full="./assets/story_now.webp">
-                <img src="./assets/story_now.webp"
+            <div class="introScene__photo js-reveal js-lightbox" data-full="./assets/intro.webp">
+                <img src="./assets/intro.webp"
                      alt="Артур и Дарья вместе"
                      width="1000" height="800"
                      loading="lazy" decoding="async">
@@ -106,6 +106,7 @@
                     <span>22 августа 2026</span>
                     <span>14:00</span>
                 </div>
+                <div class="scribbleNote scribbleNote--intro">очень ждём этот день</div>
             </div>
         </div>
     </section>
@@ -119,6 +120,7 @@
                     Когда-то мы были просто детьми, каждый со своим миром, мечтами и дорогой.
                     Со временем эти дороги привели нас друг к другу, и теперь мы идём дальше вместе.
                 </p>
+                <div class="scribbleNote scribbleNote--story">а теперь уже вместе</div>
             </div>
 
             <div class="storyGallery js-reveal">
@@ -272,6 +274,39 @@
         </div>
     </section>
 
+    <section class="section section--flight" id="flight">
+        <div class="container">
+            <div class="flightCard js-reveal" id="flightCard">
+                <p class="sectionHead__eyebrow">С любовью к вам</p>
+                <h2>Ещё одно сердечко на удачу</h2>
+                <p class="lead lead--center">
+                    Между ожиданием и встречей пусть пролетит ещё один маленький знак любви.
+                </p>
+
+                <div class="flightPlay" id="flightPlay" style="--flight-power: 0;">
+                    <svg class="flightTrail" viewBox="0 0 760 260" aria-hidden="true">
+                        <path d="M48 212C146 242 212 198 294 168C388 132 466 118 548 124C610 128 654 148 706 104"/>
+                    </svg>
+
+                    <div class="flightPlaneWrap" aria-hidden="true">
+                        <img class="flightPlane" src="./assets/doodle-plane.svg" alt="">
+                    </div>
+
+                    <div class="flightHeartWrap" aria-hidden="true">
+                        <img class="flightHeart" src="./assets/handdrawn-heart.svg" alt="">
+                        <span class="flightHeartGlow"></span>
+                    </div>
+
+                    <div class="flightBurst" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section section--wishes">
         <div class="container wishesGrid">
             <div class="wishCard js-reveal js-tilt">
@@ -293,6 +328,7 @@
                     На всякий случай оставим здесь наши номера и Telegram. Если что-то понадобится до свадьбы
                     или в сам день, можно написать напрямую нам.
                 </p>
+                <div class="scribbleNote scribbleNote--contacts">можно писать нам напрямую</div>
 
                 <div class="contactsSheet">
                     <div class="contactsSheet__line contactsSheet__line--vertical" aria-hidden="true"></div>
@@ -338,6 +374,7 @@
                 </p>
                 <p class="finalScene__script">с любовью, Артур и Дарья</p>
                 <span class="finalScene__date">22 августа 2026</span>
+                <div class="scribbleNote scribbleNote--final">сохраните дату</div>
             </div>
         </div>
     </section>

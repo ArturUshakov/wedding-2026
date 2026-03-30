@@ -256,3 +256,106 @@
         });
     });
 })();
+
+/* =========================================================
+   Scroll-powered paper plane
+   ========================================================= */
+(function () {
+    const card = document.getElementById('flightCard');
+    const play = document.getElementById('flightPlay');
+    if (!card || !play) return;
+
+    const reduce = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+
+    let active = false;
+    let progress = 0;
+    let touchY = null;
+    let lastReady = false;
+
+    const io = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                const threshold = window.innerWidth <= 720 ? 0.34 : 0.52;
+                active = entry.isIntersecting && entry.intersectionRatio > threshold;
+                if (!active) {
+                    progress = 0;
+                    render();
+                }
+            });
+        },
+        { threshold: [0, 0.34, 0.52, 0.8] }
+    );
+
+    io.observe(card);
+
+    function render() {
+        const rect = play.getBoundingClientRect();
+        const width = Math.max(rect.width, 280);
+        const height = Math.max(rect.height, 180);
+        const t = Math.max(0, Math.min(1, progress));
+        const isMobile = window.innerWidth <= 720;
+        const eased = t * t * (3 - 2 * t);
+        const targetX = isMobile ? width - 118 : width - 186;
+        const targetY = isMobile ? -74 : -138;
+        const arc = isMobile
+            ? Math.min(54, height * 0.26)
+            : Math.min(112, height * 0.40);
+        const x = targetX * eased;
+        const y = (targetY * eased) - (Math.sin(eased * Math.PI) * arc);
+        const rot = isMobile
+            ? (-10 + (eased * 26))
+            : (-8 + (eased * 30));
+        const ready = t >= 0.985 ? 1 : 0;
+        const burst = ready && !lastReady ? 1 : ready;
+
+        play.style.setProperty('--flight-progress', t.toFixed(3));
+        play.style.setProperty('--flight-x', `${x.toFixed(2)}px`);
+        play.style.setProperty('--flight-y', `${y.toFixed(2)}px`);
+        play.style.setProperty('--flight-rot', `${rot.toFixed(2)}deg`);
+        play.style.setProperty('--flight-heart-ready', String(ready));
+        play.style.setProperty('--flight-burst-ready', String(burst));
+
+        if (!ready) {
+            play.style.setProperty('--flight-burst-ready', '0');
+        } else if (!lastReady) {
+            window.setTimeout(() => {
+                if (progress >= 0.985) {
+                    play.style.setProperty('--flight-burst-ready', '1');
+                }
+            }, 20);
+        }
+
+        lastReady = Boolean(ready);
+    }
+
+    function addProgress(delta) {
+        if (!active) return;
+        const factor = window.innerWidth <= 720 ? 0.0058 : 0.0022;
+        progress = Math.max(0, Math.min(1, progress + (delta * factor)));
+        render();
+    }
+
+    window.addEventListener('wheel', event => {
+        addProgress(event.deltaY);
+    }, { passive: true });
+
+    window.addEventListener('touchstart', event => {
+        touchY = event.touches[0]?.clientY ?? null;
+    }, { passive: true });
+
+    window.addEventListener('touchmove', event => {
+        const currentY = event.touches[0]?.clientY;
+        if (touchY == null || currentY == null) return;
+        addProgress(touchY - currentY);
+        touchY = currentY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+        touchY = null;
+    }, { passive: true });
+
+    window.addEventListener('resize', render, { passive: true });
+    render();
+})();
