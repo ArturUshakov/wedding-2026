@@ -988,6 +988,18 @@
         inset: 0 0 auto;
         height: 120px;
     }
+    .section--intro::after{
+        content:"";
+        position: absolute;
+        right: -8px;
+        top: 22px;
+        width: 74px;
+        height: 74px;
+        background: center/contain no-repeat url("../assets/mobile-ribbon.svg");
+        opacity: .7;
+        pointer-events: none;
+        animation: mobileDecorFloat 7.2s ease-in-out infinite;
+    }
     .section--letter::before,
     .section--day::before,
     .section--wishes::before{
@@ -1069,6 +1081,19 @@
     }
     .introScene{
         gap: 14px;
+        position: relative;
+    }
+    .introScene::after{
+        content:"";
+        position: absolute;
+        left: -6px;
+        bottom: 10px;
+        width: 60px;
+        height: 60px;
+        background: center/contain no-repeat url("../assets/mobile-envelope.svg");
+        opacity: .58;
+        pointer-events: none;
+        animation: mobileDecorFloat 7.8s ease-in-out infinite reverse;
     }
     .storyGallery{
         grid-template-columns: 1fr;
@@ -1219,6 +1244,17 @@
     .letterNote strong{
         font-size: 34px;
     }
+    .letterNote::after{
+        content:"";
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: 54px;
+        height: 54px;
+        background: center/contain no-repeat url("../assets/mobile-flower.svg");
+        opacity: .46;
+        pointer-events: none;
+    }
     .dayMap{
         gap: 14px;
         padding-top: 8px;
@@ -1266,6 +1302,13 @@
         background-size: cover;
         background-position: center center;
         background-color: rgba(255,250,248,.9);
+        position: relative;
+    }
+    .countdownVisual::after{
+        width: 72px;
+        height: 72px;
+        right: 12px;
+        top: 12px;
     }
     .wishCard,
     .contactsCard,
@@ -1282,6 +1325,20 @@
         margin-top: 0;
         font-size: 15px;
         line-height: 1.72;
+    }
+    .contactsCard{
+        position: relative;
+    }
+    .contactsCard::after{
+        content:"";
+        position: absolute;
+        right: 6px;
+        top: -10px;
+        width: 56px;
+        height: 56px;
+        background: center/contain no-repeat url("../assets/mobile-ribbon.svg");
+        opacity: .52;
+        pointer-events: none;
     }
     .contactsSheet{
         padding: 12px;
@@ -1342,5 +1399,16 @@
     }
     .finalScene__date{
         margin-top: 14px;
+    }
+    .finalScene::after{
+        content:"";
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        width: 68px;
+        height: 68px;
+        background: center/contain no-repeat url("../assets/mobile-flower.svg");
+        opacity: .54;
+        pointer-events: none;
     }
 }
