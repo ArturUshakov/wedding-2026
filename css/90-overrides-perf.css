@@ -1,29 +1,17 @@
-/* Performance-focused overrides (mobile) */
 @media (max-width: 720px){
-    /* Отрубаем самые дорогие эффекты на мобилке */
-    .hero__top,
-    .noteCard,
-    .person,
-    .hero__glass{
-        backdrop-filter: none !important;
+    .grain,
+    .pageGlow,
+    .hero__petal,
+    .heroNote,
+    .finalScene__spark{
+        display: none !important;
     }
 
     .js-tilt,
-    .hero__media,
-    .dayline__card,
-    .miniContact{
+    .hero__scene,
+    .miniContact,
+    .scheduleCard{
         transform: none !important;
-    }
-
-    .hero__orb,
-    .hero__media::after,
-    .countdown-photo::after{
-        display: none !important;
-    }
-
-    /* Фиксированный grain иногда мешает плавности на iOS */
-    .grain{
-        display: none !important;
     }
 
     body{

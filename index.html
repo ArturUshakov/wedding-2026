@@ -7,19 +7,16 @@
     <title>Артур & Дарья — 22.08.2026</title>
     <meta name="description" content="Свадьба Артура и Дарьи — 22 августа 2026 в 14:00. Мы будем рады видеть вас!">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Артур & Дарья — свадьба">
     <meta property="og:description" content="22.08.2026 · 14:00">
     <meta property="og:image" content="./assets/og.webp">
     <meta property="og:type" content="website">
 
-    <!-- Fonts (пока Google, можно заменить на локальные) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Serif+4:wght@400;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
-    <!-- Styles -->
     <link rel="stylesheet" href="./css/00-base.css">
     <link rel="stylesheet" href="./css/10-layout-sections.css">
     <link rel="stylesheet" href="./css/20-hero.css">
@@ -27,146 +24,166 @@
     <link rel="stylesheet" href="./css/40-sections.css">
     <link rel="stylesheet" href="./css/90-overrides-perf.css">
 </head>
-
 <body>
+<div class="pageGlow pageGlow--one" aria-hidden="true"></div>
+<div class="pageGlow pageGlow--two" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
 
 <header class="hero">
-    <div class="hero__orb hero__orb--left" aria-hidden="true"></div>
-    <div class="hero__orb hero__orb--right" aria-hidden="true"></div>
-    <div class="container hero__grid">
+    <div class="hero__petal hero__petal--one" aria-hidden="true"></div>
+    <div class="hero__petal hero__petal--two" aria-hidden="true"></div>
 
-        <div class="hero__top js-reveal">
-            <div class="kicker">
-                <span class="kicker__line"></span>
-                <span class="kicker__text">Wedding day</span>
-                <span class="kicker__line"></span>
-            </div>
-
-            <h1 class="hero__names">
-                Артур <span class="amp">&amp;</span> Дарья
+    <div class="container hero__layout">
+        <div class="hero__content js-reveal">
+            <p class="hero__eyebrow">Wedding Day · 22 August 2026</p>
+            <h1 class="hero__title">
+                Артур
+                <span class="hero__amp">&amp;</span>
+                Дарья
             </h1>
-
-            <div class="hero__meta">
-                <span>22.08.2026</span>
-                <span class="hero__metaSep">|</span>
-                <span>14:00</span>
-            </div>
-
-            <p class="hero__lead">
-                Один день, в котором будет много тепла, объятий, красивых кадров и самых близких людей рядом.
+            <p class="hero__intro">
+                Один день, который мы хотим прожить красиво, тепло и по-настоящему вместе с самыми близкими людьми.
             </p>
 
+            <div class="hero__chips">
+                <span class="heroChip">22.08.2026</span>
+                <span class="heroChip">14:00</span>
+                <span class="heroChip">ЗАГС</span>
+            </div>
+
             <div class="hero__actions">
-                <a class="btn btn--primary" href="#place">Место проведения</a>
-                <a class="btn btn--ghost" href="#contacts">Контакты</a>
+                <a class="btn btn--primary" href="#intro">Наша история</a>
+                <a class="btn btn--ghost" href="#place">Посмотреть место</a>
             </div>
         </div>
 
-        <div class="hero__media js-reveal js-float" data-parallax="0.12">
-            <div class="hero__badge">August 2026</div>
-            <div class="hero__glass">
-                <span class="hero__glassLabel">Наш день</span>
-                <strong>Сохраняйте дату</strong>
+        <div class="hero__scene js-reveal" data-parallax="0.14">
+            <div class="heroCard heroCard--photo">
+                <div class="heroCard__frame"></div>
+            </div>
+            <div class="heroNote heroNote--top">
+                <span class="heroNote__label">Save the date</span>
+                <strong>Август станет нашим</strong>
+            </div>
+            <div class="heroNote heroNote--bottom">
+                <span class="heroNote__label">С любовью</span>
+                <strong>До скорой встречи</strong>
             </div>
         </div>
-
     </div>
 
-    <a class="hero__scroll" href="#story" aria-label="Прокрутить к истории">
-        <span class="hero__scrollLine"></span>
-        <span class="hero__scrollText">листать вниз</span>
-    </a>
 </header>
 
 <main class="main">
+    <section class="section section--intro" id="intro">
+        <div class="container introScene">
+            <div class="introScene__photo js-reveal js-lightbox" data-full="./assets/story_now.webp">
+                <img src="./assets/story_now.webp"
+                     alt="Артур и Дарья вместе"
+                     width="1000" height="800"
+                     loading="lazy" decoding="async">
+            </div>
 
-    <!-- Intro -->
-    <section class="section">
-        <div class="container twoCol">
+            <div class="introScene__text js-reveal">
+                <p class="sectionHead__eyebrow">Артур &amp; Дарья</p>
+                <h2>Мы будем счастливы разделить этот день с вами</h2>
+                <p class="lead">
+                    Совсем скоро мы скажем друг другу «да» и начнём новую главу нашей жизни.
+                    Для нас это не просто красивый день, а важный момент, который навсегда останется в памяти.
+                </p>
+                <p class="lead">
+                    Нам очень хочется, чтобы рядом были самые близкие люди. Спасибо, что вы часть нашей истории.
+                </p>
+                <div class="introScene__meta">
+                    <span>22 августа 2026</span>
+                    <span>14:00</span>
+                    <span>ЗАГС</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="photoCard photoCard--tall js-reveal js-tilt"></div>
-
-            <div class="noteCard js-reveal js-tilt">
-                <h2>Мы официально станем семьёй</h2>
-                <p class="noteCard__text">
-                    Если вы читаете эти строки, значит совсем скоро мы скажем друг другу
-                    «да» и начнём новую главу нашей жизни. Мы будем счастливы разделить
-                    этот день вместе с вами.
+    <section class="section section--story" id="story">
+        <div class="container storyGrid">
+            <div class="storyLead js-reveal">
+                <p class="sectionHead__eyebrow">Наша история</p>
+                <h2>Когда два пути становятся одним</h2>
+                <p class="lead">
+                    Когда-то мы были просто детьми, каждый со своим миром, мечтами и дорогой.
+                    Со временем эти дороги привели нас друг к другу, и теперь мы идём дальше вместе.
                 </p>
             </div>
 
+            <div class="storyGallery js-reveal">
+                <figure class="storyCard storyCard--small js-lightbox" data-full="./assets/story-arthur-child.webp">
+                    <img src="./assets/story-arthur-child.webp"
+                         alt="Артур в детстве"
+                         width="600" height="800"
+                         loading="lazy" decoding="async">
+                    <figcaption>Артур</figcaption>
+                </figure>
+
+                <figure class="storyCard storyCard--small js-lightbox" data-full="./assets/story-daria-child.webp">
+                    <img src="./assets/story-daria-child.webp"
+                         alt="Дарья в детстве"
+                         width="600" height="800"
+                         loading="lazy" decoding="async">
+                    <figcaption>Дарья</figcaption>
+                </figure>
+
+                <figure class="storyCard storyCard--wide js-lightbox" data-full="./assets/story_now.webp">
+                    <img src="./assets/story_now.webp"
+                         alt="Мы вместе"
+                         width="1000" height="800"
+                         loading="lazy" decoding="async">
+                    <figcaption>Теперь уже мы</figcaption>
+                </figure>
+            </div>
         </div>
     </section>
 
-    <!-- Story -->
-    <section class="section" id="story">
+    <section class="section section--letter">
         <div class="container">
-            <div class="sectionHead">
-                <h2>Наша история</h2>
-            </div>
-
-            <div class="storyPath js-reveal">
-
-                <!-- Top: childhood -->
-                <div class="storyPath__top">
-                    <figure class="storyPerson">
-                        <img src="./assets/story-arthur-child.webp"
-                             alt="Артур в детстве"
-                             width="600" height="800"
-                             loading="lazy" decoding="async">
-                        <figcaption>Артур</figcaption>
-                    </figure>
-
-                    <figure class="storyPerson">
-                        <img src="./assets/story-daria-child.webp"
-                             alt="Дарья в детстве"
-                             width="600" height="800"
-                             loading="lazy" decoding="async">
-                        <figcaption>Дарья</figcaption>
-                    </figure>
-                </div>
-
-                <!-- Lines -->
-                <div class="storyPath__lines" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span class="storyPath__merge"></span>
-                </div>
-
-                <!-- Bottom: together -->
-                <div class="storyPath__bottom">
-                    <figure class="storyTogether js-lightbox js-tilt" data-full="./assets/story_now.webp">
-                        <img src="./assets/story_now.webp"
-                             alt="Мы вместе"
-                             width="1000" height="800"
-                             loading="lazy" decoding="async">
-                    </figure>
-
-                    <p class="storyText">
-                        Когда-то мы были просто детьми, каждый со своим путём.
-                        Со временем эти пути привели нас друг к другу —
-                        и теперь мы идём дальше вместе.
+            <div class="letterCard js-reveal js-tilt">
+                <div class="letterCard__stamp">A&amp;D</div>
+                <div class="letterCard__content">
+                    <p class="sectionHead__eyebrow">Немного от нас</p>
+                    <h2>Мы официально станем семьёй</h2>
+                    <p>
+                        Если вы читаете эти строки, значит совсем скоро мы скажем друг другу «да»
+                        и начнём новую главу нашей жизни. Нам очень хочется провести этот день не
+                        только красиво, но и по-настоящему душевно.
+                    </p>
+                    <p>
+                        Мы будем счастливы, если вы разделите с нами этот момент, который навсегда
+                        останется в нашей памяти.
                     </p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Location -->
-    <section class="section" id="place">
-        <div class="container">
-            <div class="sectionHead">
-                <h2>Место проведения</h2>
+    <section class="section section--place" id="place">
+        <div class="container splitSection">
+            <div class="splitSection__content js-reveal">
+                <p class="sectionHead__eyebrow">Место проведения</p>
+                <h2>Ждём вас на церемонии</h2>
+                <p class="lead">
+                    Наш день начнётся в ЗАГСе. Ниже можно открыть карту и сразу построить маршрут.
+                </p>
+                <a class="btn btn--primary"
+                   href="https://yandex.ru/maps/org/zags_tsentralnogo_i_leninskogo_rayonov/1058799727"
+                   target="_blank" rel="noreferrer">
+                    Построить маршрут
+                </a>
             </div>
 
             <div class="map-card js-reveal js-tilt" id="mapCard">
                 <div class="map-frame">
                     <iframe
-                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A78dc537ea84241fb034f070faba51992d7813e536184517f45c129044f135352&amp;source=constructor"
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A78dc537ea84241fb034f070faba51992d7813e536184517f45c129044f135352&amp;source=constructor"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
 
                     <button class="map-overlay" id="mapOverlay">
@@ -174,162 +191,132 @@
                         <div class="map-overlay__hint">Нажмите, чтобы включить карту</div>
                     </button>
                 </div>
-
-                <div class="map-actions">
-                    <a class="btn btn--primary btn--sm"
-                       href="https://yandex.ru/maps/org/zags_tsentralnogo_i_leninskogo_rayonov/1058799727"
-                       target="_blank">
-                        Как добраться
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Schedule -->
-    <section class="section">
+    <section class="section section--day">
         <div class="container">
-            <div class="sectionHead">
-                <h2>Программа дня</h2>
+            <div class="sectionHead js-reveal">
+                <h2>Как пройдёт этот день</h2>
             </div>
 
-            <ol class="dayline js-reveal">
-                <li class="dayline__item">
-                    <div class="dayline__dot"></div>
-                    <div class="dayline__card">
-                        <p class="dayline__time">14:00</p>
-                        <p class="dayline__title">Церемония</p>
-                        <p class="dayline__desc">Самый трогательный момент дня</p>
-                    </div>
-                </li>
+            <div class="scheduleCards">
+                <article class="scheduleCard js-reveal js-tilt">
+                    <span class="scheduleCard__time">14:00</span>
+                    <h3>Церемония</h3>
+                    <p>Самый трогательный момент дня, ради которого всё и начинается.</p>
+                </article>
 
-                <li class="dayline__item">
-                    <div class="dayline__dot"></div>
-                    <div class="dayline__card">
-                        <p class="dayline__time">15:30</p>
-                        <p class="dayline__title">Фото и поздравления</p>
-                        <p class="dayline__desc">Обнимемся и сделаем красивые кадры</p>
-                    </div>
-                </li>
+                <article class="scheduleCard js-reveal js-tilt">
+                    <span class="scheduleCard__time">15:30</span>
+                    <h3>Фото и поздравления</h3>
+                    <p>Обнимемся, скажем самые тёплые слова и сделаем красивые кадры на память.</p>
+                </article>
 
-                <li class="dayline__item">
-                    <div class="dayline__dot"></div>
-                    <div class="dayline__card">
-                        <p class="dayline__time">17:00</p>
-                        <p class="dayline__title">Ужин</p>
-                        <p class="dayline__desc">Тёплый семейный вечер</p>
-                    </div>
-                </li>
-            </ol>
+                <article class="scheduleCard js-reveal js-tilt">
+                    <span class="scheduleCard__time">17:00</span>
+                    <h3>Ужин</h3>
+                    <p>Тёплый семейный вечер, разговоры, улыбки и ощущение, что всё именно так, как должно быть.</p>
+                </article>
+            </div>
         </div>
     </section>
 
-    <!-- Countdown -->
-    <section class="section">
-        <div class="container">
-            <div class="sectionHead">
+    <section class="section section--countdown">
+        <div class="container countdownWrap">
+            <div class="countdownPanel js-reveal">
+                <p class="sectionHead__eyebrow">Обратный отсчёт</p>
                 <h2>До нашей свадьбы осталось</h2>
-            </div>
 
-            <div class="countdown js-reveal">
-                <div class="cItem"><b id="cd-days">—</b><span>дней</span></div>
-                <div class="cItem"><b id="cd-hours">—</b><span>часов</span></div>
-                <div class="cItem"><b id="cd-minutes">—</b><span>минут</span></div>
-                <div class="cItem"><b id="cd-seconds">—</b><span>секунд</span></div>
-            </div>
-
-            <div class="countdown-photo js-reveal js-tilt"></div>
-        </div>
-    </section>
-
-    <!-- Gifts -->
-    <section class="section">
-        <div class="container">
-            <div class="sectionHead">
-                <h2>Пожелания</h2>
-            </div>
-
-            <div class="giftCard js-reveal js-tilt">
-                <p class="giftText">
-                    Мы будем очень рады вашему вниманию и тёплым словам.
-                    Пожалуйста, не дарите цветы — сразу после свадьбы мы уедем на море
-                    и не успеем насладиться их красотой.
-                </p>
-                <p class="giftNote">
-                    Если вы захотите сделать подарок, нам будет приятно получить вклад
-                    в наше будущее путешествие.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacts -->
-    <section class="section" id="contacts">
-        <div class="container">
-            <div class="sectionHead">
-                <h2>Контакты</h2>
-            </div>
-
-            <div class="miniContacts">
-                <div class="miniContact js-reveal">
-                    <div class="miniContact__left">
-                        <span class="miniContact__mono">A</span>
-                        <span class="miniContact__name">Артур</span>
-                    </div>
-
-                    <div class="miniContact__right">
-                        <a class="miniAction" href="tel:+79103210599" aria-label="Позвонить Артуру">
-                            <span class="miniAction__icon" aria-hidden="true">☎</span>
-                        </a>
-                        <a class="miniAction miniAction--primary" href="https://t.me/Mariores" target="_blank"
-                           rel="noreferrer" aria-label="Написать Артуру в Telegram">
-                            <span class="miniAction__icon" aria-hidden="true">✈</span>
-                        </a>
-                        <span class="miniContact__meta">+7 910 321 05 99</span>
-                    </div>
+                <div class="countdown">
+                    <div class="cItem"><b id="cd-days">—</b><span id="cd-days-label">дней</span></div>
+                    <div class="cItem"><b id="cd-hours">—</b><span id="cd-hours-label">часов</span></div>
+                    <div class="cItem"><b id="cd-minutes">—</b><span id="cd-minutes-label">минут</span></div>
+                    <div class="cItem"><b id="cd-seconds">—</b><span id="cd-seconds-label">секунд</span></div>
                 </div>
+            </div>
 
-                <div class="miniContact js-reveal">
-                    <div class="miniContact__left">
-                        <span class="miniContact__mono">D</span>
-                        <span class="miniContact__name">Дарья</span>
+            <div class="countdownVisual js-reveal js-tilt"></div>
+        </div>
+    </section>
+
+    <section class="section section--wishes">
+        <div class="container wishesGrid">
+            <div class="wishCard js-reveal js-tilt">
+                <p class="sectionHead__eyebrow">Пожелания</p>
+                <h2>Самое главное для нас — ваше присутствие</h2>
+                <p>
+                    Мы будем очень рады вашему вниманию и тёплым словам. Пожалуйста, не дарите цветы —
+                    сразу после свадьбы мы уедем на море и не успеем насладиться их красотой.
+                </p>
+                <p>
+                    Если вы захотите сделать подарок, нам будет приятно получить вклад в наше будущее путешествие.
+                </p>
+            </div>
+
+            <div class="contactsCard js-reveal">
+                <p class="sectionHead__eyebrow">Контакты</p>
+                <h2>Если появятся вопросы</h2>
+
+                <div class="miniContacts">
+                    <div class="miniContact js-tilt">
+                        <div class="miniContact__left">
+                            <span class="miniContact__mono">A</span>
+                            <span class="miniContact__name">Артур</span>
+                        </div>
+                        <div class="miniContact__right">
+                            <a class="miniAction" href="tel:+79103210599" aria-label="Позвонить Артуру">
+                                <span class="miniAction__icon" aria-hidden="true">☎</span>
+                            </a>
+                            <a class="miniAction miniAction--primary" href="https://t.me/Mariores" target="_blank"
+                               rel="noreferrer" aria-label="Написать Артуру в Telegram">
+                                <span class="miniAction__icon" aria-hidden="true">✈</span>
+                            </a>
+                            <span class="miniContact__meta">+7 910 321 05 99</span>
+                        </div>
                     </div>
 
-                    <div class="miniContact__right">
-                        <a class="miniAction" href="tel:+79205813273" aria-label="Позвонить Дарье">
-                            <span class="miniAction__icon" aria-hidden="true">☎</span>
-                        </a>
-                        <a class="miniAction miniAction--primary" href="https://t.me/dashok_pirozhoc" target="_blank"
-                           rel="noreferrer" aria-label="Написать Дарье в Telegram">
-                            <span class="miniAction__icon" aria-hidden="true">✈</span>
-                        </a>
-                        <span class="miniContact__meta">+7 920 581 32 73</span>
+                    <div class="miniContact js-tilt">
+                        <div class="miniContact__left">
+                            <span class="miniContact__mono">D</span>
+                            <span class="miniContact__name">Дарья</span>
+                        </div>
+                        <div class="miniContact__right">
+                            <a class="miniAction" href="tel:+79205813273" aria-label="Позвонить Дарье">
+                                <span class="miniAction__icon" aria-hidden="true">☎</span>
+                            </a>
+                            <a class="miniAction miniAction--primary" href="https://t.me/dashok_pirozhoc" target="_blank"
+                               rel="noreferrer" aria-label="Написать Дарье в Telegram">
+                                <span class="miniAction__icon" aria-hidden="true">✈</span>
+                            </a>
+                            <span class="miniContact__meta">+7 920 581 32 73</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Final -->
-    <section class="final">
+
+    <section class="section section--final">
         <div class="container">
-            <div class="final__card js-reveal js-tilt">
-                <h2>До скорой встречи!</h2>
+            <div class="finalScene js-reveal">
+                <div class="finalScene__spark finalScene__spark--one" aria-hidden="true"></div>
+                <div class="finalScene__spark finalScene__spark--two" aria-hidden="true"></div>
+                <p class="sectionHead__eyebrow sectionHead__eyebrow--light">Финал</p>
+                <h2>До скорой встречи</h2>
                 <p class="lead lead--center">
-                    Мы будем очень рады видеть вас в этот особенный для нас день.
+                    Спасибо, что будете частью нашего дня. Нам очень хочется разделить его именно с вами.
                 </p>
             </div>
         </div>
     </section>
-
 </main>
 
 <footer class="footer">
-    <div class="footer__inner">
-        © 2026 Артур & Дарья
-    </div>
+    <div class="footer__inner">© 2026 Артур & Дарья</div>
 </footer>
 
-<!-- Lightbox -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox__backdrop" data-close="1"></div>
     <figure class="lightbox__panel">
@@ -338,8 +325,6 @@
     </figure>
 </div>
 
-<!-- Scripts -->
 <script src="./main.js" defer></script>
-
 </body>
 </html>

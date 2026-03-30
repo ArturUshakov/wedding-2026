@@ -1,20 +1,19 @@
 /* =========================================================
-   Reveal with stagger
+   Reveal with soft stagger
    ========================================================= */
 (function () {
     const items = Array.from(document.querySelectorAll('.js-reveal'));
     if (!items.length) return;
 
-    const reduce =
-        window.matchMedia &&
+    const reduce = window.matchMedia &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     items.forEach((item, index) => {
-        item.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`);
+        item.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 80}ms`);
     });
 
     if (reduce) {
-        items.forEach(el => el.classList.add('is-in'));
+        items.forEach(item => item.classList.add('is-in'));
         return;
     }
 
@@ -29,11 +28,11 @@
         { threshold: 0.16, rootMargin: '0px 0px -12% 0px' }
     );
 
-    items.forEach(el => io.observe(el));
+    items.forEach(item => io.observe(item));
 })();
 
 /* =========================================================
-   Countdown with flip pulse on change
+   Countdown
    ========================================================= */
 (function () {
     const units = [
@@ -42,16 +41,31 @@
         document.getElementById('cd-minutes'),
         document.getElementById('cd-seconds')
     ];
+    const labels = {
+        days: document.getElementById('cd-days-label'),
+        hours: document.getElementById('cd-hours-label'),
+        minutes: document.getElementById('cd-minutes-label'),
+        seconds: document.getElementById('cd-seconds-label')
+    };
     if (units.some(unit => !unit)) return;
 
     const target = new Date(2026, 7, 22, 14, 0, 0);
     const pad = n => String(n).padStart(2, '0');
 
+    function pluralize(value, forms) {
+        const mod10 = value % 10;
+        const mod100 = value % 100;
+
+        if (mod100 >= 11 && mod100 <= 19) return forms[2];
+        if (mod10 === 1) return forms[0];
+        if (mod10 >= 2 && mod10 <= 4) return forms[1];
+        return forms[2];
+    }
+
     function updateNode(node, value) {
         if (node.textContent === value) return;
         node.textContent = value;
         node.parentElement?.classList.remove('is-ticking');
-        // Force restart of the pulse animation when a value changes.
         void node.offsetWidth;
         node.parentElement?.classList.add('is-ticking');
     }
@@ -60,14 +74,24 @@
         let diff = target.getTime() - Date.now();
         if (diff < 0) diff = 0;
 
+        const daysValue = Math.floor(diff / 86400000);
+        const hoursValue = Math.floor(diff / 3600000) % 24;
+        const minutesValue = Math.floor(diff / 60000) % 60;
+        const secondsValue = Math.floor(diff / 1000) % 60;
+
         const values = [
-            String(Math.floor(diff / 86400000)),
-            pad(Math.floor(diff / 3600000) % 24),
-            pad(Math.floor(diff / 60000) % 60),
-            pad(Math.floor(diff / 1000) % 60)
+            String(daysValue),
+            pad(hoursValue),
+            pad(minutesValue),
+            pad(secondsValue)
         ];
 
         units.forEach((unit, index) => updateNode(unit, values[index]));
+
+        if (labels.days) labels.days.textContent = pluralize(daysValue, ['день', 'дня', 'дней']);
+        if (labels.hours) labels.hours.textContent = pluralize(hoursValue, ['час', 'часа', 'часов']);
+        if (labels.minutes) labels.minutes.textContent = pluralize(minutesValue, ['минута', 'минуты', 'минут']);
+        if (labels.seconds) labels.seconds.textContent = pluralize(secondsValue, ['секунда', 'секунды', 'секунд']);
     }
 
     tick();
@@ -101,29 +125,25 @@
         img.alt = '';
     }
 
-    triggers.forEach(btn => {
-        btn.addEventListener(
-            'click',
-            () => {
-                const src = btn.getAttribute('data-full');
-                const alt = btn.querySelector('img')?.getAttribute('alt') || '';
-                if (src) open(src, alt);
-            },
-            { passive: true }
-        );
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const src = trigger.getAttribute('data-full');
+            const alt = trigger.querySelector('img')?.getAttribute('alt') || '';
+            if (src) open(src, alt);
+        });
     });
 
-    lightbox.addEventListener('click', e => {
-        if (e.target && e.target.getAttribute('data-close') === '1') close();
+    lightbox.addEventListener('click', event => {
+        if (event.target && event.target.getAttribute('data-close') === '1') close();
     });
 
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close();
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) close();
     });
 })();
 
 /* =========================================================
-   Yandex Map overlay
+   Map overlay
    ========================================================= */
 (function () {
     const card = document.getElementById('mapCard');
@@ -140,33 +160,24 @@
 
     overlay.addEventListener('click', enable, { passive: true });
 
-    window.addEventListener(
-        'scroll',
-        () => {
-            if (card.classList.contains('is-active')) disable();
-        },
-        { passive: true }
-    );
+    window.addEventListener('scroll', () => {
+        if (card.classList.contains('is-active')) disable();
+    }, { passive: true });
 
-    document.addEventListener(
-        'click',
-        e => {
-            if (!card.classList.contains('is-active')) return;
-            if (!card.contains(e.target)) disable();
-        },
-        { passive: true }
-    );
+    document.addEventListener('click', event => {
+        if (!card.classList.contains('is-active')) return;
+        if (!card.contains(event.target)) disable();
+    }, { passive: true });
 })();
 
 /* =========================================================
-   Parallax for floating elements
+   Parallax
    ========================================================= */
 (function () {
     const items = Array.from(document.querySelectorAll('[data-parallax]'));
     if (!items.length) return;
 
-    const reduce =
-        window.matchMedia &&
+    const reduce = window.matchMedia &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) return;
 
@@ -175,7 +186,7 @@
     function render() {
         const viewport = window.innerHeight || 1;
         items.forEach(item => {
-            const speed = Number(item.getAttribute('data-parallax')) || 0.1;
+            const speed = Number(item.getAttribute('data-parallax')) || 0.12;
             const rect = item.getBoundingClientRect();
             const center = rect.top + rect.height / 2;
             const shift = ((center - viewport / 2) / viewport) * speed * 120;
@@ -195,14 +206,13 @@
 })();
 
 /* =========================================================
-   Tilt micro-interaction
+   Tilt
    ========================================================= */
 (function () {
     const cards = Array.from(document.querySelectorAll('.js-tilt'));
     if (!cards.length) return;
 
-    const reduce =
-        window.matchMedia &&
+    const reduce = window.matchMedia &&
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) return;
 
@@ -217,8 +227,8 @@
             const rect = card.getBoundingClientRect();
             const px = (event.clientX - rect.left) / rect.width;
             const py = (event.clientY - rect.top) / rect.height;
-            const tiltY = (px - 0.5) * 7;
-            const tiltX = (0.5 - py) * 7;
+            const tiltY = (px - 0.5) * 6;
+            const tiltX = (0.5 - py) * 6;
             card.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
             card.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
         });
