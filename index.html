@@ -14,7 +14,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
     <link rel="stylesheet" href="./css/00-base.css">
@@ -28,17 +28,18 @@
 <div class="pageGlow pageGlow--one" aria-hidden="true"></div>
 <div class="pageGlow pageGlow--two" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
-<div class="pageOrnaments" aria-hidden="true">
-    <span class="pageOrnaments__item pageOrnaments__item--one"></span>
-    <span class="pageOrnaments__item pageOrnaments__item--two"></span>
-    <span class="pageOrnaments__item pageOrnaments__item--three"></span>
-</div>
 
 <header class="hero">
     <div class="hero__petal hero__petal--one" aria-hidden="true"></div>
     <div class="hero__petal hero__petal--two" aria-hidden="true"></div>
-    <div class="hero__ornament hero__ornament--one" aria-hidden="true"></div>
-    <div class="hero__ornament hero__ornament--two" aria-hidden="true"></div>
+    <div class="hero__paper" aria-hidden="true"></div>
+    <div class="hero__veil" aria-hidden="true"></div>
+    <svg class="hero__trail" viewBox="0 0 360 180" aria-hidden="true">
+        <path d="M20 132C84 156 126 72 188 84C244 95 250 170 338 104"/>
+    </svg>
+    <img class="hero__plane" src="./assets/doodle-plane.svg" alt="" aria-hidden="true">
+    <img class="hero__heart hero__heart--one" src="./assets/doodle-heart.svg" alt="" aria-hidden="true">
+    <img class="hero__heart hero__heart--two" src="./assets/doodle-heart.svg" alt="" aria-hidden="true">
 
     <div class="container hero__layout">
         <div class="hero__content js-reveal">
@@ -55,7 +56,6 @@
             <div class="hero__chips">
                 <span class="heroChip">22.08.2026</span>
                 <span class="heroChip">14:00</span>
-                <span class="heroChip">ЗАГС</span>
             </div>
 
             <div class="hero__actions">
@@ -78,6 +78,7 @@
             </div>
         </div>
     </div>
+    <div class="hero__edge" aria-hidden="true"></div>
 
 </header>
 
@@ -104,7 +105,6 @@
                 <div class="introScene__meta">
                     <span>22 августа 2026</span>
                     <span>14:00</span>
-                    <span>ЗАГС</span>
                 </div>
             </div>
         </div>
@@ -248,30 +248,6 @@
         </div>
     </section>
 
-    <section class="section section--rsvp" id="rsvp">
-        <div class="container">
-            <div class="rsvpCard js-reveal">
-                <div class="rsvpCard__content">
-                    <p class="sectionHead__eyebrow">Подтверждение</p>
-                    <h2>Будем рады, если вы заранее дадите ответ</h2>
-                    <p class="lead">
-                        Пожалуйста, сообщите нам, сможете ли вы быть рядом в этот день. Так нам будет проще
-                        всё спланировать и сделать праздник по-настоящему тёплым и удобным для всех.
-                    </p>
-                </div>
-
-                <div class="rsvpCard__actions">
-                    <a class="btn btn--primary" href="https://t.me/Mariores" target="_blank" rel="noreferrer">
-                        Подтвердить у Артура
-                    </a>
-                    <a class="btn btn--ghost" href="https://t.me/dashok_pirozhoc" target="_blank" rel="noreferrer">
-                        Подтвердить у Дарьи
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section section--wishes">
         <div class="container wishesGrid">
             <div class="wishCard js-reveal js-tilt">
@@ -288,42 +264,60 @@
 
             <div class="contactsCard js-reveal">
                 <p class="sectionHead__eyebrow">Контакты</p>
-                <h2>Если появятся вопросы</h2>
+                <h2>Наши контакты</h2>
+                <p class="lead">
+                    На всякий случай оставим здесь наши номера и Telegram. Если что-то понадобится до свадьбы
+                    или в сам день, можно написать напрямую нам.
+                </p>
 
-                <div class="miniContacts">
-                    <div class="miniContact js-tilt">
-                        <div class="miniContact__left">
-                            <span class="miniContact__mono">A</span>
-                            <span class="miniContact__name">Артур</span>
+                <div class="contactDeck">
+                    <article class="contactPerson js-tilt">
+                        <div class="contactPerson__top">
+                            <span class="contactPerson__mark">A</span>
+                            <div class="contactPerson__title">
+                                <h3>Артур</h3>
+                                <p>Жених</p>
+                            </div>
                         </div>
-                        <div class="miniContact__right">
-                            <a class="miniAction" href="tel:+79103210599" aria-label="Позвонить Артуру">
-                                <span class="miniAction__icon" aria-hidden="true">☎</span>
+
+                        <a class="contactPerson__phone" href="tel:+79103210599">+7 910 321 05 99</a>
+
+                        <div class="contactPerson__actions">
+                            <a class="contactPill" href="tel:+79103210599" aria-label="Позвонить Артуру">
+                                <span class="contactPill__icon" aria-hidden="true">☎</span>
+                                <span>Позвонить</span>
                             </a>
-                            <a class="miniAction miniAction--primary" href="https://t.me/Mariores" target="_blank"
+                            <a class="contactPill contactPill--primary" href="https://t.me/Mariores" target="_blank"
                                rel="noreferrer" aria-label="Написать Артуру в Telegram">
-                                <span class="miniAction__icon" aria-hidden="true">✈</span>
+                                <span class="contactPill__icon" aria-hidden="true">✈</span>
+                                <span>Telegram</span>
                             </a>
-                            <span class="miniContact__meta">+7 910 321 05 99</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="miniContact js-tilt">
-                        <div class="miniContact__left">
-                            <span class="miniContact__mono">D</span>
-                            <span class="miniContact__name">Дарья</span>
+                    <article class="contactPerson js-tilt">
+                        <div class="contactPerson__top">
+                            <span class="contactPerson__mark">D</span>
+                            <div class="contactPerson__title">
+                                <h3>Дарья</h3>
+                                <p>Невеста</p>
+                            </div>
                         </div>
-                        <div class="miniContact__right">
-                            <a class="miniAction" href="tel:+79205813273" aria-label="Позвонить Дарье">
-                                <span class="miniAction__icon" aria-hidden="true">☎</span>
+
+                        <a class="contactPerson__phone" href="tel:+79205813273">+7 920 581 32 73</a>
+
+                        <div class="contactPerson__actions">
+                            <a class="contactPill" href="tel:+79205813273" aria-label="Позвонить Дарье">
+                                <span class="contactPill__icon" aria-hidden="true">☎</span>
+                                <span>Позвонить</span>
                             </a>
-                            <a class="miniAction miniAction--primary" href="https://t.me/dashok_pirozhoc" target="_blank"
+                            <a class="contactPill contactPill--primary" href="https://t.me/dashok_pirozhoc" target="_blank"
                                rel="noreferrer" aria-label="Написать Дарье в Telegram">
-                                <span class="miniAction__icon" aria-hidden="true">✈</span>
+                                <span class="contactPill__icon" aria-hidden="true">✈</span>
+                                <span>Telegram</span>
                             </a>
-                            <span class="miniContact__meta">+7 920 581 32 73</span>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -335,7 +329,6 @@
                 <div class="finalScene__spark finalScene__spark--one" aria-hidden="true"></div>
                 <div class="finalScene__spark finalScene__spark--two" aria-hidden="true"></div>
                 <div class="finalScene__spark finalScene__spark--three" aria-hidden="true"></div>
-                <p class="sectionHead__eyebrow sectionHead__eyebrow--light">Финал</p>
                 <h2>До скорой встречи</h2>
                 <p class="lead lead--center">
                     Спасибо, что будете частью нашего дня. Нам очень хочется разделить его именно с вами.

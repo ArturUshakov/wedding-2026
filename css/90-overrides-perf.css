@@ -1,9 +1,7 @@
 @media (max-width: 720px){
     .grain,
     .pageGlow,
-    .pageOrnaments,
     .hero__petal,
-    .hero__ornament,
     .heroNote,
     .finalScene__spark{
         display: none !important;

@@ -1,9 +1,14 @@
 .introScene{
     display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
-    gap: 24px;
+    gap: 30px;
     align-items: center;
     position: relative;
+}
+
+.section--intro{
+    position: relative;
+    padding-top: 96px;
 }
 
 .introScene > *,
@@ -17,8 +22,9 @@
 .introScene__photo{
     position: relative;
     overflow: hidden;
-    border-radius: 42px;
-    min-height: 620px;
+    border-radius: 46px;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +49,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 28%;
+    object-position: center 26%;
     transition: transform .5s cubic-bezier(.19,1,.22,1);
 }
 
@@ -62,6 +68,8 @@
     display: grid;
     gap: 18px;
     padding: 12px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .introScene__text .lead{
@@ -82,7 +90,7 @@
     min-height: 42px;
     padding: 10px 14px;
     border-radius: 999px;
-    background: rgba(255,255,255,.7);
+    background: rgba(255,255,255,.84);
     border: 1px solid rgba(112,77,89,.08);
     box-shadow: var(--shadow-soft);
     font-size: 11px;
@@ -94,97 +102,80 @@
 .storyGrid{
     display: grid;
     grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
-    gap: 28px;
+    gap: 34px;
     align-items: start;
     position: relative;
 }
 
-.section--intro::before,
-.section--story::after,
-.section--countdown::before,
-.section--wishes::after,
-.section--rsvp::before,
-.section--final::before{
-    content:"";
-    position:absolute;
-    width: 180px;
-    height: 180px;
-    pointer-events:none;
-    opacity: .32;
-    background-repeat: no-repeat;
-    background-size: contain;
-    animation: ornamentFloat 13s ease-in-out infinite;
-}
-
-.section--intro::before{
-    right: 2%;
-    top: 12%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23d89aa8' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M90 31c6 17 17 30 34 39-17 9-28 22-34 39-6-17-17-30-34-39 17-9 28-22 34-39z'/%3E%3Cpath d='M90 109c5 12 12 21 24 28-12 6-19 16-24 28-5-12-12-22-24-28 12-7 19-16 24-28z'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.section--story::after{
-    left: 3%;
-    bottom: 10%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23be7387' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M90 123c-11-16-27-25-42-25-16 0-28 11-28 27 0 28 33 46 70 68 37-22 70-40 70-68 0-16-12-27-28-27-15 0-31 9-42 25z'/%3E%3Cpath d='M48 56c7 2 14 8 18 16M132 56c-7 2-14 8-18 16'/%3E%3C/g%3E%3C/svg%3E");
-    animation-delay: 1.6s;
-}
-
-.section--countdown::before{
-    left: 5%;
-    top: 10%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23e4c6a0' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='90' cy='90' r='48'/%3E%3Cpath d='M90 54v36l21 14'/%3E%3Cpath d='M90 22v12M90 146v12M22 90h12M146 90h12'/%3E%3C/g%3E%3C/svg%3E");
-    animation-delay: .8s;
-}
-
-.section--wishes::after{
-    right: 4%;
-    bottom: 14%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23c6d2c0' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M90 30c0 25-12 42-34 56 22 14 34 31 34 56 0-25 12-42 34-56-22-14-34-31-34-56z'/%3E%3Cpath d='M90 86c-8-5-15-8-25-8M90 86c8-5 15-8 25-8'/%3E%3C/g%3E%3C/svg%3E");
-    animation-delay: 2.2s;
-}
-
-.section--rsvp::before{
-    left: 4%;
-    bottom: 10%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23d89aa8' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='32' y='46' width='116' height='88' rx='18'/%3E%3Cpath d='M41 58l49 39 49-39'/%3E%3Cpath d='M65 27c10 4 18 12 25 24 7-12 15-20 25-24'/%3E%3C/g%3E%3C/svg%3E");
-    animation-delay: .4s;
-}
-
-.section--final::before{
-    right: 4%;
-    top: 10%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='none' stroke='%23fff6f3' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M90 137c-13-19-31-30-47-30-18 0-31 13-31 30 0 32 36 52 78 79 42-27 78-47 78-79 0-17-13-30-31-30-16 0-34 11-47 30z'/%3E%3Cpath d='M61 58c6 3 11 9 14 16M119 58c-6 3-11 9-14 16'/%3E%3C/g%3E%3C/svg%3E");
-    opacity: .18;
-    animation-delay: 1.8s;
-}
-
-@keyframes ornamentFloat{
-    0%,100%{ transform: translate3d(0,0,0) rotate(0deg); }
-    50%{ transform: translate3d(0,-10px,0) rotate(3deg); }
-}
-
 .storyLead{
     display: grid;
-    gap: 16px;
+    gap: 18px;
     align-content: start;
-    padding-top: 10px;
+    padding: 34px 30px 28px;
     max-width: 34rem;
+    border-radius: 34px;
+    background:
+        linear-gradient(180deg, rgba(255,252,250,.92), rgba(255,246,242,.88));
+    border: 1px solid rgba(112,77,89,.08);
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 32px;
 }
 
 .storyGallery{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 18px;
+    gap: 20px;
+    position: relative;
+    padding: 12px 0 0 44px;
+}
+
+.storyGallery::before{
+    content:"";
+    position: absolute;
+    left: 10px;
+    top: 28px;
+    bottom: 90px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(215,160,175,.0), rgba(215,160,175,.86) 18%, rgba(232,193,109,.52) 58%, rgba(215,160,175,0));
+    border-radius: 999px;
+}
+
+.storyGallery::after{
+    content:"";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background:
+        center/contain no-repeat
+        url("../assets/doodle-heart.svg");
+    opacity: .9;
 }
 
 .storyCard{
     margin: 0;
     position: relative;
     overflow: hidden;
-    border-radius: 30px;
+    border-radius: 34px;
     background: rgba(255,252,250,.76);
     border: 1px solid rgba(112,77,89,.08);
     box-shadow: var(--shadow-soft);
+    padding: 10px;
+}
+
+.storyCard::before{
+    content:"";
+    position: absolute;
+    left: -30px;
+    top: 34px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, rgba(215,160,175,.96), rgba(194,122,144,.96));
+    box-shadow: 0 0 0 7px rgba(255,247,243,.96);
 }
 
 .storyCard img{
@@ -192,6 +183,7 @@
     height: 100%;
     min-height: 100%;
     object-fit: cover;
+    border-radius: 24px;
     transition: transform .44s cubic-bezier(.19,1,.22,1);
 }
 
@@ -199,19 +191,42 @@
     aspect-ratio: 3 / 4;
 }
 
+.storyCard--small:first-child{
+    transform: rotate(-3deg);
+}
+
+.storyCard--small:nth-child(2){
+    transform: translateY(38px) rotate(3deg);
+}
+
 .storyCard--wide{
     grid-column: 1 / -1;
-    aspect-ratio: 5 / 4;
+    aspect-ratio: auto;
+    padding: 16px;
+    margin-top: 18px;
     cursor: pointer;
+    transform: translateX(18px);
+    border-radius: 38px;
+}
+
+.storyCard--wide img{
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: min(560px, 50vw);
+    object-fit: contain;
+    object-position: center center;
+    background: rgba(255,248,246,.94);
+    border-radius: 28px;
 }
 
 .storyCard figcaption{
     position: absolute;
-    left: 18px;
-    bottom: 18px;
+    left: 24px;
+    bottom: 24px;
     padding: 10px 14px;
     border-radius: 999px;
-    background: rgba(255,255,255,.72);
+    background: rgba(255,255,255,.88);
     font-size: 11px;
     letter-spacing: .22em;
     text-transform: uppercase;
@@ -225,9 +240,9 @@
     gap: 24px;
     align-items: start;
     padding: 32px;
-    border-radius: 42px;
+    border-radius: 44px;
     background:
-        linear-gradient(180deg, rgba(255,253,251,.88), rgba(255,248,246,.92));
+        linear-gradient(180deg, rgba(255,253,251,.94), rgba(255,244,240,.98));
     border: 1px solid rgba(112,77,89,.08);
     box-shadow: var(--shadow);
 }
@@ -237,7 +252,7 @@
     place-items: center;
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 42% 58% 48% 52% / 48% 46% 54% 52%;
     background: radial-gradient(circle, rgba(244,217,223,.72), rgba(216,154,168,.88));
     color: #fff;
     font-family: var(--serif);
@@ -324,7 +339,7 @@
 
 .scheduleCard{
     padding: 28px 24px;
-    border-radius: 32px;
+    border-radius: 30px 38px 30px 36px;
     background: linear-gradient(180deg, rgba(255,253,251,.84), rgba(255,247,245,.9));
     border: 1px solid rgba(112,77,89,.08);
     box-shadow: var(--shadow-soft);
@@ -353,7 +368,7 @@
 
 .countdownPanel{
     padding: 30px;
-    border-radius: 38px;
+    border-radius: 40px;
     background: rgba(255,253,251,.76);
     border: 1px solid rgba(112,77,89,.08);
     box-shadow: var(--shadow);
@@ -418,8 +433,8 @@
 }
 
 .countdownVisual{
-    min-height: 560px;
-    border-radius: 44px;
+    min-height: 520px;
+    border-radius: 48px;
     background:
         linear-gradient(180deg, rgba(255,255,255,.1), rgba(73,48,58,.18)),
         url("../assets/countdown.webp") center/cover no-repeat;
@@ -448,50 +463,6 @@
     background: radial-gradient(circle, rgba(255,255,255,.22), transparent 72%);
 }
 
-.rsvpCard{
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 24px;
-    align-items: center;
-    padding: 34px;
-    border-radius: 42px;
-    background:
-        linear-gradient(180deg, rgba(255,253,251,.9), rgba(255,247,245,.94));
-    border: 1px solid rgba(112,77,89,.08);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-}
-
-.rsvpCard::before{
-    content:"";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 12% 26%, rgba(244,217,223,.46), transparent 20%),
-        radial-gradient(circle at 86% 76%, rgba(255,241,232,.56), transparent 24%);
-    pointer-events: none;
-}
-
-.rsvpCard__content{
-    position: relative;
-    display: grid;
-    gap: 14px;
-    min-width: 0;
-}
-
-.rsvpCard__content .lead{
-    margin: 0;
-    max-width: 42rem;
-}
-
-.rsvpCard__actions{
-    position: relative;
-    display: grid;
-    gap: 12px;
-    min-width: min(280px, 100%);
-}
-
 .wishesGrid{
     display: grid;
     grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
@@ -501,7 +472,7 @@
 .wishCard,
 .contactsCard{
     padding: 30px;
-    border-radius: 36px;
+    border-radius: 34px 40px 32px 40px;
     background: rgba(255,253,251,.8);
     border: 1px solid rgba(112,77,89,.08);
     box-shadow: var(--shadow-soft);
@@ -521,79 +492,151 @@
     gap: 18px;
 }
 
-.miniContacts{
-    display: grid;
-    gap: 12px;
+.contactsCard > .lead{
+    margin: -2px 0 0;
+    max-width: 34rem;
 }
 
-.miniContact{
+.contactDeck{
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 14px;
-    align-items: center;
-    padding: 14px 16px;
-    border-radius: 24px;
-    background: rgba(255,255,255,.68);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.contactPerson{
+    position: relative;
+    display: grid;
+    gap: 20px;
+    padding: 24px;
+    border-radius: 34px;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,246,242,.98));
     border: 1px solid rgba(112,77,89,.08);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
 }
 
-.miniContact__left{
-    display: inline-flex;
-    align-items: center;
+.contactPerson::before{
+    content:"";
+    position: absolute;
+    inset: auto -24px -28px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,217,223,.55), transparent 72%);
+    pointer-events: none;
+}
+
+.contactPerson::after{
+    content:"";
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    top: 22px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(216,154,168,.0), rgba(216,154,168,.38), rgba(216,154,168,.0));
+    pointer-events: none;
+}
+
+.contactPerson__top{
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 12px;
+    align-items: center;
+    justify-items: start;
+    padding-top: 8px;
+}
+
+.contactPerson__mark{
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, rgba(244,217,223,.86), rgba(216,154,168,.98));
+    color: #fff;
+    font-family: var(--serif);
+    font-size: 30px;
+    line-height: 1;
+    box-shadow: 0 14px 24px rgba(190,115,135,.18);
+}
+
+.contactPerson__title{
+    display: grid;
+    gap: 4px;
     min-width: 0;
 }
 
-.miniContact__mono{
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(180deg, rgba(244,217,223,.76), rgba(216,154,168,.96));
-    color: #fff;
+.contactPerson__title h3{
+    font-size: 34px;
+    line-height: .95;
     font-family: var(--serif);
-    font-size: 22px;
+    font-weight: 600;
 }
 
-.miniContact__name{
-    font-weight: 700;
+.contactPerson__title p{
+    color: rgba(190,115,135,.86);
+    font-family: var(--accent);
+    font-size: 24px;
+    line-height: 1;
 }
 
-.miniContact__right{
+.contactPerson__phone{
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-}
-
-.miniAction{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: rgba(255,255,255,.88);
+    justify-self: start;
+    min-height: 50px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.78);
     border: 1px solid rgba(112,77,89,.08);
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(71,48,58,.84);
     box-shadow: var(--shadow-soft);
 }
 
-.miniAction--primary{
-    background: linear-gradient(135deg, var(--rose), var(--rose-strong));
-    color: #fff;
+.contactPerson__actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.miniContact__meta{
-    margin-left: 6px;
-    font-size: 12px;
-    color: rgba(71,48,58,.48);
-    white-space: nowrap;
+.contactPill{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.74);
+    border: 1px solid rgba(112,77,89,.08);
+    box-shadow: var(--shadow-soft);
+    color: rgba(71,48,58,.86);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.contactPill--primary{
+    background: linear-gradient(135deg, var(--rose), var(--rose-strong));
+    color: #fff;
+    border-color: rgba(255,255,255,.26);
+}
+
+.contactPill__icon{
+    display: inline-grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.3);
 }
 
 .finalScene{
     position: relative;
     overflow: hidden;
     padding: 76px 22px;
-    border-radius: 48px;
+    border-radius: 54px 54px 42px 42px;
     text-align: center;
     background:
         linear-gradient(180deg, rgba(244,217,223,.18), rgba(73,48,58,.32)),
@@ -682,33 +725,49 @@
     .scheduleCards{
         grid-template-columns: 1fr;
     }
-    .rsvpCard{
+    .contactDeck{
         grid-template-columns: 1fr;
     }
-    .rsvpCard__actions{
-        min-width: 0;
-        width: 100%;
+    .storyLead{
+        position: static;
     }
 }
 
 @media (max-width: 720px){
+    .section--intro{
+        padding-top: 64px;
+    }
+    .introScene,
+    .storyGrid,
+    .storyGallery,
+    .countdownWrap{
+        overflow: clip;
+    }
     .introScene__photo{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: auto;
         min-height: 0;
-        border-radius: 30px;
-        padding: 10px;
+        max-height: none;
+        border-radius: 24px;
+        padding: 0;
         overflow: hidden;
     }
     .introScene__photo::before{
-        inset: 12px;
-        border-radius: 20px;
+        display: none;
+    }
+    .introScene__photo::after{
+        display: none;
     }
     .introScene__photo img{
+        width: 100%;
         height: auto;
         min-height: 0;
         max-height: none;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center center;
-        border-radius: 20px;
+        border-radius: 24px;
     }
     .introScene__text{
         gap: 14px;
@@ -731,21 +790,37 @@
         font-size: 10px;
         letter-spacing: .14em;
     }
-    .section--intro::before,
-    .section--story::after,
-    .section--countdown::before,
-    .section--wishes::after,
-    .section--rsvp::before,
-    .section--final::before{
-        width: 104px;
-        height: 104px;
-        opacity: .2;
-    }
     .introScene{
         gap: 18px;
     }
     .storyGallery{
         grid-template-columns: 1fr;
+        gap: 14px;
+        position: relative;
+        padding: 8px 0 0 24px;
+    }
+    .storyGallery::before{
+        content:"";
+        position: absolute;
+        left: 8px;
+        top: 14px;
+        bottom: 24px;
+        width: 2px;
+        background: linear-gradient(180deg, rgba(215,160,175,.0), rgba(215,160,175,.7) 18%, rgba(232,193,109,.46) 54%, rgba(215,160,175,.0));
+        border-radius: 999px;
+    }
+    .storyGallery::after{
+        content:"";
+        position: absolute;
+        left: -6px;
+        top: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background:
+            center/contain no-repeat
+            url("../assets/doodle-heart.svg");
+        opacity: .84;
     }
     .storyLead{
         gap: 12px;
@@ -764,19 +839,72 @@
     .storyCard--wide{
         aspect-ratio: auto;
     }
+    .storyCard{
+        display: grid;
+        width: min(100%, 292px);
+        max-width: 100%;
+        padding: 8px;
+        overflow: hidden;
+        border-radius: 26px;
+        background: rgba(255,252,250,.92);
+        position: relative;
+    }
     .storyCard img{
         width: 100%;
         height: auto;
         min-height: 0;
         aspect-ratio: auto;
-        object-fit: contain;
+        object-fit: cover;
+        border-radius: 18px;
     }
     .storyCard figcaption{
-        left: 12px;
-        bottom: 12px;
-        padding: 8px 11px;
-        font-size: 10px;
-        letter-spacing: .16em;
+        position: static;
+        display: inline-flex;
+        justify-self: start;
+        margin: 10px 6px 6px;
+        padding: 0;
+        background: none;
+        font-family: var(--accent);
+        font-size: 24px;
+        letter-spacing: 0;
+        text-transform: none;
+        color: rgba(190,115,135,.92);
+    }
+    .storyCard::before{
+        content:"";
+        position: absolute;
+        left: -20px;
+        top: 22px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, rgba(215,160,175,.96), rgba(194,122,144,.96));
+        box-shadow: 0 0 0 5px rgba(255,247,243,.95);
+    }
+    .storyCard:nth-child(1){
+        justify-self: start;
+        transform: rotate(-2deg);
+    }
+    .storyCard:nth-child(2){
+        justify-self: end;
+        transform: rotate(2deg);
+    }
+    .storyCard--wide{
+        justify-self: center;
+        width: 100%;
+        padding: 10px;
+        transform: none;
+        border-radius: 28px;
+    }
+    .storyCard--wide img{
+        max-height: none;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    .storyCard--wide figcaption{
+        justify-self: center;
+        margin-top: 12px;
+        font-size: 28px;
     }
     .letterCard{
         grid-template-columns: 1fr;
@@ -794,24 +922,11 @@
         grid-template-columns: 1fr 1fr;
     }
     .countdownVisual{
-        min-height: 360px;
+        min-height: 260px;
         border-radius: 30px;
-    }
-    .rsvpCard{
-        gap: 18px;
-        padding: 24px 20px;
-        border-radius: 30px;
-    }
-    .rsvpCard__content h2{
-        font-size: clamp(38px, 11vw, 52px);
-        line-height: .95;
-    }
-    .rsvpCard__content .lead{
-        font-size: 15px;
-        line-height: 1.76;
-    }
-    .rsvpCard__actions .btn{
-        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-color: rgba(255,250,248,.9);
     }
     .wishCard,
     .contactsCard,
@@ -825,11 +940,42 @@
     .letterCard{
         border-radius: 28px;
     }
-    .miniContact{
-        grid-template-columns: 1fr auto;
+    .contactsCard > .lead{
+        margin-top: 0;
+        font-size: 15px;
+        line-height: 1.72;
     }
-    .miniContact__meta{
-        display: none;
+    .contactPerson{
+        gap: 16px;
+        padding: 18px;
+        border-radius: 28px;
+    }
+    .contactPerson__top{
+        gap: 10px;
+    }
+    .contactPerson__mark{
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+    .contactPerson__title h3{
+        font-size: 30px;
+    }
+    .contactPerson__title p{
+        font-size: 21px;
+    }
+    .contactPerson__phone{
+        min-height: 44px;
+        font-size: 14px;
+    }
+    .contactPerson__actions{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .contactPill{
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 12px;
     }
     .finalScene{
         padding: 56px 18px;

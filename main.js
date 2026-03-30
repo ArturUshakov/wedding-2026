@@ -25,7 +25,7 @@
                 observer.unobserve(entry.target);
             });
         },
-        { threshold: 0.16, rootMargin: '0px 0px -12% 0px' }
+        { threshold: 0.08, rootMargin: '0px 0px 2% 0px' }
     );
 
     items.forEach(item => io.observe(item));

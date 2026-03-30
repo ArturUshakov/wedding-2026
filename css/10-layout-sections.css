@@ -50,10 +50,10 @@
 
 .js-reveal{
     opacity: 0;
-    transform: translateY(30px) scale(.985);
+    transform: translateY(18px) scale(.992);
     transition:
-        opacity .95s cubic-bezier(.19,1,.22,1),
-        transform .95s cubic-bezier(.19,1,.22,1);
+        opacity 1.05s cubic-bezier(.22,1,.36,1),
+        transform 1.05s cubic-bezier(.22,1,.36,1);
     transition-delay: var(--reveal-delay, 0ms);
     will-change: opacity, transform;
 }
@@ -73,7 +73,7 @@
 
 @media (max-width: 720px){
     .section{
-        padding: 82px 0;
+        padding: 72px 0;
     }
     .sectionHead{
         margin-bottom: 24px;
