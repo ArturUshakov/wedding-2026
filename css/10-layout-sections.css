@@ -11,7 +11,7 @@
     top: -1px;
     height: 76px;
     pointer-events:none;
-    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(244,217,223,.08));
+    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(243,214,207,.08));
 }
 
 .section::after{
@@ -22,7 +22,7 @@
     bottom: -1px;
     height: 76px;
     pointer-events:none;
-    background: linear-gradient(0deg, rgba(255,255,255,0), rgba(255,241,232,.08));
+    background: linear-gradient(0deg, rgba(255,255,255,0), rgba(255,242,202,.08));
 }
 
 .section--heart,
@@ -37,15 +37,17 @@
 
 .sectionHead__eyebrow{
     margin-bottom: 12px;
-    font-size: 11px;
+    font-family: var(--accent);
+    font-size: 28px;
     line-height: 1;
-    letter-spacing: .28em;
-    text-transform: uppercase;
-    color: rgba(190,115,135,.9);
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(203,100,103,.92);
+    transform: rotate(-1.6deg);
 }
 
 .sectionHead__eyebrow--light{
-    color: rgba(255,255,255,.82);
+    color: rgba(255,249,237,.9);
 }
 
 .js-reveal{
@@ -77,5 +79,8 @@
     }
     .sectionHead{
         margin-bottom: 24px;
+    }
+    .sectionHead__eyebrow{
+        font-size: 24px;
     }
 }

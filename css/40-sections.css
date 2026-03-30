@@ -16,7 +16,7 @@
     position: absolute;
     inset: 22px 0 auto;
     height: 160px;
-    background: radial-gradient(360px 110px at 50% 0%, rgba(244,217,223,.16), transparent 72%);
+    background: radial-gradient(360px 110px at 50% 0%, rgba(255,224,106,.16), transparent 72%);
     pointer-events: none;
 }
 
@@ -31,14 +31,16 @@
 .introScene__photo{
     position: relative;
     overflow: hidden;
-    border-radius: 46px;
+    border-radius: 34px 42px 34px 40px;
     min-height: 0;
     aspect-ratio: 4 / 5;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,252,250,.82);
-    border: 1px solid rgba(112,77,89,.08);
+    background:
+        linear-gradient(180deg, rgba(255,249,237,.84), rgba(248,236,214,.86)),
+        url("../assets/old-paper-texture.jpg") center/520px auto repeat;
+    border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow);
     cursor: pointer;
     isolation: isolate;
@@ -48,8 +50,8 @@
     content:"";
     position:absolute;
     inset: 18px;
-    border-radius: 28px;
-    border: 1px solid rgba(255,255,255,.36);
+    border-radius: 24px;
+    border: 1px dashed rgba(107,83,67,.22);
     pointer-events:none;
     z-index: 1;
 }
@@ -76,9 +78,27 @@
 .introScene__text{
     display: grid;
     gap: 14px;
-    padding: 12px 4px 12px 0;
+    padding: 26px 22px 20px 10px;
     position: relative;
     z-index: 1;
+    border-radius: 28px 34px 28px 34px;
+    background:
+        linear-gradient(180deg, rgba(255,249,237,.76), rgba(250,238,215,.82)),
+        url("../assets/old-paper-texture.jpg") center/560px auto repeat;
+    border: 1px solid rgba(107,83,67,.08);
+    box-shadow: var(--shadow-soft);
+}
+
+.introScene__text::before{
+    content:"";
+    position: absolute;
+    left: -48px;
+    bottom: 10px;
+    width: 128px;
+    height: 78px;
+    background: center/contain no-repeat url("../assets/handdrawn-arrow.svg");
+    opacity: .8;
+    pointer-events: none;
 }
 
 .introScene__text .lead{
@@ -98,9 +118,9 @@
     align-items: center;
     min-height: 42px;
     padding: 10px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,.84);
-    border: 1px solid rgba(112,77,89,.08);
+    border-radius: 14px;
+    background: rgba(255,249,237,.92);
+    border: 1px solid rgba(107,83,67,.09);
     box-shadow: var(--shadow-soft);
     font-size: 11px;
     letter-spacing: .18em;
@@ -159,13 +179,25 @@
     align-content: start;
     padding: 34px 30px 28px;
     max-width: 34rem;
-    border-radius: 34px;
+    border-radius: 34px 40px 32px 40px;
     background:
-        linear-gradient(180deg, rgba(255,252,250,.92), rgba(255,246,242,.88));
-    border: 1px solid rgba(112,77,89,.08);
+        linear-gradient(180deg, rgba(255,249,237,.92), rgba(248,236,214,.88)),
+        url("../assets/old-paper-texture.jpg") center/640px auto repeat;
+    border: 1px solid rgba(107,83,67,.08);
     box-shadow: var(--shadow-soft);
     position: sticky;
     top: 32px;
+}
+
+.storyLead::before{
+    content:"";
+    position: absolute;
+    right: 18px;
+    top: -18px;
+    width: 76px;
+    height: 76px;
+    background: center/contain no-repeat url("../assets/handdrawn-heart.svg");
+    pointer-events: none;
 }
 
 .storyGallery{
@@ -205,9 +237,11 @@
     margin: 0;
     position: relative;
     overflow: hidden;
-    border-radius: 34px;
-    background: rgba(255,252,250,.76);
-    border: 1px solid rgba(112,77,89,.08);
+    border-radius: 30px 36px 30px 36px;
+    background:
+        linear-gradient(180deg, rgba(255,249,237,.82), rgba(246,235,214,.86)),
+        url("../assets/old-paper-texture.jpg") center/480px auto repeat;
+    border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow-soft);
     padding: 10px;
 }
@@ -271,8 +305,8 @@
     left: 24px;
     bottom: 24px;
     padding: 10px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,.88);
+    border-radius: 14px;
+    background: rgba(255,249,237,.92);
     font-size: 11px;
     letter-spacing: .22em;
     text-transform: uppercase;
@@ -294,10 +328,11 @@
 .letterPostcard{
     position: relative;
     padding: 34px 32px 32px;
-    border-radius: 40px;
+    border-radius: 34px 42px 32px 40px;
     background:
-        linear-gradient(180deg, rgba(255,253,251,.96), rgba(255,244,240,.98));
-    border: 1px solid rgba(112,77,89,.08);
+        linear-gradient(180deg, rgba(255,250,241,.96), rgba(246,234,210,.98)),
+        url("../assets/old-paper-texture.jpg") center/720px auto repeat;
+    border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow);
     overflow: hidden;
 }
@@ -307,7 +342,7 @@
     position: absolute;
     inset: 16px;
     border-radius: 28px;
-    border: 1px dashed rgba(216,154,168,.28);
+    border: 1px dashed rgba(107,83,67,.22);
     pointer-events: none;
 }
 
@@ -320,7 +355,7 @@
     width: 108px;
     height: 108px;
     border-radius: 42% 58% 48% 52% / 48% 46% 54% 52%;
-    background: radial-gradient(circle, rgba(244,217,223,.72), rgba(216,154,168,.88));
+    background: radial-gradient(circle, rgba(243,214,207,.76), rgba(203,100,103,.88));
     color: #fff;
     font-family: var(--serif);
     font-size: 40px;
@@ -373,10 +408,11 @@
     align-content: center;
     gap: 14px;
     padding: 32px 28px;
-    border-radius: 36px;
+    border-radius: 28px 34px 28px 34px;
     background:
-        linear-gradient(180deg, rgba(255,248,245,.9), rgba(255,241,236,.96));
-    border: 1px solid rgba(112,77,89,.08);
+        linear-gradient(180deg, rgba(255,248,236,.94), rgba(244,231,205,.96)),
+        url("../assets/old-paper-texture.jpg") center/520px auto repeat;
+    border: 1px solid rgba(107,83,67,.08);
     box-shadow: var(--shadow-soft);
     overflow: hidden;
 }
@@ -423,10 +459,12 @@
 }
 
 .map-card{
-    border-radius: 38px;
+    border-radius: 32px 38px 32px 38px;
     overflow: hidden;
-    background: rgba(255,253,251,.82);
-    border: 1px solid rgba(112,77,89,.08);
+    background:
+        linear-gradient(180deg, rgba(255,248,236,.88), rgba(246,235,214,.9)),
+        url("../assets/old-paper-texture.jpg") center/680px auto repeat;
+    border: 1px solid rgba(107,83,67,.09);
     box-shadow: var(--shadow);
 }
 
@@ -478,6 +516,18 @@
     padding: 16px 0 6px;
 }
 
+.dayMap::before{
+    content:"";
+    position: absolute;
+    right: 2%;
+    top: -32px;
+    width: 84px;
+    height: 84px;
+    background: center/contain no-repeat url("../assets/handdrawn-heart.svg");
+    pointer-events: none;
+    opacity: .86;
+}
+
 .dayMap__line{
     position: absolute;
     left: 50%;
@@ -497,9 +547,11 @@
     align-items: center;
     width: min(760px, 100%);
     padding: 22px 24px;
-    border-radius: 34px;
-    background: linear-gradient(180deg, rgba(255,253,251,.88), rgba(255,246,242,.94));
-    border: 1px solid rgba(112,77,89,.08);
+    border-radius: 28px 34px 28px 34px;
+    background:
+        linear-gradient(180deg, rgba(255,250,241,.92), rgba(246,236,216,.96)),
+        url("../assets/old-paper-texture.jpg") center/480px auto repeat;
+    border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow-soft);
 }
 
@@ -539,9 +591,9 @@
     justify-content: center;
     min-height: 54px;
     padding: 10px 18px;
-    border-radius: 999px;
-    background: rgba(255,255,255,.84);
-    border: 1px solid rgba(112,77,89,.08);
+    border-radius: 16px;
+    background: rgba(255,249,237,.88);
+    border: 1px solid rgba(107,83,67,.09);
     font-family: var(--serif);
     font-size: 34px;
     line-height: .9;
@@ -578,9 +630,11 @@
 
 .countdownPanel{
     padding: 30px;
-    border-radius: 40px;
-    background: rgba(255,253,251,.76);
-    border: 1px solid rgba(112,77,89,.08);
+    border-radius: 34px 40px 32px 40px;
+    background:
+        linear-gradient(180deg, rgba(255,250,241,.82), rgba(247,237,218,.86)),
+        url("../assets/old-paper-texture.jpg") center/540px auto repeat;
+    border: 1px solid rgba(107,83,67,.09);
     box-shadow: var(--shadow);
     overflow: hidden;
 }
@@ -596,9 +650,11 @@
     position: relative;
     overflow: hidden;
     padding: 18px 14px;
-    border-radius: 26px;
-    background: rgba(255,255,255,.72);
-    border: 1px solid rgba(112,77,89,.08);
+    border-radius: 20px;
+    background:
+        linear-gradient(180deg, rgba(255,249,237,.84), rgba(247,236,217,.88)),
+        url("../assets/old-paper-texture.jpg") center/320px auto repeat;
+    border: 1px solid rgba(107,83,67,.08);
 }
 
 .cItem::before{
@@ -682,9 +738,11 @@
 .wishCard,
 .contactsCard{
     padding: 30px;
-    border-radius: 34px 40px 32px 40px;
-    background: rgba(255,253,251,.8);
-    border: 1px solid rgba(112,77,89,.08);
+    border-radius: 30px 38px 30px 38px;
+    background:
+        linear-gradient(180deg, rgba(255,250,241,.84), rgba(247,236,217,.88)),
+        url("../assets/old-paper-texture.jpg") center/620px auto repeat;
+    border: 1px solid rgba(107,83,67,.09);
     box-shadow: var(--shadow-soft);
 }
 
@@ -714,10 +772,11 @@
     gap: 0;
     margin-top: 6px;
     padding: 18px;
-    border-radius: 36px;
+    border-radius: 28px 34px 28px 34px;
     background:
-        linear-gradient(180deg, rgba(255,253,251,.94), rgba(255,246,242,.98));
-    border: 1px solid rgba(112,77,89,.08);
+        linear-gradient(180deg, rgba(255,250,241,.96), rgba(246,236,216,.98)),
+        url("../assets/old-paper-texture.jpg") center/640px auto repeat;
+    border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow);
     overflow: hidden;
 }
@@ -727,7 +786,7 @@
     position: absolute;
     inset: 14px;
     border-radius: 26px;
-    border: 1px dashed rgba(216,154,168,.24);
+    border: 1px dashed rgba(107,83,67,.22);
     pointer-events: none;
 }
 
@@ -766,9 +825,9 @@
     display: inline-flex;
     justify-self: start;
     padding: 7px 12px;
-    border-radius: 999px;
-    background: rgba(255,255,255,.78);
-    border: 1px solid rgba(112,77,89,.08);
+    border-radius: 14px;
+    background: rgba(255,249,237,.9);
+    border: 1px solid rgba(107,83,67,.09);
     font-size: 10px;
     letter-spacing: .22em;
     text-transform: uppercase;
@@ -818,14 +877,14 @@
     position: relative;
     overflow: hidden;
     padding: 76px 22px;
-    border-radius: 54px 54px 42px 42px;
+    border-radius: 34px 40px 32px 40px;
     text-align: center;
     background:
-        linear-gradient(180deg, rgba(244,217,223,.18), rgba(73,48,58,.32)),
-        url("../assets/hero.webp") center/cover no-repeat;
-    border: 1px solid rgba(255,255,255,.34);
+        linear-gradient(180deg, rgba(255,247,234,.92), rgba(240,226,197,.94)),
+        url("../assets/old-paper-texture.jpg") center/760px auto repeat;
+    border: 1px solid rgba(107,83,67,.10);
     box-shadow: var(--shadow);
-    color: rgba(255,255,255,.96);
+    color: rgba(70,53,47,.96);
 }
 
 .finalScene::before{
@@ -833,16 +892,16 @@
     position: absolute;
     inset: 18px;
     border-radius: 34px;
-    border: 1px solid rgba(255,255,255,.18);
+    border: 1px dashed rgba(107,83,67,.22);
     pointer-events: none;
 }
 
 .finalScene h2{
-    color: rgba(255,255,255,.98);
+    color: rgba(70,53,47,.98);
 }
 
 .finalScene .lead{
-    color: rgba(255,255,255,.84);
+    color: rgba(70,53,47,.76);
 }
 
 .finalScene__script{
@@ -850,7 +909,7 @@
     font-family: var(--accent);
     font-size: 34px;
     line-height: .96;
-    color: rgba(255,236,239,.96);
+    color: rgba(203,100,103,.96);
 }
 
 .finalScene__date{
@@ -860,13 +919,13 @@
     margin-top: 18px;
     min-height: 40px;
     padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(255,255,255,.16);
-    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 14px;
+    background: rgba(255,249,237,.8);
+    border: 1px solid rgba(107,83,67,.14);
     font-size: 10px;
     letter-spacing: .24em;
     text-transform: uppercase;
-    color: rgba(255,245,246,.86);
+    color: rgba(70,53,47,.74);
 }
 
 .finalScene__spark{
@@ -875,7 +934,7 @@
     height: 180px;
     border-radius: 50%;
     pointer-events:none;
-    background: radial-gradient(circle, rgba(255,255,255,.28), transparent 72%);
+    background: radial-gradient(circle, rgba(255,224,106,.22), transparent 72%);
 }
 
 .finalScene__spark--one{
@@ -1054,7 +1113,17 @@
     }
     .introScene__text{
         gap: 14px;
-        padding: 0;
+        padding: 20px 16px 16px;
+        border-radius: 24px 28px 24px 28px;
+    }
+    .introScene__text::before{
+        left: auto;
+        right: -14px;
+        bottom: -18px;
+        width: 82px;
+        height: 50px;
+        opacity: .72;
+        transform: rotate(-12deg);
     }
     .introScene__text h2{
         font-size: clamp(38px, 11vw, 52px);
@@ -1127,6 +1196,7 @@
     .storyLead{
         gap: 12px;
         max-width: none;
+        padding: 24px 20px 20px;
     }
     .storyLead h2{
         font-size: clamp(38px, 12vw, 54px);
@@ -1259,6 +1329,13 @@
         gap: 14px;
         padding-top: 8px;
     }
+    .dayMap::before{
+        right: 4px;
+        top: -20px;
+        width: 58px;
+        height: 58px;
+        opacity: .72;
+    }
     .dayMap__line{
         left: 18px;
         top: 34px;
@@ -1379,7 +1456,6 @@
     .finalScene{
         padding: 70px 20px 58px;
         border-radius: 30px;
-        background-position: center 42%;
     }
     .finalScene::before{
         inset: 12px;
