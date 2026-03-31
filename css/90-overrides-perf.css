@@ -2,8 +2,7 @@
     .grain,
     .pageGlow,
     .hero__petal,
-    .heroNote,
-    .finalScene__spark{
+    .heroNote{
         display: none !important;
     }
 

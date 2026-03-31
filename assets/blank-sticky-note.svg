@@ -3,13 +3,13 @@
 <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://web.resource.org/cc/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns1="http://sozi.baierouge.fr" id="svg2" viewBox="0 0 460.34 444.82" version="1.0" inkscape:version="0.91 r13725">
   <defs id="defs4">
     <linearGradient id="linearGradient3206" y2="378.15" gradientUnits="userSpaceOnUse" x2="181.28" gradientTransform="matrix(.99139 -.13094 .13094 .99139 -65.848 49.985)" y1="343.67" x1="171.37">
-      <stop id="stop3166" style="stop-color:#c8c800" offset="0"/>
-      <stop id="stop3168" style="stop-color:#ffff49" offset="1"/>
+      <stop id="stop3166" style="stop-color:#d7c1a2" offset="0"/>
+      <stop id="stop3168" style="stop-color:#f0dfc4" offset="1"/>
     </linearGradient>
   </defs>
   <g id="layer1" transform="translate(-117.8 -304.41)">
-    <path id="path3162" style="fill:#000000;fill-opacity:.39216" d="m133.07 372.04c50.97-19.83 134.54-30.12 134.54-30.12l238.09-31.44 25.6 193.78s13.67 113.15 46.85 167.19c-77.62 32.18-215.04 52.19-215.04 52.19l-193.78 25.59-43.78-331.48s-6.98-26.45 7.52-45.71z"/>
-    <path id="rect2385" style="stroke:#000000;stroke-width:4;fill:url(#linearGradient3206)" d="m125.64 364.97c58.48-16.83 137.04-27.11 137.04-27.11l238.1-31.45 25.59 193.78s8.77 76 41.94 130.03c-63.19 76.14-210.13 89.35-210.13 89.35l-193.78 25.6-43.78-331.49s-3.8-31.87 5.02-48.71z"/>
+    <path id="path3162" style="fill:#6f584a;fill-opacity:.16" d="m133.07 372.04c50.97-19.83 134.54-30.12 134.54-30.12l238.09-31.44 25.6 193.78s13.67 113.15 46.85 167.19c-77.62 32.18-215.04 52.19-215.04 52.19l-193.78 25.59-43.78-331.48s-6.98-26.45 7.52-45.71z"/>
+    <path id="rect2385" style="stroke:#8b735f;stroke-width:4;fill:url(#linearGradient3206)" d="m125.64 364.97c58.48-16.83 137.04-27.11 137.04-27.11l238.1-31.45 25.59 193.78s8.77 76 41.94 130.03c-63.19 76.14-210.13 89.35-210.13 89.35l-193.78 25.6-43.78-331.49s-3.8-31.87 5.02-48.71z"/>
   </g>
   <metadata>
     <rdf:RDF>

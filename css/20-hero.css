@@ -271,11 +271,74 @@
     transform: rotate(-2deg);
 }
 
-.hero__actions{
-    display:flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
+.heroCountdown{
+    position: relative;
+    display: grid;
+    gap: 8px;
+    width: min(420px, 100%);
+    margin-top: 16px;
+    padding: 10px 12px 12px;
+    border-radius: 16px 18px 16px 18px;
+    background:
+        linear-gradient(180deg, rgba(255,248,235,.58), rgba(248,236,214,.54)),
+        url("../assets/old-paper-texture.webp") center/360px auto repeat;
+    border: 1px solid rgba(107,83,67,.05);
+    box-shadow: 0 8px 18px rgba(115,86,72,.04);
+}
+
+.heroCountdown::before{
+    content:"";
+    position: absolute;
+    right: 10px;
+    top: -6px;
+    width: 46px;
+    height: 18px;
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.18), rgba(241,221,168,.1)),
+        linear-gradient(90deg, rgba(255,255,255,.16), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.08);
+    opacity: .28;
+    transform: rotate(8deg);
+    pointer-events: none;
+}
+
+.heroCountdown__label{
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(203,100,103,.48);
+}
+
+.heroCountdown__grid{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.heroCountdown__item{
+    display: grid;
+    gap: 2px;
+    padding: 8px 6px;
+    border-radius: 12px 14px 12px 14px;
+    background: rgba(255,249,237,.34);
+    border: 1px solid rgba(107,83,67,.04);
+    text-align: center;
+}
+
+.heroCountdown__item b{
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: .9;
+    font-weight: 600;
+    color: rgba(71,48,58,.8);
+}
+
+.heroCountdown__item span{
+    font-size: 8px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(71,48,58,.38);
 }
 
 .hero__scene{
@@ -314,6 +377,7 @@
     box-shadow: var(--shadow);
     transform: rotate(1.2deg);
     border: 12px solid rgba(255,247,232,.76);
+    cursor: zoom-in;
 }
 
 .hero__scene::after{
@@ -409,6 +473,7 @@
     .hero__scene{
         min-height: 520px;
     }
+    .heroCountdown{ width: min(430px, 100%); }
     .hero__paper{
         right: 2%;
         bottom: 2%;
@@ -499,6 +564,32 @@
         font-size: 14px;
         line-height: 1.62;
     }
+    .heroCountdown{
+        margin-top: 12px;
+        padding: 9px 10px 10px;
+        width: 100%;
+        border-radius: 14px 16px 14px 16px;
+    }
+    .heroCountdown::before{
+        right: 6px;
+        top: -4px;
+        width: 40px;
+        height: 14px;
+    }
+    .heroCountdown__grid{
+        gap: 4px;
+    }
+    .heroCountdown__item{
+        padding: 7px 4px;
+        border-radius: 10px 12px 10px 12px;
+    }
+    .heroCountdown__item b{
+        font-size: 19px;
+    }
+    .heroCountdown__item span{
+        font-size: 7px;
+        letter-spacing: .06em;
+    }
     .hero__chips{
         gap: 8px;
         margin-top: 12px;
@@ -508,10 +599,6 @@
         padding: 8px 13px;
         font-size: 11px;
         letter-spacing: .14em;
-    }
-    .hero__actions{
-        gap: 10px;
-        margin-top: 12px;
     }
     .hero__scene{
         height: clamp(250px, 67vw, 316px);

@@ -25,7 +25,7 @@
                 observer.unobserve(entry.target);
             });
         },
-        { threshold: 0.15, rootMargin: '0px 0px -10% 0px' }
+        { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
     );
 
     items.forEach(item => io.observe(item));
@@ -62,14 +62,6 @@
         return forms[2];
     }
 
-    function updateNode(node, value) {
-        if (node.textContent === value) return;
-        node.textContent = value;
-        node.parentElement?.classList.remove('is-ticking');
-        void node.offsetWidth;
-        node.parentElement?.classList.add('is-ticking');
-    }
-
     function tick() {
         let diff = target.getTime() - Date.now();
         if (diff < 0) diff = 0;
@@ -79,14 +71,10 @@
         const minutesValue = Math.floor(diff / 60000) % 60;
         const secondsValue = Math.floor(diff / 1000) % 60;
 
-        const values = [
-            String(daysValue),
-            pad(hoursValue),
-            pad(minutesValue),
-            pad(secondsValue)
-        ];
-
-        units.forEach((unit, index) => updateNode(unit, values[index]));
+        units[0].textContent = String(daysValue);
+        units[1].textContent = pad(hoursValue);
+        units[2].textContent = pad(minutesValue);
+        units[3].textContent = pad(secondsValue);
 
         if (labels.days) labels.days.textContent = pluralize(daysValue, ['день', 'дня', 'дней']);
         if (labels.hours) labels.hours.textContent = pluralize(hoursValue, ['час', 'часа', 'часов']);
@@ -126,10 +114,18 @@
     }
 
     triggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
+        const openFromTrigger = () => {
             const src = trigger.getAttribute('data-full');
             const alt = trigger.querySelector('img')?.getAttribute('alt') || '';
             if (src) open(src, alt);
+        };
+
+        trigger.addEventListener('click', openFromTrigger);
+
+        trigger.addEventListener('keydown', event => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            openFromTrigger();
         });
     });
 
@@ -236,126 +232,4 @@
         card.addEventListener('pointerleave', reset);
         card.addEventListener('pointercancel', reset);
     });
-})();
-
-/* =========================================================
-   Smooth anchor scroll
-   ========================================================= */
-(function () {
-    const links = document.querySelectorAll('a[href^="#"]');
-    if (!links.length) return;
-
-    links.forEach(link => {
-        link.addEventListener('click', event => {
-            const id = link.getAttribute('href');
-            if (!id || id === '#') return;
-            const target = document.querySelector(id);
-            if (!target) return;
-            event.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-})();
-
-/* =========================================================
-   Scroll-powered paper plane
-   ========================================================= */
-(function () {
-    const card = document.getElementById('flightCard');
-    const play = document.getElementById('flightPlay');
-    if (!card || !play) return;
-
-    const reduce = window.matchMedia &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) return;
-
-    let active = false;
-    let progress = 0;
-    let touchY = null;
-    let lastReady = false;
-
-    const io = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                const threshold = window.innerWidth <= 720 ? 0.34 : 0.52;
-                active = entry.isIntersecting && entry.intersectionRatio > threshold;
-                if (!active) {
-                    progress = 0;
-                    render();
-                }
-            });
-        },
-        { threshold: [0, 0.34, 0.52, 0.8] }
-    );
-
-    io.observe(card);
-
-    function render() {
-        const rect = play.getBoundingClientRect();
-        const width = Math.max(rect.width, 280);
-        const height = Math.max(rect.height, 180);
-        const t = Math.max(0, Math.min(1, progress));
-        const isMobile = window.innerWidth <= 720;
-        const eased = t * t * (3 - 2 * t);
-        const targetX = isMobile ? width - 118 : width - 186;
-        const targetY = isMobile ? -74 : -138;
-        const arc = isMobile
-            ? Math.min(54, height * 0.26)
-            : Math.min(112, height * 0.40);
-        const x = targetX * eased;
-        const y = (targetY * eased) - (Math.sin(eased * Math.PI) * arc);
-        const rot = isMobile
-            ? (-10 + (eased * 26))
-            : (-8 + (eased * 30));
-        const ready = t >= 0.985 ? 1 : 0;
-        const burst = ready && !lastReady ? 1 : ready;
-
-        play.style.setProperty('--flight-progress', t.toFixed(3));
-        play.style.setProperty('--flight-x', `${x.toFixed(2)}px`);
-        play.style.setProperty('--flight-y', `${y.toFixed(2)}px`);
-        play.style.setProperty('--flight-rot', `${rot.toFixed(2)}deg`);
-        play.style.setProperty('--flight-heart-ready', String(ready));
-        play.style.setProperty('--flight-burst-ready', String(burst));
-
-        if (!ready) {
-            play.style.setProperty('--flight-burst-ready', '0');
-        } else if (!lastReady) {
-            window.setTimeout(() => {
-                if (progress >= 0.985) {
-                    play.style.setProperty('--flight-burst-ready', '1');
-                }
-            }, 20);
-        }
-
-        lastReady = Boolean(ready);
-    }
-
-    function addProgress(delta) {
-        if (!active) return;
-        const factor = window.innerWidth <= 720 ? 0.0058 : 0.0022;
-        progress = Math.max(0, Math.min(1, progress + (delta * factor)));
-        render();
-    }
-
-    window.addEventListener('wheel', event => {
-        addProgress(event.deltaY);
-    }, { passive: true });
-
-    window.addEventListener('touchstart', event => {
-        touchY = event.touches[0]?.clientY ?? null;
-    }, { passive: true });
-
-    window.addEventListener('touchmove', event => {
-        const currentY = event.touches[0]?.clientY;
-        if (touchY == null || currentY == null) return;
-        addProgress(touchY - currentY);
-        touchY = currentY;
-    }, { passive: true });
-
-    window.addEventListener('touchend', () => {
-        touchY = null;
-    }, { passive: true });
-
-    window.addEventListener('resize', render, { passive: true });
-    render();
 })();

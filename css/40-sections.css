@@ -1,323 +1,244 @@
-.introScene{
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
-    gap: 30px;
-    align-items: center;
-    position: relative;
-}
-
 .scribbleNote{
     position: absolute;
     display: grid;
     place-items: center;
     min-width: 138px;
     min-height: 110px;
-    padding: 22px 16px 16px;
+    padding: 24px 16px 16px;
     background: center/contain no-repeat url("../assets/blank-sticky-note.svg");
     font-family: var(--scribble);
-    font-size: 25px;
-    line-height: .96;
+    font-size: 24px;
+    line-height: .95;
     color: rgba(110,68,54,.9);
     text-align: center;
     pointer-events: none;
     z-index: 3;
+    filter: drop-shadow(0 10px 20px rgba(111,88,74,.08));
+    opacity: .9;
 }
 
-.section--intro{
-    position: relative;
-    padding-top: 72px;
-}
-
-.section--intro::before{
-    content:"";
-    position: absolute;
-    inset: 22px 0 auto;
-    height: 160px;
-    background: radial-gradient(360px 110px at 50% 0%, rgba(255,224,106,.16), transparent 72%);
-    pointer-events: none;
-}
-
-.introScene > *,
-.storyGrid > *,
-.splitSection > *,
-.countdownWrap > *,
-.wishesGrid > *{
-    min-width: 0;
-}
-
-.introScene__photo{
-    position: relative;
-    overflow: hidden;
-    border-radius: 34px 42px 34px 40px;
-    min-height: 0;
-    aspect-ratio: 4 / 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-        linear-gradient(180deg, rgba(255,249,237,.84), rgba(248,236,214,.86)),
-        url("../assets/old-paper-texture.webp") center/520px auto repeat;
-    border: 1px solid rgba(107,83,67,.10);
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    isolation: isolate;
-}
-
-.introScene__photo::before{
-    content:"";
-    position:absolute;
-    inset: 18px;
-    border-radius: 24px;
-    border: 1px dashed rgba(107,83,67,.22);
-    pointer-events:none;
-    z-index: 1;
-}
-
-.introScene__photo img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 26%;
-    transition: transform .5s cubic-bezier(.19,1,.22,1);
-}
-
-.introScene__photo::after{
-    content:"";
-    position: absolute;
-    right: 20px;
-    top: -12px;
-    width: 122px;
-    height: 42px;
-    border-radius: 7px;
-    background:
-        linear-gradient(180deg, rgba(252,242,204,.34), rgba(241,221,168,.22)),
-        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
-    border: 1px solid rgba(181,150,106,.10);
-    box-shadow: 0 8px 14px rgba(95,74,61,.05);
-    opacity: .72;
-    transform: rotate(8deg);
-    z-index: 2;
-}
-
-.introScene__text{
-    display: grid;
-    gap: 14px;
-    padding: 26px 22px 20px 10px;
-    position: relative;
-    z-index: 1;
-    border-radius: 28px 34px 28px 34px;
-    background:
-        linear-gradient(180deg, rgba(255,249,237,.76), rgba(250,238,215,.82)),
-        url("../assets/old-paper-texture.webp") center/560px auto repeat;
-    border: 1px solid rgba(107,83,67,.08);
-    box-shadow: var(--shadow-soft);
-    transform: rotate(.8deg);
-}
-
-.introScene__text::after{
-    content:"";
-    position: absolute;
-    right: 14px;
-    top: 14px;
-    width: 48px;
-    height: 48px;
-    background: center/contain no-repeat url("../assets/doodle-flower-4petal.svg");
-    opacity: .62;
-    pointer-events: none;
-}
-
-.scribbleNote--intro{
-    right: 10px;
-    top: -16px;
-    transform: rotate(5deg);
-}
-
-.introScene__text .lead{
-    margin: 0;
-    max-width: 34rem;
-}
-
-.introScene__meta{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 6px;
-}
-
-.introScene__meta span{
-    display: inline-flex;
-    align-items: center;
-    min-height: 42px;
-    padding: 10px 14px;
-    border-radius: 14px;
-    background: rgba(255,249,237,.92);
-    border: 1px solid rgba(107,83,67,.09);
-    box-shadow: var(--shadow-soft);
-    font-size: 11px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: rgba(71,48,58,.68);
-}
-
-.storyGrid{
-    display: grid;
-    grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
-    gap: 34px;
-    align-items: start;
+.section--story,
+.section--place,
+.section--day,
+.section--contacts{
     position: relative;
 }
 
-.section--letter::before,
-.section--day::before,
-.section--wishes::before{
-    content:"";
+.section--story::after,
+.section--place::after,
+.section--day::after,
+.section--contacts::after{
+    content: "";
     position: absolute;
     pointer-events: none;
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: .74;
+    opacity: .56;
 }
 
-.section--letter::before{
+.section--story::after{
     right: 4%;
-    top: 42px;
-    width: 88px;
-    height: 88px;
-    background-image: url("../assets/doodle-heart.svg");
+    top: 26px;
+    width: 94px;
+    height: 60px;
+    background-image: url("../assets/doodle-bow.svg");
 }
 
-.section--day::before{
+.section--place::after{
     left: 5%;
-    top: 24px;
-    width: 112px;
-    height: 112px;
+    top: 22px;
+    width: 86px;
+    height: 86px;
     background-image: url("../assets/doodle-sparkles.svg");
-    opacity: .62;
 }
 
-.section--wishes::before{
+.section--day::after{
     right: 5%;
     top: 18px;
-    width: 120px;
-    height: 82px;
-    background-image: url("../assets/doodle-bow.svg");
-    opacity: .66;
+    width: 72px;
+    height: 72px;
+    background-image: url("../assets/handdrawn-heart.svg");
+}
+
+.section--contacts::after{
+    right: 5%;
+    top: 32px;
+    width: 84px;
+    height: 64px;
+    background-image: url("../assets/doodle-flower-triple.svg");
+}
+
+.storyGrid > *,
+.splitSection > *,
+.contactsSheet > *{
+    min-width: 0;
+}
+
+.storyGrid{
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: 34px;
+    align-items: start;
 }
 
 .storyLead{
+    position: sticky;
+    top: 28px;
     display: grid;
     gap: 18px;
     align-content: start;
     padding: 34px 30px 28px;
-    max-width: 34rem;
     border-radius: 34px 40px 32px 40px;
     background:
-        linear-gradient(180deg, rgba(255,249,237,.92), rgba(248,236,214,.88)),
+        linear-gradient(180deg, rgba(255,249,237,.94), rgba(248,236,214,.9)),
         url("../assets/old-paper-texture.webp") center/640px auto repeat;
     border: 1px solid rgba(107,83,67,.08);
     box-shadow: var(--shadow-soft);
-    position: sticky;
-    top: 32px;
-    transform: rotate(-1deg);
+    transform: rotate(-.8deg);
 }
 
 .storyLead::before{
-    content:"";
-    position: absolute;
-    right: 14px;
-    top: -10px;
-    width: 56px;
-    height: 56px;
-    background: center/contain no-repeat url("../assets/handdrawn-heart.svg");
-    opacity: .72;
-    pointer-events: none;
-}
-
-.storyLead::after{
-    content:"";
+    content: "";
     position: absolute;
     left: 18px;
     top: -10px;
-    width: 82px;
+    width: 84px;
     height: 30px;
     border-radius: 7px;
     background:
-        linear-gradient(180deg, rgba(252,242,204,.34), rgba(241,221,168,.22)),
+        linear-gradient(180deg, rgba(252,242,204,.3), rgba(241,221,168,.18)),
         linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
-    border: 1px solid rgba(181,150,106,.10);
-    box-shadow: 0 8px 14px rgba(95,74,61,.05);
-    opacity: .58;
+    border: 1px solid rgba(181,150,106,.12);
+    opacity: .54;
+    transform: rotate(-9deg);
+}
+
+.storyLead::after{
+    content: "";
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    width: 44px;
+    height: 44px;
+    background: center/contain no-repeat url("../assets/doodle-flower-4petal.svg");
+    opacity: .56;
     pointer-events: none;
-    transform: rotate(-10deg);
+}
+
+.storyLead .lead{
+    margin: 0;
+}
+
+.inviteList{
+    display: grid;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.inviteList p{
+    position: relative;
+    margin: 0;
+    padding: 16px 18px 16px 44px;
+    border-radius: 22px 26px 22px 26px;
+    background:
+        linear-gradient(180deg, rgba(255,250,241,.92), rgba(246,236,216,.98)),
+        url("../assets/old-paper-texture.webp") center/420px auto repeat;
+    border: 1px solid rgba(107,83,67,.08);
+    box-shadow: var(--shadow-soft);
+    color: rgba(71,48,58,.76);
+}
+
+.inviteList p::before{
+    content: "♡";
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    color: rgba(190,115,135,.9);
+    font-size: 18px;
+    line-height: 1;
 }
 
 .scribbleNote--story{
     position: relative;
     left: auto;
     top: auto;
-    min-width: 148px;
-    min-height: 98px;
     justify-self: end;
     margin-top: 8px;
+    min-width: 146px;
+    min-height: 98px;
     transform: rotate(-7deg);
 }
 
 .storyGallery{
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    position: relative;
-    padding: 12px 0 0 44px;
+    padding: 12px 0 0 38px;
 }
 
 .storyGallery::before{
-    content:"";
+    content: "";
     position: absolute;
     left: 10px;
     top: 28px;
-    bottom: 90px;
+    bottom: 92px;
     width: 2px;
-    background: linear-gradient(180deg, rgba(215,160,175,.0), rgba(215,160,175,.86) 18%, rgba(232,193,109,.52) 58%, rgba(215,160,175,0));
     border-radius: 999px;
+    background: linear-gradient(180deg, rgba(215,160,175,0), rgba(215,160,175,.82) 18%, rgba(232,193,109,.52) 60%, rgba(215,160,175,0));
 }
 
 .storyGallery::after{
-    content:"";
+    content: "";
     position: absolute;
-    left: -10px;
+    left: -6px;
     top: 0;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background:
-        center/contain no-repeat
-        url("../assets/doodle-heart.svg");
-    opacity: .9;
+    width: 30px;
+    height: 30px;
+    background: center/contain no-repeat url("../assets/doodle-heart.svg");
+    opacity: .88;
 }
 
 .storyCard{
-    margin: 0;
     position: relative;
+    margin: 0;
     overflow: hidden;
+    padding: 10px;
     border-radius: 30px 36px 30px 36px;
     background:
-        linear-gradient(180deg, rgba(255,249,237,.82), rgba(246,235,214,.86)),
+        linear-gradient(180deg, rgba(255,249,237,.86), rgba(246,235,214,.9)),
         url("../assets/old-paper-texture.webp") center/480px auto repeat;
-    border: 1px solid rgba(107,83,67,.10);
+    border: 1px solid rgba(107,83,67,.1);
     box-shadow: var(--shadow-soft);
-    padding: 10px;
+    cursor: pointer;
 }
 
 .storyCard::before{
-    content:"";
+    content: "";
     position: absolute;
-    left: -30px;
-    top: 34px;
+    left: -28px;
+    top: 32px;
     width: 16px;
     height: 16px;
     border-radius: 50%;
     background: linear-gradient(180deg, rgba(215,160,175,.96), rgba(194,122,144,.96));
     box-shadow: 0 0 0 7px rgba(255,247,243,.96);
+}
+
+.storyCard::after{
+    content: "";
+    position: absolute;
+    right: 16px;
+    top: -10px;
+    width: 76px;
+    height: 28px;
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.28), rgba(241,221,168,.14)),
+        linear-gradient(90deg, rgba(255,255,255,.24), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.12);
+    opacity: .52;
+    transform: rotate(8deg);
 }
 
 .storyCard img{
@@ -329,6 +250,19 @@
     transition: transform .44s cubic-bezier(.19,1,.22,1);
 }
 
+.storyCard figcaption{
+    position: absolute;
+    left: 22px;
+    bottom: 22px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: rgba(255,249,237,.94);
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: rgba(71,48,58,.68);
+}
+
 .storyCard--small{
     aspect-ratio: 3 / 4;
 }
@@ -338,17 +272,15 @@
 }
 
 .storyCard--small:nth-child(2){
-    transform: translateY(38px) rotate(3deg);
+    transform: translateY(40px) rotate(3deg);
 }
 
 .storyCard--wide{
     grid-column: 1 / -1;
-    aspect-ratio: auto;
-    padding: 16px;
     margin-top: 18px;
-    cursor: pointer;
-    transform: translateX(18px);
+    padding: 14px;
     border-radius: 38px;
+    transform: translateX(18px);
 }
 
 .storyCard--wide img{
@@ -357,192 +289,68 @@
     min-height: 0;
     max-height: min(560px, 50vw);
     object-fit: contain;
-    object-position: center center;
     background: rgba(255,248,246,.94);
     border-radius: 28px;
 }
 
-.storyCard figcaption{
-    position: absolute;
-    left: 24px;
-    bottom: 24px;
-    padding: 10px 14px;
-    border-radius: 14px;
-    background: rgba(255,249,237,.92);
-    font-size: 11px;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: rgba(71,48,58,.68);
-}
-
-.letterCard{
-    position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(260px, .92fr);
-    gap: 24px;
-    align-items: stretch;
-    padding: 0;
-    background: none;
-    border: 0;
-    box-shadow: none;
-}
-
-.letterPostcard{
-    position: relative;
-    padding: 34px 32px 32px;
-    border-radius: 34px 42px 32px 40px;
-    background:
-        linear-gradient(180deg, rgba(255,250,241,.96), rgba(246,234,210,.98)),
-        url("../assets/old-paper-texture.webp") center/720px auto repeat;
-    border: 1px solid rgba(107,83,67,.10);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    transform: rotate(-.8deg);
-}
-
-.letterPostcard::before{
-    content:"";
-    position: absolute;
-    inset: 16px;
-    border-radius: 28px;
-    border: 1px dashed rgba(107,83,67,.22);
-    pointer-events: none;
-}
-
-.letterPostcard::after{
-    content:"";
-    position: absolute;
-    right: -8px;
-    bottom: 18px;
-    width: 112px;
-    height: 112px;
-    background: center/contain no-repeat url("../assets/postage-stamp.svg");
-    opacity: .12;
-    pointer-events: none;
-    transform: rotate(10deg);
-}
-
-.letterPostcard__stamp{
-    position: absolute;
-    right: 26px;
-    top: 24px;
-    display: grid;
-    place-items: center;
-    width: 108px;
-    height: 108px;
-    border-radius: 42% 58% 48% 52% / 48% 46% 54% 52%;
-    background: radial-gradient(circle, rgba(243,214,207,.76), rgba(203,100,103,.88));
-    color: #fff;
-    font-family: var(--serif);
-    font-size: 40px;
-    line-height: 1;
-    box-shadow: 0 22px 38px rgba(190,115,135,.24);
-    transform: rotate(9deg);
-}
-
-.letterPostcard__pin{
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: linear-gradient(180deg, rgba(215,160,175,.96), rgba(194,122,144,.96));
-    box-shadow: 0 0 0 5px rgba(255,247,243,.96);
-}
-
-.letterPostcard__pin--one{
-    left: 28px;
-    top: 28px;
-}
-
-.letterPostcard__pin--two{
-    left: 72px;
-    top: 28px;
-}
-
-.letterCard__script{
-    font-family: var(--accent);
-    font-size: 34px;
-    line-height: 1;
-    color: rgba(190,115,135,.92);
-    margin-top: -4px;
-}
-
-.letterCard__content{
-    display: grid;
-    gap: 16px;
-    position: relative;
-    z-index: 1;
-}
-
-.letterCard__content p:not(.sectionHead__eyebrow){
-    color: rgba(71,48,58,.74);
-}
-
-.letterNote{
-    position: relative;
-    display: grid;
-    align-content: center;
-    gap: 14px;
-    padding: 32px 28px;
-    border-radius: 28px 34px 28px 34px;
-    background:
-        linear-gradient(180deg, rgba(255,248,236,.94), rgba(244,231,205,.96)),
-        url("../assets/old-paper-texture.webp") center/520px auto repeat;
-    border: 1px solid rgba(107,83,67,.08);
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-    transform: rotate(1.2deg);
-}
-
-.letterNote::before{
-    content:"";
-    position: absolute;
-    right: -22px;
-    top: -22px;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(244,217,223,.56), transparent 72%);
-}
-
-.letterNote__label{
-    font-size: 11px;
-    letter-spacing: .28em;
-    text-transform: uppercase;
-    color: rgba(190,115,135,.76);
-}
-
-.letterNote strong{
-    font-family: var(--accent);
-    font-size: 42px;
-    line-height: .92;
-    color: rgba(190,115,135,.96);
-}
-
-.letterNote p{
-    color: rgba(71,48,58,.62);
-}
-
 .splitSection{
     display: grid;
-    grid-template-columns: minmax(0, .76fr) minmax(0, 1.24fr);
-    gap: 24px;
+    grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+    gap: 28px;
     align-items: center;
 }
 
 .splitSection__content{
+    position: relative;
     display: grid;
     gap: 18px;
+    padding: 30px 28px;
+    border-radius: 30px 36px 30px 36px;
+    background:
+        linear-gradient(180deg, rgba(255,249,237,.9), rgba(247,236,216,.92)),
+        url("../assets/old-paper-texture.webp") center/620px auto repeat;
+    border: 1px solid rgba(107,83,67,.08);
+    box-shadow: var(--shadow-soft);
+    transform: rotate(.8deg);
+}
+
+.splitSection__content::before{
+    content: "";
+    position: absolute;
+    right: 14px;
+    top: -10px;
+    width: 82px;
+    height: 30px;
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.3), rgba(241,221,168,.18)),
+        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.12);
+    opacity: .54;
+    transform: rotate(10deg);
 }
 
 .map-card{
-    border-radius: 32px 38px 32px 38px;
+    position: relative;
     overflow: hidden;
+    border-radius: 32px 38px 32px 38px;
     background:
-        linear-gradient(180deg, rgba(255,248,236,.88), rgba(246,235,214,.9)),
+        linear-gradient(180deg, rgba(255,248,236,.9), rgba(246,235,214,.92)),
         url("../assets/old-paper-texture.webp") center/680px auto repeat;
     border: 1px solid rgba(107,83,67,.09);
     box-shadow: var(--shadow);
+}
+
+.map-card::after{
+    content: "";
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    width: 58px;
+    height: 58px;
+    background: center/contain no-repeat url("../assets/mobile-flower.svg");
+    opacity: .32;
+    pointer-events: none;
 }
 
 .map-frame{
@@ -550,14 +358,14 @@
 }
 
 .map-frame iframe{
-    display:block;
+    display: block;
     width: 100%;
     height: 460px;
     border: 0;
 }
 
 .map-overlay{
-    position:absolute;
+    position: absolute;
     inset: 0;
     display: grid;
     place-content: center;
@@ -565,14 +373,14 @@
     width: 100%;
     border: 0;
     cursor: pointer;
-    background: linear-gradient(180deg, rgba(73,48,58,.18), rgba(73,48,58,.3));
+    background: linear-gradient(180deg, rgba(73,48,58,.16), rgba(73,48,58,.28));
     color: rgba(255,255,255,.96);
 }
 
 .map-overlay__title{
     font-family: var(--serif);
-    font-size: 40px;
-    line-height: .9;
+    font-size: 38px;
+    line-height: .92;
     letter-spacing: -.04em;
 }
 
@@ -583,26 +391,14 @@
 }
 
 .map-card.is-active .map-overlay{
-    display:none;
+    display: none;
 }
 
 .dayMap{
     position: relative;
     display: grid;
     gap: 22px;
-    padding: 16px 0 6px;
-}
-
-.dayMap::before{
-    content:"";
-    position: absolute;
-    right: 2%;
-    top: -32px;
-    width: 84px;
-    height: 84px;
-    background: center/contain no-repeat url("../assets/handdrawn-heart.svg");
-    pointer-events: none;
-    opacity: .86;
+    padding: 18px 0 8px;
 }
 
 .dayMap__line{
@@ -613,7 +409,7 @@
     width: 3px;
     transform: translateX(-50%);
     border-radius: 999px;
-    background: linear-gradient(180deg, rgba(215,160,175,.14), rgba(215,160,175,.78) 26%, rgba(232,193,109,.56) 62%, rgba(198,210,192,.12));
+    background: linear-gradient(180deg, rgba(215,160,175,.14), rgba(215,160,175,.8) 24%, rgba(232,193,109,.56) 60%, rgba(198,210,192,.12));
 }
 
 .dayStop{
@@ -628,7 +424,7 @@
     background:
         linear-gradient(180deg, rgba(255,250,241,.92), rgba(246,236,216,.96)),
         url("../assets/old-paper-texture.webp") center/480px auto repeat;
-    border: 1px solid rgba(107,83,67,.10);
+    border: 1px solid rgba(107,83,67,.1);
     box-shadow: var(--shadow-soft);
 }
 
@@ -669,7 +465,7 @@
     min-height: 54px;
     padding: 10px 18px;
     border-radius: 16px;
-    background: rgba(255,249,237,.88);
+    background: rgba(255,249,237,.9);
     border: 1px solid rgba(107,83,67,.09);
     font-family: var(--serif);
     font-size: 34px;
@@ -698,335 +494,47 @@
     color: rgba(71,48,58,.66);
 }
 
-.countdownWrap{
+.contactsCard{
+    position: relative;
     display: grid;
-    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
-    gap: 24px;
-    align-items: center;
-}
-
-.countdownPanel{
-    padding: 30px;
-    border-radius: 34px 40px 32px 40px;
-    background:
-        linear-gradient(180deg, rgba(255,250,241,.82), rgba(247,237,218,.86)),
-        url("../assets/old-paper-texture.webp") center/540px auto repeat;
-    border: 1px solid rgba(107,83,67,.09);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    transform: rotate(-.8deg);
-}
-
-.countdown{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 26px;
-}
-
-.cItem{
-    position: relative;
-    overflow: hidden;
-    padding: 18px 14px;
-    border-radius: 20px;
-    background:
-        linear-gradient(180deg, rgba(255,249,237,.84), rgba(247,236,217,.88)),
-        url("../assets/old-paper-texture.webp") center/320px auto repeat;
-    border: 1px solid rgba(107,83,67,.08);
-}
-
-.cItem::before{
-    content:"";
-    position:absolute;
-    inset: auto auto -24px -24px;
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(244,217,223,.56), transparent 70%);
-}
-
-.cItem b{
-    position: relative;
-    display: block;
-    font-family: var(--serif);
-    font-size: 54px;
-    line-height: .9;
-    color: rgba(71,48,58,.94);
-    transition: transform .24s ease, color .24s ease;
-}
-
-.cItem span{
-    position: relative;
-    display:block;
-    margin-top: 6px;
-    font-size: 11px;
-    letter-spacing: .24em;
-    text-transform: uppercase;
-    color: rgba(71,48,58,.54);
-}
-
-.cItem.is-ticking b{
-    color: var(--rose-strong);
-    animation: countdownJump .42s cubic-bezier(.19,1,.22,1);
-}
-
-@keyframes countdownJump{
-    0%{ transform: translateY(0) scale(1); }
-    50%{ transform: translateY(-4px) scale(1.06); }
-    100%{ transform: translateY(0) scale(1); }
-}
-
-.countdownVisual{
-    min-height: 520px;
-    border-radius: 48px;
-    background:
-        linear-gradient(180deg, rgba(255,255,255,.1), rgba(73,48,58,.18)),
-        url("../assets/countdown.webp") center/cover no-repeat;
-    border: 1px solid rgba(255,255,255,.36);
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
-}
-
-.countdownVisual::before{
-    content:"";
-    position:absolute;
-    inset: 18px;
-    border-radius: 30px;
-    border: 1px solid rgba(255,255,255,.34);
-}
-
-.countdownVisual::after{
-    content:"";
-    position: absolute;
-    right: 24px;
-    top: 24px;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,.22), transparent 72%);
-}
-
-.section--flight{
-    position: relative;
-}
-
-.flightCard{
-    position: relative;
-    padding: 42px 34px 36px;
-    border-radius: 34px 40px 32px 40px;
+    gap: 18px;
+    padding: 32px 30px;
+    border-radius: 32px 38px 32px 38px;
     background:
         linear-gradient(180deg, rgba(255,250,241,.9), rgba(247,236,217,.92)),
-        url("../assets/old-paper-texture.webp") center/640px auto repeat;
-    border: 1px solid rgba(107,83,67,.10);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-}
-
-.flightCard::before{
-    content:"";
-    position: absolute;
-    right: 20px;
-    top: 14px;
-    width: 96px;
-    height: 30px;
-    border-radius: 8px;
-    background:
-        linear-gradient(180deg, rgba(252,242,204,.32), rgba(241,221,168,.20)),
-        linear-gradient(90deg, rgba(255,255,255,.20), rgba(255,255,255,0));
-    border: 1px solid rgba(181,150,106,.10);
-    box-shadow: 0 8px 14px rgba(95,74,61,.05);
-    opacity: .64;
-    transform: rotate(8deg);
-    pointer-events: none;
-}
-
-.flightCard > .lead{
-    max-width: 38rem;
-}
-
-.flightPlay{
-    position: relative;
-    margin-top: 26px;
-    min-height: 260px;
-    border-radius: 30px;
-    background:
-        linear-gradient(180deg, rgba(255,248,236,.72), rgba(245,234,214,.78));
-    border: 1px dashed rgba(107,83,67,.18);
-    overflow: hidden;
-    isolation: isolate;
-    --flight-progress: 0;
-    --flight-x: 0px;
-    --flight-y: 0px;
-    --flight-rot: -8deg;
-    --flight-heart-ready: 0;
-    --flight-burst-ready: 0;
-}
-
-.flightPlay::before{
-    content:"";
-    position: absolute;
-    left: 24px;
-    top: 20px;
-    width: 102px;
-    height: 66px;
-    background: center/contain no-repeat url("../assets/handdrawn-rainbow.svg");
-    opacity: .62;
-    pointer-events: none;
-}
-
-.flightPlay::after{
-    content:"";
-    position: absolute;
-    right: 24px;
-    bottom: 18px;
-    width: 86px;
-    height: 64px;
-    background: center/contain no-repeat url("../assets/doodle-flower-4petal.svg");
-    opacity: .52;
-    pointer-events: none;
-}
-
-.flightTrail{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.flightTrail path{
-    fill: none;
-    stroke: rgba(203,100,103,.34);
-    stroke-width: 4;
-    stroke-linecap: round;
-    stroke-dasharray: 8 14;
-}
-
-.flightPlaneWrap,
-.flightHeartWrap,
-.flightBurst{
-    position: absolute;
-    pointer-events: none;
-}
-
-.flightPlaneWrap{
-    left: 50px;
-    bottom: 42px;
-    z-index: 2;
-    transform-origin: center;
-    transform: translate3d(var(--flight-x), var(--flight-y), 0) rotate(var(--flight-rot)) scale(1);
-    transition: transform .08s linear;
-}
-
-.flightPlane{
-    width: 48px;
-    filter: drop-shadow(0 10px 14px rgba(95,74,61,.10));
-}
-
-.flightHeartWrap{
-    right: 54px;
-    top: 54px;
-    z-index: 2;
-}
-
-.flightHeart{
-    width: 88px;
-    opacity: var(--flight-heart-ready);
-    transform: scale(calc(.82 + (var(--flight-heart-ready) * .24)));
-    transition: transform .2s ease, opacity .18s ease;
-    filter: drop-shadow(0 12px 18px rgba(203,100,103,.12));
-}
-
-.flightHeartGlow{
-    position: absolute;
-    inset: 50% auto auto 50%;
-    width: 120px;
-    height: 120px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,201,203,.34), transparent 68%);
-    opacity: calc(var(--flight-heart-ready) * .72);
-    transition: opacity .2s ease;
-    z-index: -1;
-}
-
-.flightBurst{
-    right: 72px;
-    top: 78px;
-    width: 78px;
-    height: 78px;
-    z-index: 1;
-    opacity: var(--flight-burst-ready);
-    transform: scale(calc(.66 + (var(--flight-burst-ready) * .44)));
-    transition: opacity .16s ease, transform .16s ease;
-}
-
-.flightBurst span{
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 2px solid rgba(203,100,103,.36);
-}
-
-.flightBurst span:nth-child(2){
-    inset: 12px;
-    border-color: rgba(255,224,106,.46);
-}
-
-.flightBurst span:nth-child(3){
-    inset: 24px;
-    border-color: rgba(223,143,158,.46);
-}
-
-.wishesGrid{
-    display: grid;
-    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
-    gap: 20px;
-}
-
-.wishCard,
-.contactsCard{
-    padding: 30px;
-    border-radius: 30px 38px 30px 38px;
-    background:
-        linear-gradient(180deg, rgba(255,250,241,.84), rgba(247,236,217,.88)),
         url("../assets/old-paper-texture.webp") center/620px auto repeat;
     border: 1px solid rgba(107,83,67,.09);
     box-shadow: var(--shadow-soft);
 }
 
-.wishCard{
-    display: grid;
-    gap: 16px;
-}
-
-.wishCard p:not(.sectionHead__eyebrow){
-    color: rgba(71,48,58,.74);
-}
-
-.contactsCard{
-    display: grid;
-    gap: 18px;
-    position: relative;
-}
-
 .contactsCard::before{
-    content:"";
+    content: "";
     position: absolute;
-    right: 10px;
-    bottom: -8px;
-    width: 72px;
-    height: 58px;
-    background: center/contain no-repeat url("../assets/doodle-flower-triple.svg");
-    opacity: .58;
-    pointer-events: none;
+    right: 14px;
+    top: -10px;
+    width: 82px;
+    height: 30px;
+    border-radius: 7px;
+    background:
+        linear-gradient(180deg, rgba(252,242,204,.3), rgba(241,221,168,.18)),
+        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+    border: 1px solid rgba(181,150,106,.12);
+    opacity: .54;
+    transform: rotate(8deg);
 }
 
 .contactsCard > .lead{
     margin: -2px 0 0;
-    max-width: 34rem;
+    max-width: 38rem;
+}
+
+.scribbleNote--contacts{
+    right: 18px;
+    top: -18px;
+    min-width: 138px;
+    min-height: 96px;
+    font-size: 20px;
+    transform: rotate(6deg);
 }
 
 .contactsSheet{
@@ -1040,46 +548,19 @@
     background:
         linear-gradient(180deg, rgba(255,250,241,.96), rgba(246,236,216,.98)),
         url("../assets/old-paper-texture.webp") center/640px auto repeat;
-    border: 1px solid rgba(107,83,67,.10);
+    border: 1px solid rgba(107,83,67,.1);
     box-shadow: var(--shadow);
     overflow: hidden;
     transform: rotate(.8deg);
 }
 
 .contactsSheet::before{
-    content:"";
+    content: "";
     position: absolute;
     inset: 14px;
     border-radius: 26px;
     border: 1px dashed rgba(107,83,67,.22);
     pointer-events: none;
-}
-
-.contactsSheet::after{
-    content:"";
-    position: absolute;
-    right: 12px;
-    top: -8px;
-    width: 80px;
-    height: 30px;
-    border-radius: 7px;
-    background:
-        linear-gradient(180deg, rgba(252,242,204,.34), rgba(241,221,168,.22)),
-        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
-    border: 1px solid rgba(181,150,106,.10);
-    box-shadow: 0 8px 14px rgba(95,74,61,.05);
-    opacity: .56;
-    pointer-events: none;
-    transform: rotate(10deg);
-}
-
-.scribbleNote--contacts{
-    right: 12px;
-    top: -14px;
-    min-width: 138px;
-    min-height: 96px;
-    font-size: 20px;
-    transform: rotate(6deg);
 }
 
 .contactsSheet__line{
@@ -1093,7 +574,7 @@
     left: 50%;
     width: 1px;
     transform: translateX(-50%);
-    background: linear-gradient(180deg, rgba(216,154,168,.0), rgba(216,154,168,.32), rgba(216,154,168,.0));
+    background: linear-gradient(180deg, rgba(216,154,168,0), rgba(216,154,168,.32), rgba(216,154,168,0));
 }
 
 .contactsSheet__line--horizontal{
@@ -1101,11 +582,9 @@
 }
 
 .contactEntry{
-    position: relative;
     display: grid;
     gap: 14px;
     padding: 28px 26px 24px;
-    min-width: 0;
 }
 
 .contactEntry__head{
@@ -1156,160 +635,13 @@
 }
 
 .contactEntry__links a::after{
-    content:"";
+    content: "";
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     height: 1px;
     background: rgba(190,115,135,.38);
-}
-
-.finalScene{
-    position: relative;
-    overflow: hidden;
-    padding: 76px 22px;
-    border-radius: 34px 40px 32px 40px;
-    text-align: center;
-    background:
-        linear-gradient(180deg, rgba(255,247,234,.92), rgba(240,226,197,.94)),
-        url("../assets/old-paper-texture.webp") center/760px auto repeat;
-    border: 1px solid rgba(107,83,67,.10);
-    box-shadow: var(--shadow);
-    color: rgba(70,53,47,.96);
-    transform: rotate(-.7deg);
-}
-
-.finalScene::before{
-    content:"";
-    position: absolute;
-    inset: 18px;
-    border-radius: 34px;
-    border: 1px dashed rgba(107,83,67,.22);
-    pointer-events: none;
-}
-
-.finalScene::after{
-    content:"";
-    position: absolute;
-    left: 14px;
-    top: -8px;
-    width: 82px;
-    height: 30px;
-    border-radius: 7px;
-    background:
-        linear-gradient(180deg, rgba(252,242,204,.34), rgba(241,221,168,.22)),
-        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
-    border: 1px solid rgba(181,150,106,.10);
-    box-shadow: 0 8px 14px rgba(95,74,61,.05);
-    opacity: .56;
-    pointer-events: none;
-    transform: rotate(-9deg);
-}
-
-.finalScene h2{
-    color: rgba(70,53,47,.98);
-}
-
-.finalScene .lead{
-    color: rgba(70,53,47,.76);
-}
-
-.finalScene__script{
-    margin-top: 18px;
-    font-family: var(--accent);
-    font-size: 34px;
-    line-height: .96;
-    color: rgba(203,100,103,.96);
-}
-
-.finalScene__date{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 18px;
-    min-height: 40px;
-    padding: 8px 14px;
-    border-radius: 14px;
-    background: rgba(255,249,237,.8);
-    border: 1px solid rgba(107,83,67,.14);
-    font-size: 10px;
-    letter-spacing: .24em;
-    text-transform: uppercase;
-    color: rgba(70,53,47,.74);
-}
-
-.finalScene__spark{
-    position:absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    pointer-events:none;
-    background: radial-gradient(circle, rgba(255,224,106,.22), transparent 72%);
-}
-
-.scribbleNote--final{
-    right: 12px;
-    bottom: 10px;
-    min-width: 124px;
-    min-height: 88px;
-    font-size: 19px;
-    transform: rotate(-8deg);
-}
-
-@media (max-width: 1200px){
-    .scribbleNote--intro{
-        right: 4px;
-        top: -8px;
-        min-width: 126px;
-        min-height: 90px;
-        font-size: 20px;
-    }
-    .scribbleNote--contacts{
-        right: 6px;
-        top: -10px;
-        min-width: 124px;
-        min-height: 88px;
-        font-size: 18px;
-    }
-    .scribbleNote--final{
-        right: 8px;
-        bottom: 8px;
-        min-width: 116px;
-        min-height: 82px;
-        font-size: 18px;
-    }
-    .contactsCard::before{
-        width: 62px;
-        height: 50px;
-        opacity: .5;
-    }
-}
-
-.finalScene__spark--one{
-    left: -40px;
-    top: -20px;
-    animation: sparkFloat 7s ease-in-out infinite;
-}
-
-.finalScene__spark--two{
-    right: -30px;
-    bottom: -30px;
-    animation: sparkFloat 8.5s ease-in-out infinite reverse;
-}
-
-.finalScene__spark--three{
-    left: 50%;
-    top: 18%;
-    width: 128px;
-    height: 128px;
-    transform: translateX(-50%);
-    animation: sparkFloat 6.6s ease-in-out infinite;
-}
-
-@keyframes sparkFloat{
-    0%,100%{ transform: scale(1); opacity: .55; }
-    50%{ transform: scale(1.12); opacity: .92; }
 }
 
 .footer{
@@ -1326,9 +658,6 @@
 }
 
 @media (hover:hover){
-    .introScene__photo:hover img{
-        transform: scale(1.03);
-    }
     .storyCard:hover img{
         transform: scale(1.04);
     }
@@ -1338,19 +667,24 @@
 }
 
 @media (max-width: 980px){
-    .introScene,
     .storyGrid,
-    .splitSection,
-    .countdownWrap,
-    .wishesGrid{
+    .splitSection{
         grid-template-columns: 1fr;
     }
+
+    .storyLead{
+        position: static;
+    }
+
     .contactsSheet{
         grid-template-columns: 1fr;
+        transform: none;
     }
+
     .contactsSheet__line--vertical{
         display: none;
     }
+
     .contactsSheet__line--horizontal{
         display: block;
         left: 28px;
@@ -1358,18 +692,14 @@
         top: 50%;
         height: 1px;
         transform: translateY(-50%);
-        background: linear-gradient(90deg, rgba(216,154,168,.0), rgba(216,154,168,.32), rgba(216,154,168,.0));
+        background: linear-gradient(90deg, rgba(216,154,168,0), rgba(216,154,168,.32), rgba(216,154,168,0));
     }
-    .storyLead{
-        position: static;
-    }
-    .letterCard{
-        grid-template-columns: 1fr;
-    }
+
     .dayMap__line{
         left: 26px;
         transform: none;
     }
+
     .dayStop,
     .dayStop--one,
     .dayStop--two,
@@ -1378,6 +708,7 @@
         width: 100%;
         grid-template-columns: 96px 60px minmax(0, 1fr);
     }
+
     .dayStop__dot,
     .dayStop--one .dayStop__dot,
     .dayStop--two .dayStop__dot,
@@ -1386,246 +717,133 @@
         right: auto;
         transform: translateY(-50%);
     }
-    .flightPlay{
-        min-height: 230px;
-    }
-    .flightHeartWrap{
-        right: 36px;
-        top: 44px;
-    }
-    .flightPlaneWrap{
-        left: 34px;
-        bottom: 34px;
-    }
 }
 
 @media (max-width: 720px){
-    .section--intro{
-        padding-top: 40px;
-    }
-    .section--intro::before{
-        inset: 0 0 auto;
-        height: 120px;
-    }
-    .section--intro::after{
-        content:"";
-        position: absolute;
-        right: -8px;
-        top: 22px;
-        width: 74px;
-        height: 74px;
-        background: center/contain no-repeat url("../assets/mobile-ribbon.svg");
-        opacity: .7;
-        pointer-events: none;
-        animation: mobileDecorFloat 7.2s ease-in-out infinite;
-    }
-    .section--letter::before,
-    .section--day::before,
-    .section--wishes::before{
+    .section--story::after,
+    .section--place::after,
+    .section--day::after,
+    .section--contacts::after{
         width: 58px;
         height: 58px;
-        opacity: .48;
+        opacity: .42;
     }
-    .section--letter::before{
-        right: 12px;
-        top: 16px;
-    }
-    .section--day::before{
-        left: 10px;
-        top: 12px;
-    }
-    .section--wishes::before{
-        right: 10px;
-        top: 12px;
-        width: 74px;
-    }
-    .introScene,
+
     .storyGrid,
-    .storyGallery,
-    .countdownWrap{
+    .storyGallery{
         overflow: clip;
     }
-    .introScene__photo{
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        aspect-ratio: auto;
-        min-height: 0;
-        max-height: none;
-        border-radius: 24px;
-        padding: 0;
-        overflow: hidden;
-    }
-    .introScene__photo::before{
-        display: none;
-    }
-    .introScene__photo::after{
-        right: 10px;
-        top: -8px;
-        width: 82px;
-        height: 30px;
-    }
-    .introScene__photo img{
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        max-height: none;
-        object-fit: cover;
-        object-position: center center;
-        border-radius: 24px;
-    }
-    .introScene__text{
+
+    .storyLead{
         gap: 14px;
-        padding: 20px 16px 16px;
-        border-radius: 24px 28px 24px 28px;
+        padding: 24px 20px 20px;
+        max-width: none;
         transform: none;
     }
-    .introScene__text::after{
-        right: 10px;
-        top: 12px;
-        width: 38px;
-        height: 38px;
-        opacity: .54;
+
+    .storyLead::before{
+        left: 12px;
+        top: -10px;
+        width: 74px;
+        height: 28px;
     }
+
+    .storyLead::after{
+        right: 10px;
+        top: 10px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .storyLead h2{
+        font-size: clamp(38px, 12vw, 54px);
+        line-height: .96;
+    }
+
+    .storyLead .lead{
+        font-size: 15px;
+        line-height: 1.76;
+    }
+
+    .inviteList{
+        gap: 10px;
+    }
+
+    .inviteList p{
+        padding: 14px 14px 14px 38px;
+        border-radius: 20px 24px 20px 24px;
+        font-size: 14px;
+        line-height: 1.68;
+    }
+
+    .inviteList p::before{
+        left: 14px;
+        top: 14px;
+        font-size: 16px;
+    }
+
     .scribbleNote{
         min-width: 110px;
         min-height: 84px;
         padding: 18px 12px 12px;
         font-size: 18px;
-        background-size: contain;
     }
-    .scribbleNote--intro{
-        position: relative;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        justify-self: end;
-        margin-top: 6px;
-        z-index: 1;
-    }
-    .introScene__text h2{
-        font-size: clamp(38px, 11vw, 52px);
-        line-height: .98;
-    }
-    .introScene__text .lead{
-        font-size: 14px;
-        line-height: 1.7;
-    }
-    .introScene__meta{
-        gap: 8px;
-    }
-    .introScene__meta span{
-        min-height: 38px;
-        padding: 8px 11px;
-        font-size: 10px;
-        letter-spacing: .14em;
-    }
-    .introScene__note{
-        gap: 6px;
-        margin-top: 4px;
-        padding: 14px 14px;
-        border-radius: 20px;
-    }
-    .introScene{
-        gap: 14px;
-        position: relative;
-    }
-    .introScene::after{
-        content:"";
-        position: absolute;
-        left: -6px;
-        bottom: 10px;
-        width: 60px;
-        height: 60px;
-        background: center/contain no-repeat url("../assets/mobile-envelope.svg");
-        opacity: .58;
-        pointer-events: none;
-        animation: mobileDecorFloat 7.8s ease-in-out infinite reverse;
-    }
-    .storyGallery{
-        grid-template-columns: 1fr;
-        gap: 14px;
-        position: relative;
-        padding: 8px 0 0 24px;
-    }
-    .storyGallery::before{
-        content:"";
-        position: absolute;
-        left: 8px;
-        top: 14px;
-        bottom: 24px;
-        width: 2px;
-        background: linear-gradient(180deg, rgba(215,160,175,.0), rgba(215,160,175,.7) 18%, rgba(232,193,109,.46) 54%, rgba(215,160,175,.0));
-        border-radius: 999px;
-    }
-    .storyGallery::after{
-        content:"";
-        position: absolute;
-        left: -6px;
-        top: 0;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        background:
-            center/contain no-repeat
-            url("../assets/doodle-heart.svg");
-        opacity: .84;
-    }
-    .storyLead{
-        gap: 12px;
-        max-width: none;
-        padding: 24px 20px 20px;
-        transform: none;
-    }
-    .storyLead::after{
-        left: 12px;
-        top: -10px;
-        width: 76px;
-        height: 28px;
-    }
-    .storyLead::before{
-        right: 10px;
-        top: -6px;
-        width: 42px;
-        height: 42px;
-        opacity: .62;
-    }
+
     .scribbleNote--story{
         justify-self: start;
         margin-top: 2px;
-        transform: rotate(-6deg);
     }
-    .storyLead h2{
-        font-size: clamp(38px, 12vw, 54px);
-        line-height: .95;
+
+    .storyGallery{
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 8px 0 0 24px;
     }
-    .storyLead .lead{
-        margin-top: 4px;
-        font-size: 15px;
-        line-height: 1.78;
+
+    .storyGallery::before{
+        left: 8px;
+        top: 14px;
+        bottom: 24px;
     }
-    .storyCard--small,
-    .storyCard--wide{
-        aspect-ratio: auto;
+
+    .storyGallery::after{
+        left: -6px;
+        width: 28px;
+        height: 28px;
     }
+
     .storyCard{
         display: grid;
         width: min(100%, 292px);
         max-width: 100%;
         padding: 8px;
-        overflow: hidden;
         border-radius: 26px;
         background: rgba(255,252,250,.92);
-        position: relative;
     }
+
+    .storyCard::before{
+        left: -20px;
+        top: 22px;
+        width: 14px;
+        height: 14px;
+        box-shadow: 0 0 0 5px rgba(255,247,243,.95);
+    }
+
+    .storyCard::after{
+        right: 10px;
+        top: -8px;
+        width: 64px;
+        height: 24px;
+    }
+
     .storyCard img{
         width: 100%;
         height: auto;
         min-height: 0;
-        aspect-ratio: auto;
         object-fit: cover;
         border-radius: 18px;
     }
+
     .storyCard figcaption{
         position: static;
         display: inline-flex;
@@ -1639,335 +857,183 @@
         text-transform: none;
         color: rgba(190,115,135,.92);
     }
-    .storyCard::before{
-        content:"";
-        position: absolute;
-        left: -20px;
-        top: 22px;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: linear-gradient(180deg, rgba(215,160,175,.96), rgba(194,122,144,.96));
-        box-shadow: 0 0 0 5px rgba(255,247,243,.95);
-    }
+
     .storyCard:nth-child(1){
         justify-self: start;
         transform: rotate(-2deg);
     }
+
     .storyCard:nth-child(2){
         justify-self: end;
         transform: rotate(2deg);
     }
+
+    .storyCard--small,
+    .storyCard--wide{
+        aspect-ratio: auto;
+    }
+
     .storyCard--wide{
         justify-self: center;
         width: 100%;
         padding: 10px;
+        margin-top: 0;
         transform: none;
         border-radius: 28px;
     }
+
     .storyCard--wide img{
         max-height: none;
         object-fit: cover;
         border-radius: 20px;
     }
+
     .storyCard--wide figcaption{
         justify-self: center;
         margin-top: 12px;
         font-size: 28px;
     }
-    .letterCard{
-        justify-items: stretch;
-    }
-    .letterPostcard{
-        padding: 26px 20px 22px;
-        border-radius: 28px;
+
+    .splitSection__content{
+        gap: 14px;
+        padding: 24px 20px 20px;
         transform: none;
     }
-    .letterPostcard::before{
-        inset: 12px;
-        border-radius: 20px;
+
+    .splitSection__content::before{
+        right: 10px;
+        top: -8px;
+        width: 74px;
+        height: 28px;
     }
-    .letterPostcard__stamp{
-        top: 18px;
-        right: 18px;
-        width: 82px;
-        height: 82px;
-        font-size: 32px;
+
+    .map-frame iframe{
+        height: 340px;
     }
-    .letterPostcard__pin--one{
-        left: 18px;
-        top: 18px;
-    }
-    .letterPostcard__pin--two{
-        left: 48px;
-        top: 18px;
-    }
-    .letterCard__script{
+
+    .map-overlay__title{
         font-size: 28px;
     }
-    .letterNote{
-        padding: 24px 20px;
-        border-radius: 28px;
-        transform: none;
-    }
-    .letterNote strong{
-        font-size: 34px;
-    }
-    .letterNote::after{
-        content:"";
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        width: 54px;
-        height: 54px;
-        background: center/contain no-repeat url("../assets/mobile-flower.svg");
-        opacity: .46;
-        pointer-events: none;
-    }
+
     .dayMap{
         gap: 14px;
         padding-top: 8px;
     }
-    .dayMap::before{
-        right: 4px;
-        top: -20px;
-        width: 58px;
-        height: 58px;
-        opacity: .72;
-    }
+
     .dayMap__line{
-        left: 18px;
+        left: 16px;
         top: 34px;
         bottom: 16px;
     }
+
     .dayStop{
-        grid-template-columns: 74px 48px minmax(0, 1fr);
-        gap: 12px;
-        padding: 18px 16px 18px 32px;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 16px 16px 16px 30px;
         border-radius: 24px;
     }
+
     .dayStop__dot,
     .dayStop--one .dayStop__dot,
     .dayStop--two .dayStop__dot,
     .dayStop--three .dayStop__dot{
-        left: 9px;
+        left: 8px;
         width: 14px;
         height: 14px;
         box-shadow: 0 0 0 4px rgba(255,247,243,.96);
     }
+
     .dayStop__time{
-        min-height: 42px;
-        padding: 8px 12px;
+        justify-self: start;
+        min-height: auto;
+        padding: 0;
+        border: 0;
+        background: none;
         font-size: 24px;
     }
+
     .dayStop__icon{
-        width: 42px;
-        height: 42px;
-        border-radius: 14px;
-        font-size: 20px;
+        position: absolute;
+        right: 14px;
+        top: 14px;
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        font-size: 18px;
     }
-    .map-frame iframe{
-        height: 340px;
+
+    .dayStop__body{
+        padding-right: 28px;
     }
-    .countdown{
-        grid-template-columns: 1fr 1fr;
+
+    .dayStop__body h3{
+        font-size: 18px;
+        line-height: 1.18;
     }
-    .countdownVisual{
-        min-height: 260px;
-        border-radius: 30px;
-        background-size: cover;
-        background-position: center center;
-        background-color: rgba(255,250,248,.9);
-        position: relative;
+
+    .dayStop__body p{
+        font-size: 14px;
+        line-height: 1.62;
     }
-    .countdownVisual::after{
+
+    .contactsCard{
+        gap: 14px;
+        padding: 24px 20px 22px;
+    }
+
+    .contactsCard::before{
+        right: 8px;
+        top: -8px;
         width: 72px;
-        height: 72px;
-        right: 12px;
-        top: 12px;
+        height: 28px;
     }
-    .flightCard{
-        padding: 28px 18px 22px;
-        border-radius: 28px;
-    }
-    .flightCard::before{
-        right: 12px;
-        top: 8px;
-        width: 72px;
-        height: 24px;
-    }
-    .flightPlay{
-        min-height: 180px;
-        margin-top: 18px;
-        border-radius: 24px;
-    }
-    .flightPlay::before{
-        left: 12px;
-        top: 12px;
-        width: 70px;
-        height: 44px;
-        opacity: .54;
-    }
-    .flightPlay::after{
-        right: 10px;
-        bottom: 10px;
-        width: 56px;
-        height: 42px;
-        opacity: .44;
-    }
-    .flightTrail path{
-        stroke-width: 3;
-        stroke-dasharray: 6 10;
-    }
-    .flightPlaneWrap{
-        left: 20px;
-        bottom: 26px;
-    }
-    .flightPlane{
-        width: 36px;
-    }
-    .flightHeartWrap{
-        right: 18px;
-        top: 22px;
-    }
-    .flightHeart{
-        width: 62px;
-    }
-    .flightHeartGlow{
-        width: 88px;
-        height: 88px;
-    }
-    .flightBurst{
-        right: 24px;
-        top: 34px;
-        width: 56px;
-        height: 56px;
-    }
-    .wishCard,
-    .contactsCard,
-    .countdownPanel{
-        padding: 22px;
-    }
-    .countdownPanel,
-    .wishCard,
-    .contactsCard,
-    .letterCard{
-        border-radius: 28px;
-    }
+
     .contactsCard > .lead{
-        margin-top: 0;
         font-size: 15px;
         line-height: 1.72;
     }
-    .contactsCard{
+
+    .scribbleNote--contacts{
         position: relative;
+        right: auto;
+        top: auto;
+        justify-self: end;
+        margin-top: 2px;
     }
-    .contactsCard::before{
-        right: 4px;
-        bottom: -10px;
-        width: 56px;
-        height: 46px;
-        opacity: .62;
-    }
-    .contactsCard::after{
-        content:"";
-        position: absolute;
-        right: 6px;
-        top: -10px;
-        width: 56px;
-        height: 56px;
-        background: center/contain no-repeat url("../assets/mobile-ribbon.svg");
-        opacity: .52;
-        pointer-events: none;
-    }
+
     .contactsSheet{
         padding: 12px;
         border-radius: 26px;
-        transform: none;
     }
+
     .contactsSheet::before{
         inset: 10px;
         border-radius: 18px;
     }
-    .contactsSheet::after{
-        right: 8px;
-        top: -8px;
-        width: 74px;
-        height: 28px;
-    }
-    .scribbleNote--contacts{
-        right: 0;
-        top: auto;
-        bottom: -30px;
-        min-width: 124px;
-        min-height: 88px;
-        font-size: 18px;
-    }
+
     .contactsSheet__line--horizontal{
         left: 18px;
         right: 18px;
     }
+
     .contactEntry{
         gap: 12px;
         padding: 18px 16px 20px;
     }
-    .contactEntry__head{
-        gap: 7px;
-    }
-    .contactEntry__role{
-        padding: 6px 10px;
-        font-size: 9px;
-        letter-spacing: .18em;
-    }
+
     .contactEntry__head h3{
         font-size: 34px;
     }
+
     .contactEntry__phone{
         font-size: 20px;
     }
+
     .contactEntry__links{
         gap: 12px;
     }
+
     .contactEntry__links a{
         font-size: 13px;
-    }
-    .finalScene{
-        padding: 70px 20px 58px;
-        border-radius: 30px;
-        transform: none;
-    }
-    .finalScene::before{
-        inset: 12px;
-        border-radius: 22px;
-    }
-    .finalScene h2{
-        font-size: clamp(42px, 11vw, 56px);
-    }
-    .finalScene .lead{
-        margin-top: 14px;
-        font-size: 15px;
-        line-height: 1.72;
-    }
-    .finalScene__script{
-        margin-top: 16px;
-        font-size: 30px;
-    }
-    .finalScene__date{
-        margin-top: 14px;
-    }
-    .finalScene::after{
-        left: 10px;
-        top: -8px;
-        width: 74px;
-        height: 28px;
-        bottom: auto;
-        opacity: .64;
-    }
-    .scribbleNote--final{
-        right: 0;
-        bottom: -26px;
-        min-width: 118px;
-        min-height: 82px;
-        font-size: 17px;
     }
 }
