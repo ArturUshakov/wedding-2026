@@ -153,6 +153,7 @@
     });
 
     if (reduce) {
+        sequence.classList.add('is-in');
         cards.forEach(card => card.classList.add('is-in'));
         return;
     }
@@ -161,11 +162,16 @@
         (entries, observer) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-                cards.forEach(card => card.classList.add('is-in'));
+                sequence.classList.add('is-in');
+                cards.forEach((card, index) => {
+                    window.setTimeout(() => {
+                        card.classList.add('is-in');
+                    }, index * 130);
+                });
                 observer.unobserve(entry.target);
             });
         },
-        { threshold: 0.24, rootMargin: '0px 0px -12% 0px' }
+        { threshold: 0.18, rootMargin: '0px 0px -8% 0px' }
     );
 
     io.observe(sequence);
