@@ -1,6 +1,3 @@
-/* =========================================================
-   Reveal with soft stagger
-   ========================================================= */
 (function () {
     const items = Array.from(document.querySelectorAll('.js-reveal'));
     if (!items.length) return;
@@ -31,9 +28,6 @@
     items.forEach(item => io.observe(item));
 })();
 
-/* =========================================================
-   Countdown
-   ========================================================= */
 (function () {
     const units = [
         document.getElementById('cd-days'),
@@ -86,61 +80,6 @@
     setInterval(tick, 1000);
 })();
 
-/* =========================================================
-   Lightbox
-   ========================================================= */
-(function () {
-    const lightbox = document.getElementById('lightbox');
-    const img = document.getElementById('lightboxImg');
-    if (!lightbox || !img) return;
-
-    const triggers = document.querySelectorAll('.js-lightbox');
-    if (!triggers.length) return;
-
-    function open(src, alt) {
-        img.src = src;
-        img.alt = alt || '';
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function close() {
-        lightbox.classList.remove('is-open');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        img.src = '';
-        img.alt = '';
-    }
-
-    triggers.forEach(trigger => {
-        const openFromTrigger = () => {
-            const src = trigger.getAttribute('data-full');
-            const alt = trigger.querySelector('img')?.getAttribute('alt') || '';
-            if (src) open(src, alt);
-        };
-
-        trigger.addEventListener('click', openFromTrigger);
-
-        trigger.addEventListener('keydown', event => {
-            if (event.key !== 'Enter' && event.key !== ' ') return;
-            event.preventDefault();
-            openFromTrigger();
-        });
-    });
-
-    lightbox.addEventListener('click', event => {
-        if (event.target && event.target.getAttribute('data-close') === '1') close();
-    });
-
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) close();
-    });
-})();
-
-/* =========================================================
-   Map overlay
-   ========================================================= */
 (function () {
     const card = document.getElementById('mapCard');
     const overlay = document.getElementById('mapOverlay');
@@ -166,9 +105,6 @@
     }, { passive: true });
 })();
 
-/* =========================================================
-   Parallax
-   ========================================================= */
 (function () {
     const items = Array.from(document.querySelectorAll('[data-parallax]'));
     if (!items.length) return;
@@ -201,9 +137,6 @@
     window.addEventListener('resize', requestRender, { passive: true });
 })();
 
-/* =========================================================
-   Tilt
-   ========================================================= */
 (function () {
     const cards = Array.from(document.querySelectorAll('.js-tilt'));
     if (!cards.length) return;

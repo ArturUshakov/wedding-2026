@@ -17,12 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Shantell+Sans:wght@500;600;700&display=swap"
           rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/00-base.css">
-    <link rel="stylesheet" href="./css/10-layout-sections.css">
-    <link rel="stylesheet" href="./css/20-hero.css">
-    <link rel="stylesheet" href="./css/30-components.css">
-    <link rel="stylesheet" href="./css/40-sections.css">
-    <link rel="stylesheet" href="./css/90-overrides-perf.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
 <div class="pageGlow pageGlow--one" aria-hidden="true"></div>
@@ -37,29 +32,20 @@
     <svg class="hero__trail" viewBox="0 0 360 180" aria-hidden="true">
         <path d="M20 132C84 156 126 72 188 84C244 95 250 170 338 104"/>
     </svg>
-    <img class="hero__plane" src="./assets/doodle-plane.svg" alt="" aria-hidden="true">
-    <img class="hero__heart hero__heart--one" src="./assets/handdrawn-heart.svg" alt="" aria-hidden="true">
-    <img class="hero__heart hero__heart--two" src="./assets/handdrawn-heart.svg" alt="" aria-hidden="true">
 
     <div class="container hero__layout">
         <div class="hero__content js-reveal">
-            <p class="hero__eyebrow">Wedding Day · 22 August 2026</p>
+            <p class="hero__eyebrow">Wedding Day</p>
             <h1 class="hero__title">
                 Артур
                 <span class="hero__amp">&amp;</span>
                 Дарья
             </h1>
             <p class="hero__intro">
-                Один день, который мы хотим прожить красиво, тепло и по-настоящему вместе с самыми близкими людьми.
+                22 августа 2026
             </p>
 
-            <div class="hero__chips">
-                <span class="heroChip">22.08.2026</span>
-                <span class="heroChip">14:00</span>
-            </div>
-
             <div class="heroCountdown js-reveal" aria-label="Обратный отсчёт до свадьбы">
-                <span class="heroCountdown__label">До свадьбы осталось</span>
                 <div class="heroCountdown__grid">
                     <div class="heroCountdown__item">
                         <b id="cd-days">—</b>
@@ -82,11 +68,7 @@
         </div>
 
         <div class="hero__scene js-reveal" data-parallax="0.14">
-            <div class="heroCard heroCard--photo js-lightbox"
-                 data-full="./assets/hero.webp"
-                 role="button"
-                 tabindex="0"
-                 aria-label="Открыть главное фото">
+            <div class="heroCard heroCard--photo">
                 <div class="heroCard__frame"></div>
             </div>
             <div class="heroNote heroNote--top">
@@ -126,7 +108,7 @@
             </div>
 
             <div class="storyGallery js-reveal">
-                <figure class="storyCard storyCard--small js-lightbox" data-full="./assets/story-arthur-child.webp">
+                <figure class="storyCard storyCard--small">
                     <img src="./assets/story-arthur-child.webp"
                          alt="Артур в детстве"
                          width="600" height="800"
@@ -134,53 +116,63 @@
                     <figcaption>Артур</figcaption>
                 </figure>
 
-                <figure class="storyCard storyCard--small js-lightbox" data-full="./assets/story-daria-child.webp">
+                <figure class="storyCard storyCard--small">
                     <img src="./assets/story-daria-child.webp"
                          alt="Дарья в детстве"
                          width="600" height="800"
                          loading="lazy" decoding="async">
                     <figcaption>Дарья</figcaption>
                 </figure>
-
-                <figure class="storyCard storyCard--wide js-lightbox" data-full="./assets/intro.webp">
-                    <img src="./assets/intro.webp"
-                         alt="Артур и Дарья"
-                         width="1000" height="800"
-                         loading="lazy" decoding="async">
-                    <figcaption>Мы вас ждём</figcaption>
-                </figure>
             </div>
         </div>
     </section>
 
     <section class="section section--place" id="place">
+        <div class="locationMarquee" aria-hidden="true">
+            <div class="locationMarquee__track">
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+            </div>
+        </div>
         <div class="container splitSection">
             <div class="splitSection__content js-reveal">
                 <p class="sectionHead__eyebrow">Когда и где</p>
-                <h2>22 августа 2026 · ЗАГС</h2>
+                <p class="locationTitle">Центральный ЗАГС г. Воронеж</p>
                 <p class="lead">
                     Сбор гостей у ЗАГСа начнётся в 13:30, а церемония регистрации — в 14:00.
                     Ждём вас по адресу: Воронеж, площадь Ленина, 11.
                 </p>
-                <a class="btn btn--primary"
-                   href="https://yandex.ru/maps/org/zags_tsentralnogo_i_leninskogo_rayonov/1058799727"
-                   target="_blank" rel="noreferrer">
-                    Построить маршрут
-                </a>
+                <p class="locationNote">⚭ Вход во Дворец бракосочетания — через кованые ворота с боковой стороны здания.</p>
             </div>
 
-            <div class="map-card js-reveal js-tilt" id="mapCard">
-                <div class="map-frame">
-                    <iframe
-                        src="https://yandex.ru/map-widget/v1/?um=constructor%3A78dc537ea84241fb034f070faba51992d7813e536184517f45c129044f135352&amp;source=constructor"
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+            <div class="placeVisual js-reveal">
+                <figure class="locationPhoto">
+                    <img src="./assets/zags-voronezh.jpg"
+                         alt="Центральный ЗАГС Воронежа"
+                         width="1200" height="900"
+                         loading="lazy" decoding="async">
+                    <figcaption>Вход в Центральный ЗАГС</figcaption>
+                </figure>
 
-                    <button class="map-overlay" id="mapOverlay">
-                        <div class="map-overlay__title">Площадь Ленина, 11</div>
-                        <div class="map-overlay__hint">Открыть карту</div>
-                    </button>
+                <div class="map-card js-tilt" id="mapCard">
+                    <div class="map-frame">
+                        <iframe
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A78dc537ea84241fb034f070faba51992d7813e536184517f45c129044f135352&amp;source=constructor"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+
+                        <button class="map-overlay" id="mapOverlay">
+                            <div class="map-overlay__title">Площадь Ленина, 11</div>
+                            <div class="map-overlay__hint">Открыть карту</div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -198,7 +190,7 @@
                 <article class="dayStop dayStop--one js-tilt">
                     <span class="dayStop__dot" aria-hidden="true"></span>
                     <span class="dayStop__time">13:30</span>
-                    <div class="dayStop__icon" aria-hidden="true">✦</div>
+                    <div class="dayStop__icon" aria-hidden="true">☼</div>
                     <div class="dayStop__body">
                         <h3>Сбор гостей у ЗАГСа</h3>
                         <p>Собираясь на торжество, возьмите с собой свои улыбки и хорошее настроение.</p>
@@ -208,7 +200,7 @@
                 <article class="dayStop dayStop--two js-tilt">
                     <span class="dayStop__dot" aria-hidden="true"></span>
                     <span class="dayStop__time">14:00</span>
-                    <div class="dayStop__icon" aria-hidden="true">♡</div>
+                    <div class="dayStop__icon" aria-hidden="true">⚭</div>
                     <div class="dayStop__body">
                         <h3>Церемония регистрации</h3>
                         <p>Приглашаем разделить вместе с нами радость создания новой семьи.</p>
@@ -218,7 +210,7 @@
                 <article class="dayStop dayStop--three js-tilt">
                     <span class="dayStop__dot" aria-hidden="true"></span>
                     <span class="dayStop__time">15:30</span>
-                    <div class="dayStop__icon" aria-hidden="true">✿</div>
+                    <div class="dayStop__icon" aria-hidden="true">❋</div>
                     <div class="dayStop__body">
                         <h3>Банкет</h3>
                         <p>Время вкусной еды, танцев и развлечений.</p>
@@ -228,7 +220,7 @@
                 <article class="dayStop dayStop--two js-tilt">
                     <span class="dayStop__dot" aria-hidden="true"></span>
                     <span class="dayStop__time">21:00</span>
-                    <div class="dayStop__icon" aria-hidden="true">✿</div>
+                    <div class="dayStop__icon" aria-hidden="true">✺</div>
                     <div class="dayStop__body">
                         <h3>Свадебный торт</h3>
                         <p>Сладкая традиция, которую мы не можем обойти стороной.</p>
@@ -238,7 +230,7 @@
                 <article class="dayStop dayStop--one js-tilt">
                     <span class="dayStop__dot" aria-hidden="true"></span>
                     <span class="dayStop__time">22:00</span>
-                    <div class="dayStop__icon" aria-hidden="true">✦</div>
+                    <div class="dayStop__icon" aria-hidden="true">☽</div>
                     <div class="dayStop__body">
                         <h3>Конец торжества</h3>
                         <p>К сожалению, даже такой волшебный вечер может подойти к концу.</p>
@@ -248,11 +240,23 @@
         </div>
     </section>
 
+    <section class="section section--closingPhoto">
+        <div class="container">
+            <figure class="closingPhoto js-reveal">
+                <img src="./assets/intro.webp"
+                     alt="Артур и Дарья"
+                     width="1000" height="800"
+                     loading="lazy" decoding="async">
+                <figcaption>Мы вас ждём</figcaption>
+            </figure>
+        </div>
+    </section>
+
     <section class="section section--contacts">
         <div class="container">
             <div class="contactsCard js-reveal">
                 <p class="sectionHead__eyebrow">Наши контакты</p>
-                <h2>Если что-то понадобится, мы на связи</h2>
+                <h2>Если что-то понадобится</h2>
                 <p class="lead">
                     На всякий случай оставим здесь наши номера и Telegram. Если что-то понадобится до свадьбы
                     или в сам день, можно написать напрямую нам.
@@ -295,14 +299,6 @@
 <footer class="footer">
     <div class="footer__inner">© 2026 Артур & Дарья</div>
 </footer>
-
-<div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lightbox__backdrop" data-close="1"></div>
-    <figure class="lightbox__panel">
-        <button class="lightbox__close" data-close="1" aria-label="Закрыть">×</button>
-        <img class="lightbox__img" id="lightboxImg" alt="">
-    </figure>
-</div>
 
 <script src="./main.js" defer></script>
 </body>
