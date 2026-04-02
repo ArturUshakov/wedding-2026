@@ -1602,7 +1602,7 @@ img{
 
     .hero,
     .section{
-        min-height: 100svh;
+        min-height: 100dvh;
         scroll-snap-align: start;
         scroll-snap-stop: always;
     }
@@ -2137,7 +2137,7 @@ img{
     }
 
     .section{
-        min-height: 100svh;
+        min-height: 100dvh;
         padding: clamp(28px, 5.2vh, 44px) 0;
         scroll-snap-align: start;
         scroll-snap-stop: always;
@@ -2156,7 +2156,7 @@ img{
 
     .hero__layout{
         gap: 12px;
-        min-height: calc(100svh - 32px);
+        min-height: calc(100dvh - 32px);
         padding: clamp(34px, 6.6vh, 48px) 2px 8px;
         align-content: center;
     }
@@ -2244,13 +2244,13 @@ img{
     .section--contacts .container{
         display: grid;
         align-content: center;
-        min-height: calc(100svh - 56px);
+        min-height: calc(100dvh - 56px);
     }
 
     .section--place .container,
     .section--day .container,
     .section--contacts .container{
-        min-height: calc(100svh - 92px);
+        min-height: calc(100dvh - 92px);
     }
 
     .section--day{
@@ -2258,7 +2258,7 @@ img{
     }
 
     .section--day .container{
-        min-height: calc(100svh - 108px);
+        min-height: calc(100dvh - 108px);
     }
 
     .section--contacts{
@@ -2266,7 +2266,7 @@ img{
     }
 
     .section--contacts .container{
-        min-height: calc(100svh - 108px);
+        min-height: calc(100dvh - 108px);
         align-content: center;
     }
 
@@ -2275,7 +2275,7 @@ img{
     }
 
     .section--story{
-        min-height: 100svh;
+        min-height: 100dvh;
         padding: 28px 0 24px;
     }
 
