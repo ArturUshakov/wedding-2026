@@ -301,37 +301,6 @@ img{
     z-index: 0;
 }
 
-.hero__edge{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 74px;
-    background:
-        linear-gradient(180deg, rgba(239,244,231,0), rgba(239,244,231,.32)),
-        radial-gradient(circle at 24px 100%, rgba(247,249,241,.42) 24px, transparent 25px) repeat-x;
-    background-size: auto, 48px 48px;
-    background-position: center bottom, center bottom;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.hero__paper{
-    position: absolute;
-    right: 8%;
-    bottom: 6%;
-    width: 320px;
-    height: 420px;
-    border-radius: 36px;
-    background:
-        linear-gradient(180deg, rgba(244,247,237,.86), rgba(231,238,220,.88)),
-        url("../assets/old-paper-texture.webp") center/cover no-repeat;
-    border: 1px solid rgba(83,101,78,.08);
-    box-shadow: 0 30px 52px rgba(73,92,69,.10);
-    transform: rotate(7deg);
-    opacity: .84;
-}
-
 .hero__petal{
     position:absolute;
     background: center/contain no-repeat url("../assets/flowers.webp");
@@ -339,26 +308,6 @@ img{
     filter: drop-shadow(0 16px 28px rgba(73,92,69,.08));
     opacity: .92;
     z-index: 2;
-}
-
-.hero__trail{
-    position: absolute;
-    left: 6%;
-    top: 11%;
-    width: 280px;
-    height: auto;
-    overflow: visible;
-    pointer-events: none;
-    opacity: .7;
-    z-index: 0;
-}
-
-.hero__trail path{
-    fill: none;
-    stroke: rgba(123,143,99,.52);
-    stroke-width: 3.5;
-    stroke-linecap: round;
-    stroke-dasharray: 10 12;
 }
 
 .hero__heart{
@@ -423,36 +372,6 @@ img{
     align-items: center;
     position: relative;
     z-index: 1;
-}
-
-.hero__layout::before,
-.hero__layout::after{
-    content:"";
-    position: absolute;
-    width: 112px;
-    height: 44px;
-    border-radius: 8px;
-    background:
-        linear-gradient(180deg, rgba(234,228,188,.28), rgba(215,220,178,.18)),
-        linear-gradient(90deg, rgba(255,255,255,.24), rgba(255,255,255,0));
-    border: 1px solid rgba(152,155,118,.10);
-    box-shadow: 0 8px 14px rgba(73,92,69,.05);
-    opacity: .22;
-    pointer-events: none;
-    z-index: 3;
-    filter: blur(.15px);
-}
-
-.hero__layout::before{
-    left: 8%;
-    top: 84px;
-    transform: rotate(-12deg);
-}
-
-.hero__layout::after{
-    right: 10%;
-    top: 110px;
-    transform: rotate(11deg);
 }
 
 .hero__content{
@@ -521,11 +440,17 @@ img{
 .hero__intro{
     margin-top: 14px;
     max-width: none;
-    color: rgba(123,143,99,.78);
-    font-size: 16px;
+    display: inline-block;
+    justify-self: start;
+    padding: 4px 10px 5px;
+    border-radius: 999px;
+    background: rgba(248,250,244,.42);
+    color: rgba(51,66,52,.86);
+    font-size: 17px;
     line-height: 1.2;
     letter-spacing: .18em;
     text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(255,255,255,.35);
 }
 
 .hero__chips{ display:none; }
@@ -609,11 +534,9 @@ img{
     inset: 0;
     border-radius: 44px 44px 34px 34px;
     overflow: hidden;
-    background:
-        linear-gradient(180deg, rgba(255,255,255,0), rgba(51,66,52,.04)),
-        url("../assets/hero.webp") center 34%/cover no-repeat;
-    box-shadow: 0 8px 20px rgba(73,92,69,.06);
-    transform: rotate(1.2deg);
+    background: url("../assets/double.png") center 8% / auto 94% no-repeat;
+    box-shadow: none;
+    transform: none;
     border: 0;
     cursor: default;
 }
@@ -630,14 +553,7 @@ img{
 }
 
 .heroCard::after{
-    content:"";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 18% 24%, rgba(255,255,255,.28), transparent 20%),
-        radial-gradient(circle at 80% 70%, rgba(231,238,220,.18), transparent 24%);
-    mix-blend-mode: screen;
-    pointer-events: none;
+    display: none;
 }
 
 .heroCard::before{
@@ -646,48 +562,6 @@ img{
 
 .heroCard__frame{
     display: none;
-}
-
-.heroNote{
-    position:absolute;
-    display: grid;
-    gap: 8px;
-    padding: 20px 22px;
-    max-width: 220px;
-    border-radius: 24px 28px 22px 28px;
-    background:
-        linear-gradient(180deg, rgba(244,247,237,.42), rgba(231,238,220,.38)),
-        url("../assets/old-paper-texture.webp") center/360px auto repeat;
-    border: 1px solid rgba(83,101,78,.06);
-    box-shadow: 0 8px 16px rgba(73,92,69,.04);
-}
-
-.heroNote--top{
-    left: -14px;
-    top: 54px;
-    transform: rotate(-6deg);
-}
-
-.heroNote--bottom{
-    right: -16px;
-    bottom: 44px;
-    transform: rotate(5deg);
-}
-
-.heroNote__label{
-    font-size: 10px;
-    letter-spacing: .28em;
-    text-transform: uppercase;
-    color: rgba(123,143,99,.72);
-}
-
-.heroNote strong{
-    font-family: var(--serif);
-    font-size: 34px;
-    line-height: .9;
-    letter-spacing: -.04em;
-    font-weight: 600;
-    color: rgba(51,66,52,.94);
 }
 
 @media (max-width: 980px){
@@ -699,15 +573,9 @@ img{
         grid-template-columns: 1fr;
     }
     .hero__scene{
-        min-height: 520px;
+        min-height: 560px;
     }
     .heroCountdown{ width: min(430px, 100%); }
-    .hero__paper{
-        right: 2%;
-        bottom: 2%;
-        width: 260px;
-        height: 330px;
-    }
     .hero__content::before{
         left: auto;
         right: 18px;
@@ -813,8 +681,8 @@ img{
         letter-spacing: .14em;
     }
     .hero__scene{
-        height: clamp(280px, 74vw, 350px);
-        min-height: 280px;
+        height: clamp(340px, 98vw, 460px);
+        min-height: 340px;
         aspect-ratio: auto;
         margin-top: -6px;
         border-radius: 0;
@@ -826,11 +694,11 @@ img{
     }
     .heroCard{
         border-radius: 18px;
-        background-size: cover;
-        background-position: center 18%;
+        background-size: auto 100%;
+        background-position: center top;
         background-color: transparent;
         transform: none;
-        box-shadow: 0 6px 14px rgba(73,92,69,.04);
+        box-shadow: none;
         border-width: 0;
     }
     .heroCard::before{
@@ -842,24 +710,7 @@ img{
     .heroCard__frame{
         display: none;
     }
-    .heroNote{
-        max-width: 156px;
-        padding: 10px 12px;
-        border-radius: 16px;
-        background: rgba(248,250,244,.22);
-        border-color: rgba(83,101,78,.04);
-        box-shadow: 0 4px 10px rgba(73,92,69,.03);
-    }
-    .heroNote strong{
-        font-size: 21px;
-    }
     .hero__veil{
-        display: none;
-    }
-    .hero__edge{
-        display: none;
-    }
-    .hero__paper{
         display: none;
     }
     .hero__petal--one{
@@ -879,16 +730,6 @@ img{
         transform: scaleX(-1) rotate(180deg);
         opacity: .82;
         z-index: 0;
-    }
-    .hero__trail{
-        left: auto;
-        right: 8px;
-        top: 86px;
-        width: 88px;
-        opacity: .24;
-    }
-    .hero__trail path{
-        stroke-width: 2.2;
     }
     .hero__heart--one{
         right: 14px;
@@ -968,25 +809,6 @@ img{
         box-shadow: 0 24px 42px rgba(123,143,99,.14);
     }
 }
-.scribbleNote{
-    position: absolute;
-    display: grid;
-    place-items: center;
-    min-width: 138px;
-    min-height: 110px;
-    padding: 24px 16px 16px;
-    background: center/contain no-repeat url("../assets/blank-sticky-note.svg");
-    font-family: var(--scribble);
-    font-size: 24px;
-    line-height: .95;
-    color: rgba(72,88,61,.88);
-    text-align: center;
-    pointer-events: none;
-    z-index: 3;
-    filter: drop-shadow(0 10px 20px rgba(73,92,69,.08));
-    opacity: .9;
-}
-
 .locationMarquee{
     position: relative;
     overflow: hidden;
@@ -1068,6 +890,26 @@ img{
     background-image: url("../assets/heart_green.png");
 }
 
+.sectionBloom{
+    position: absolute;
+    bottom: -150px;
+    width: 380px;
+    height: 380px;
+    background: center/contain no-repeat url("../assets/flowers.webp");
+    opacity: .92;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.sectionBloom--left{
+    left: -108px;
+}
+
+.sectionBloom--right{
+    right: -108px;
+    transform: scaleX(-1);
+}
+
 .storyGrid > *,
 .splitSection > *,
 .contactsSheet > *{
@@ -1085,88 +927,56 @@ img{
     position: sticky;
     top: 28px;
     display: grid;
-    gap: 18px;
+    gap: 16px;
     align-content: start;
-    padding: 34px 30px 28px;
-    border-radius: 34px 40px 32px 40px;
-    background:
-        linear-gradient(180deg, rgba(248,250,244,.94), rgba(231,238,220,.9)),
-        url("../assets/old-paper-texture.webp") center/640px auto repeat;
-    border: 1px solid rgba(83,101,78,.08);
-    box-shadow: var(--shadow-soft);
-    transform: rotate(-.8deg);
-}
-
-.storyLead::before{
-    content: "";
-    position: absolute;
-    left: 18px;
-    top: -10px;
-    width: 84px;
-    height: 30px;
-    border-radius: 7px;
-    background:
-        linear-gradient(180deg, rgba(234,228,188,.24), rgba(215,220,178,.14)),
-        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
-    border: 1px solid rgba(152,155,118,.12);
-    opacity: .54;
-    transform: rotate(-9deg);
+    padding: 6px 0 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    transform: none;
 }
 
 .storyLead::after{
     content: "";
     position: absolute;
-    right: 16px;
-    top: 12px;
-    width: 30px;
-    height: 30px;
+    right: 6px;
+    top: -8px;
+    width: 22px;
+    height: 22px;
     background: center/contain no-repeat url("../assets/heart_green.png");
-    opacity: .72;
+    opacity: .58;
     pointer-events: none;
 }
 
 .storyLead .lead{
     margin: 0;
+    max-width: 38rem;
 }
 
 .inviteList{
     display: grid;
-    gap: 12px;
-    margin-top: 4px;
+    gap: 10px;
+    margin-top: 6px;
 }
 
 .inviteList p{
     position: relative;
     margin: 0;
-    padding: 16px 18px 16px 44px;
-    border-radius: 22px 26px 22px 26px;
-    background:
-        linear-gradient(180deg, rgba(248,250,244,.92), rgba(235,241,226,.98)),
-        url("../assets/old-paper-texture.webp") center/420px auto repeat;
-    border: 1px solid rgba(83,101,78,.08);
-    box-shadow: var(--shadow-soft);
+    padding: 0 0 0 28px;
+    background: none;
+    border: 0;
+    box-shadow: none;
     color: rgba(51,66,52,.76);
 }
 
 .inviteList p::before{
     content: "♡";
     position: absolute;
-    left: 16px;
-    top: 16px;
+    left: 0;
+    top: 0;
     color: rgba(123,143,99,.84);
     font-size: 18px;
     line-height: 1;
-}
-
-.scribbleNote--story{
-    position: relative;
-    left: auto;
-    top: auto;
-    justify-self: end;
-    margin-top: 8px;
-    min-width: 146px;
-    min-height: 98px;
-    transform: rotate(-7deg);
 }
 
 .storyGallery{
@@ -1302,7 +1112,7 @@ img{
 
 .placeVisual{
     display: grid;
-    gap: 18px;
+    gap: 0;
 }
 
 .locationTitle{
@@ -1330,30 +1140,11 @@ img{
     position: relative;
     display: grid;
     gap: 18px;
-    padding: 30px 28px;
-    border-radius: 30px 36px 30px 36px;
-    background:
-        linear-gradient(180deg, rgba(248,250,244,.9), rgba(231,238,220,.92)),
-        url("../assets/old-paper-texture.webp") center/620px auto repeat;
-    border: 1px solid rgba(83,101,78,.08);
-    box-shadow: var(--shadow-soft);
-    transform: rotate(.8deg);
-}
-
-.splitSection__content::before{
-    content: "";
-    position: absolute;
-    right: 14px;
-    top: -10px;
-    width: 82px;
-    height: 30px;
-    border-radius: 7px;
-    background:
-        linear-gradient(180deg, rgba(234,228,188,.24), rgba(215,220,178,.14)),
-        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
-    border: 1px solid rgba(152,155,118,.12);
-    opacity: .54;
-    transform: rotate(10deg);
+    padding: 6px 0 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    transform: none;
 }
 
 .map-card{
@@ -1489,6 +1280,21 @@ img{
     box-shadow: var(--shadow-soft);
 }
 
+.js-day-sequence.is-sequenced .dayStop{
+    opacity: 0;
+    transform: translateY(28px) scale(.97);
+    transition:
+        opacity .85s cubic-bezier(.22,1,.36,1),
+        transform .85s cubic-bezier(.22,1,.36,1);
+    transition-delay: var(--day-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.js-day-sequence.is-sequenced .dayStop.is-in{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
 .dayStop--one,
 .dayStop--three{
     justify-self: start;
@@ -1560,29 +1366,10 @@ img{
     position: relative;
     display: grid;
     gap: 14px;
-    padding: 26px 26px;
-    border-radius: 32px 38px 32px 38px;
-    background:
-        linear-gradient(180deg, rgba(248,250,244,.9), rgba(235,241,226,.92)),
-        url("../assets/old-paper-texture.webp") center/620px auto repeat;
-    border: 1px solid rgba(83,101,78,.09);
-    box-shadow: var(--shadow-soft);
-}
-
-.contactsCard::before{
-    content: "";
-    position: absolute;
-    right: 14px;
-    top: -10px;
-    width: 82px;
-    height: 30px;
-    border-radius: 7px;
-    background:
-        linear-gradient(180deg, rgba(234,228,188,.24), rgba(215,220,178,.14)),
-        linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0));
-    border: 1px solid rgba(152,155,118,.12);
-    opacity: .54;
-    transform: rotate(8deg);
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
 }
 
 .contactsCard::after{
@@ -1598,19 +1385,10 @@ img{
 }
 
 .contactsCard > .lead{
-    margin: -2px 0 0;
+    margin: 0;
     max-width: 32rem;
     font-size: 15px;
     line-height: 1.72;
-}
-
-.scribbleNote--contacts{
-    right: 18px;
-    top: -18px;
-    min-width: 138px;
-    min-height: 96px;
-    font-size: 20px;
-    transform: rotate(6deg);
 }
 
 .contactsSheet{
@@ -1720,53 +1498,6 @@ img{
     background: rgba(123,143,99,.38);
 }
 
-.closingPhoto{
-    margin: 0;
-    position: relative;
-    overflow: visible;
-    padding: 0;
-    border-radius: 0;
-    background: none;
-    border: 0;
-    box-shadow: none;
-    cursor: default;
-}
-
-.closingPhoto img{
-    width: min(72%, 520px);
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 0;
-    filter: drop-shadow(0 26px 36px rgba(73,92,69,.14));
-}
-
-.closingPhoto figcaption{
-    position: absolute;
-    left: 50%;
-    bottom: 8px;
-    transform: translateX(-50%);
-    padding: 8px 14px;
-    border-radius: 14px;
-    background: rgba(248,250,244,.76);
-    color: rgba(123,143,99,.88);
-    font-family: var(--accent);
-    font-size: 24px;
-    line-height: 1;
-}
-
-.closingPhoto::after{
-    content: "";
-    position: absolute;
-    right: 10%;
-    top: 18px;
-    width: 28px;
-    height: 28px;
-    background: center/contain no-repeat url("../assets/heart_green.png");
-    opacity: .68;
-    pointer-events: none;
-}
-
 .footer{
     padding: 22px 0 42px;
 }
@@ -1821,11 +1552,6 @@ img{
     .dayMap__line{
         left: 26px;
         transform: none;
-    }
-
-    .closingPhoto{
-        max-width: 720px;
-        margin: 0 auto;
     }
 
     .dayStop,
@@ -1886,24 +1612,17 @@ img{
     }
 
     .storyLead{
-        gap: 14px;
-        padding: 24px 20px 20px;
+        gap: 12px;
+        padding: 2px 0 0;
         max-width: none;
         transform: none;
     }
 
-    .storyLead::before{
-        left: 12px;
-        top: -10px;
-        width: 74px;
-        height: 28px;
-    }
-
     .storyLead::after{
-        right: 10px;
-        top: 10px;
-        width: 36px;
-        height: 36px;
+        right: 2px;
+        top: -6px;
+        width: 18px;
+        height: 18px;
     }
 
     .storyLead h2{
@@ -1921,28 +1640,15 @@ img{
     }
 
     .inviteList p{
-        padding: 14px 14px 14px 38px;
-        border-radius: 20px 24px 20px 24px;
+        padding: 0 0 0 22px;
         font-size: 14px;
-        line-height: 1.68;
+        line-height: 1.6;
     }
 
     .inviteList p::before{
-        left: 14px;
-        top: 14px;
-        font-size: 16px;
-    }
-
-    .scribbleNote{
-        min-width: 110px;
-        min-height: 84px;
-        padding: 18px 12px 12px;
-        font-size: 18px;
-    }
-
-    .scribbleNote--story{
-        justify-self: start;
-        margin-top: 2px;
+        left: 0;
+        top: 0;
+        font-size: 14px;
     }
 
     .storyGallery{
@@ -2026,15 +1732,8 @@ img{
 
     .splitSection__content{
         gap: 14px;
-        padding: 24px 20px 20px;
+        padding: 2px 0 0;
         transform: none;
-    }
-
-    .splitSection__content::before{
-        right: 10px;
-        top: -8px;
-        width: 74px;
-        height: 28px;
     }
 
     .map-frame iframe{
@@ -2119,27 +1818,27 @@ img{
 
     .contactsCard{
         gap: 12px;
-        padding: 18px 16px;
+        padding: 0;
     }
 
-    .contactsCard::before{
-        right: 8px;
-        top: -8px;
-        width: 72px;
-        height: 28px;
+    .sectionBloom{
+        width: 178px;
+        height: 178px;
+        bottom: -72px;
+        opacity: .82;
+    }
+
+    .sectionBloom--left{
+        left: -64px;
+    }
+
+    .sectionBloom--right{
+        right: -64px;
     }
 
     .contactsCard > .lead{
         font-size: 13px;
         line-height: 1.58;
-    }
-
-    .scribbleNote--contacts{
-        position: relative;
-        right: auto;
-        top: auto;
-        justify-self: end;
-        margin-top: 2px;
     }
 
     .contactsSheet{
@@ -2178,25 +1877,10 @@ img{
         font-size: 12px;
     }
 
-    .closingPhoto{
-        padding: 8px;
-        border-radius: 24px;
-    }
-
-    .closingPhoto img{
-        border-radius: 18px;
-    }
-
-    .closingPhoto figcaption{
-        bottom: 12px;
-        padding: 8px 12px;
-        font-size: 22px;
-    }
 }
 @media (max-width: 720px){
     .grain,
-    .pageGlow,
-    .heroNote{
+    .pageGlow{
         display: none !important;
     }
 
@@ -2254,8 +1938,9 @@ img{
 
     .hero__intro{
         margin-top: 6px;
-        font-size: 10px;
-        letter-spacing: .14em;
+        padding: 3px 8px 4px;
+        font-size: 11px;
+        letter-spacing: .12em;
     }
 
     .heroCountdown{
@@ -2271,14 +1956,15 @@ img{
     }
 
     .hero__scene{
-        height: clamp(240px, 68vw, 300px);
-        min-height: 240px;
+        height: clamp(360px, 104vw, 500px);
+        min-height: 360px;
         margin-top: 4px;
     }
 
     .heroCard{
         border-radius: 16px;
-        background-position: center 22%;
+        background-position: center top;
+        background-size: auto 100%;
     }
 
     .hero__petal--one{
@@ -2295,13 +1981,6 @@ img{
         right: -6px;
         bottom: 22px;
         opacity: .82;
-    }
-
-    .hero__trail{
-        right: 4px;
-        top: 92px;
-        width: 74px;
-        opacity: .18;
     }
 
     .storyGrid{
@@ -2334,13 +2013,6 @@ img{
     .inviteList p::before{
         left: 12px;
         top: 12px;
-    }
-
-    .scribbleNote{
-        min-width: 100px;
-        min-height: 76px;
-        padding: 16px 10px 10px;
-        font-size: 16px;
     }
 
     .storyGallery{
@@ -2565,18 +2237,4 @@ img{
         font-size: 11px;
     }
 
-    .closingPhoto{
-        max-width: 100%;
-    }
-
-    .closingPhoto img{
-        width: min(78%, 320px);
-        filter: drop-shadow(0 18px 24px rgba(73,92,69,.12));
-    }
-
-    .closingPhoto figcaption{
-        bottom: 2px;
-        padding: 7px 10px;
-        font-size: 18px;
-    }
 }

@@ -9,7 +9,7 @@
 
     <meta property="og:title" content="Артур & Дарья — свадьба">
     <meta property="og:description" content="22.08.2026 · 14:00">
-    <meta property="og:image" content="./assets/hero.webp">
+    <meta property="og:image" content="./assets/double.png">
     <meta property="og:type" content="website">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,11 +27,7 @@
 <header class="hero">
     <div class="hero__petal hero__petal--one" aria-hidden="true"></div>
     <div class="hero__petal hero__petal--two" aria-hidden="true"></div>
-    <div class="hero__paper" aria-hidden="true"></div>
     <div class="hero__veil" aria-hidden="true"></div>
-    <svg class="hero__trail" viewBox="0 0 360 180" aria-hidden="true">
-        <path d="M20 132C84 156 126 72 188 84C244 95 250 170 338 104"/>
-    </svg>
 
     <div class="container hero__layout">
         <div class="hero__content js-reveal">
@@ -71,18 +67,8 @@
             <div class="heroCard heroCard--photo">
                 <div class="heroCard__frame"></div>
             </div>
-            <div class="heroNote heroNote--top">
-                <span class="heroNote__label">Save the date</span>
-                <strong>Август станет нашим</strong>
-            </div>
-            <div class="heroNote heroNote--bottom">
-                <span class="heroNote__label">С любовью</span>
-                <strong>До скорой встречи</strong>
-            </div>
         </div>
     </div>
-    <div class="hero__edge" aria-hidden="true"></div>
-
 </header>
 
 <main class="main">
@@ -92,10 +78,6 @@
                 <p class="sectionHead__eyebrow">Уважаемые гости!</p>
                 <h2>Разделите с нами радость 22 августа 2026</h2>
                 <p class="lead">
-                    Скоро произойдет важное событие — день нашей свадьбы.
-                    Мы очень хотим видеть всех наших родных и друзей рядом с нами.
-                </p>
-                <p class="lead">
                     Настал момент, когда мы больше не можем терпеть пустоту на 14-й странице наших паспортов!
                     Именно поэтому мы решили узаконить свою любовь. Будем счастливы, если в этот день вы разделите
                     с нами эту радость и станете частью нашего торжества.
@@ -104,7 +86,6 @@
                     <p>Свои тёплые слова и пожелания приносите в сердцах, а подарки — в конверте.</p>
                     <p>Чтобы мы не грустили, что букеты завянут, просим принести вместо них одну любимую книгу или что-то для нашего дома.</p>
                 </div>
-                <div class="scribbleNote scribbleNote--story">очень ждём вас</div>
             </div>
 
             <div class="storyGallery js-reveal">
@@ -138,6 +119,10 @@
                 <span>ЛОКАЦИЯ</span>
                 <span>ЛОКАЦИЯ</span>
                 <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
+                <span>ЛОКАЦИЯ</span>
             </div>
         </div>
         <div class="container splitSection">
@@ -152,14 +137,6 @@
             </div>
 
             <div class="placeVisual js-reveal">
-                <figure class="locationPhoto">
-                    <img src="./assets/zags-voronezh.jpg"
-                         alt="Центральный ЗАГС Воронежа"
-                         width="1200" height="900"
-                         loading="lazy" decoding="async">
-                    <figcaption>Вход в Центральный ЗАГС</figcaption>
-                </figure>
-
                 <div class="map-card js-tilt" id="mapCard">
                     <div class="map-frame">
                         <iframe
@@ -184,7 +161,7 @@
                 <h2>Как пройдёт этот день</h2>
             </div>
 
-            <div class="dayMap js-reveal">
+            <div class="dayMap js-reveal js-day-sequence">
                 <div class="dayMap__line" aria-hidden="true"></div>
 
                 <article class="dayStop dayStop--one js-tilt">
@@ -240,19 +217,25 @@
         </div>
     </section>
 
-    <section class="section section--closingPhoto">
-        <div class="container">
-            <figure class="closingPhoto js-reveal">
-                <img src="./assets/double.png"
-                     alt="Артур и Дарья"
-                     width="1000" height="800"
-                     loading="lazy" decoding="async">
-                <figcaption>Мы вас ждём</figcaption>
-            </figure>
-        </div>
-    </section>
-
     <section class="section section--contacts">
+        <div class="locationMarquee locationMarquee--contacts" aria-hidden="true">
+            <div class="locationMarquee__track">
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+                <span>КОНТАКТЫ</span>
+            </div>
+        </div>
+        <div class="sectionBloom sectionBloom--left" aria-hidden="true"></div>
+        <div class="sectionBloom sectionBloom--right" aria-hidden="true"></div>
         <div class="container">
             <div class="contactsCard js-reveal">
                 <p class="sectionHead__eyebrow">Наши контакты</p>
@@ -261,7 +244,6 @@
                     На всякий случай оставим здесь наши номера и Telegram. Если что-то понадобится до свадьбы
                     или в сам день, можно написать напрямую нам.
                 </p>
-                <div class="scribbleNote scribbleNote--contacts">будем на связи</div>
 
                 <div class="contactsSheet">
                     <div class="contactsSheet__line contactsSheet__line--vertical" aria-hidden="true"></div>

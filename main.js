@@ -138,6 +138,40 @@
 })();
 
 (function () {
+    const sequence = document.querySelector('.js-day-sequence');
+    if (!sequence) return;
+
+    const cards = Array.from(sequence.querySelectorAll('.dayStop'));
+    if (!cards.length) return;
+
+    const reduce = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    sequence.classList.add('is-sequenced');
+    cards.forEach((card, index) => {
+        card.style.setProperty('--day-delay', `${index * 120}ms`);
+    });
+
+    if (reduce) {
+        cards.forEach(card => card.classList.add('is-in'));
+        return;
+    }
+
+    const io = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                cards.forEach(card => card.classList.add('is-in'));
+                observer.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.24, rootMargin: '0px 0px -12% 0px' }
+    );
+
+    io.observe(sequence);
+})();
+
+(function () {
     const cards = Array.from(document.querySelectorAll('.js-tilt'));
     if (!cards.length) return;
 
