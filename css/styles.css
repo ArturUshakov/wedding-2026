@@ -802,7 +802,7 @@ img{
 
 .locationMarquee__track{
     display: flex;
-    width: max-content;
+    width: max(220vw, max-content);
     gap: 28px;
     padding: 12px 0;
     animation: locationMarquee 20s linear infinite;
@@ -828,6 +828,12 @@ img{
 @keyframes locationMarquee{
     from{ transform: translateX(0); }
     to{ transform: translateX(-50%); }
+}
+
+@media (max-width: 720px){
+    .locationMarquee__track{
+        width: max-content;
+    }
 }
 
 .section--story,
