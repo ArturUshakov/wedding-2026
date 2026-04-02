@@ -340,7 +340,7 @@ img{
     height: 286px;
     bottom: 8px;
     left: -48px;
-    animation: petalFloat 14s ease-in-out infinite;
+    animation: petalFloat 13.5s cubic-bezier(.42,0,.18,1) infinite;
     z-index: 1;
 }
 
@@ -351,18 +351,18 @@ img{
     top: -82px;
     bottom: auto;
     transform: rotate(180deg);
-    animation: petalFloatMirror 16s ease-in-out infinite;
+    animation: petalFloatMirror 15s cubic-bezier(.42,0,.18,1) infinite;
     z-index: 0;
 }
 
 @keyframes petalFloat{
-    0%,100%{ transform: translate3d(0,0,0) rotate(0deg) scale(1); }
-    50%{ transform: translate3d(0,-20px,0) rotate(8deg) scale(1.06); }
+    0%,100%{ transform: translate3d(0,0,0) rotate(-2deg) scale(1); }
+    50%{ transform: translate3d(10px,-10px,0) rotate(1deg) scale(1.015); }
 }
 
 @keyframes petalFloatMirror{
-    0%,100%{ transform: translate3d(0,0,0) rotate(180deg) scale(1); }
-    50%{ transform: translate3d(0,-20px,0) rotate(172deg) scale(1.06); }
+    0%,100%{ transform: translate3d(0,0,0) rotate(178deg) scale(1); }
+    50%{ transform: translate3d(-10px,12px,0) rotate(181deg) scale(1.018); }
 }
 
 .hero__layout{
@@ -447,7 +447,7 @@ img{
 }
 
 .hero__intro{
-    margin-top: 14px;
+    margin-top: 28px;
     max-width: none;
     display: inline-block;
     justify-self: start;
@@ -816,10 +816,17 @@ img{
 
 .locationMarquee__track{
     display: flex;
-    width: max(220vw, max-content);
-    gap: 28px;
+    width: max-content;
     padding: 12px 0;
-    animation: locationMarquee 20s linear infinite;
+    animation: locationMarquee 24s linear infinite;
+    will-change: transform;
+}
+
+.locationMarquee__group{
+    display: flex;
+    flex-shrink: 0;
+    gap: 28px;
+    padding-right: 28px;
 }
 
 .locationMarquee__track span{
@@ -842,12 +849,6 @@ img{
 @keyframes locationMarquee{
     from{ transform: translateX(0); }
     to{ transform: translateX(-50%); }
-}
-
-@media (max-width: 720px){
-    .locationMarquee__track{
-        width: max-content;
-    }
 }
 
 .section--story,
@@ -1259,10 +1260,10 @@ img{
     padding: 18px 22px 20px;
     border-radius: 30px 34px 28px 36px;
     background:
-        linear-gradient(180deg, rgba(248,250,244,.96), rgba(235,241,226,.98)),
+        linear-gradient(180deg, rgba(255,252,247,.96), rgba(247,242,234,.98)),
         url("../assets/old-paper-texture.webp") center/480px auto repeat;
-    border: 1px solid rgba(83,101,78,.1);
-    box-shadow: 0 20px 34px rgba(73,92,69,.08);
+    border: 1px solid rgba(153,134,100,.08);
+    box-shadow: 0 20px 34px rgba(115,96,69,.07);
     transform-origin: center center;
 }
 
@@ -1354,13 +1355,13 @@ img{
     min-height: 50px;
     padding: 8px 16px;
     border-radius: 999px;
-    background: rgba(248,250,244,.98);
-    border: 1px solid rgba(83,101,78,.08);
+    background: rgba(255,250,243,.98);
+    border: 1px solid rgba(153,134,100,.08);
     font-family: var(--serif);
     font-size: 28px;
     line-height: .9;
-    color: rgba(123,143,99,.96);
-    box-shadow: 0 12px 22px rgba(73,92,69,.06);
+    color: rgba(147,119,88,.92);
+    box-shadow: 0 12px 22px rgba(115,96,69,.05);
 }
 
 .dayStop__body{
@@ -2149,7 +2150,7 @@ img{
 
     .section{
         min-height: 100svh;
-        padding: clamp(42px, 7.5vh, 58px) 0;
+        padding: clamp(28px, 5.2vh, 44px) 0;
         scroll-snap-align: start;
         scroll-snap-stop: always;
     }
@@ -2160,15 +2161,15 @@ img{
 
     .hero{
         min-height: 100svh;
-        padding: 22px 0 18px;
+        padding: 18px 0 14px;
         scroll-snap-align: start;
         scroll-snap-stop: always;
     }
 
     .hero__layout{
         gap: 12px;
-        min-height: calc(100svh - 40px);
-        padding: clamp(44px, 9vh, 62px) 2px 10px;
+        min-height: calc(100svh - 32px);
+        padding: clamp(34px, 6.6vh, 48px) 2px 8px;
         align-content: center;
     }
 
@@ -2186,14 +2187,14 @@ img{
     }
 
     .hero__love{
-        right: -10px;
-        top: 2px;
-        width: 14px;
-        height: 14px;
+        right: -18px;
+        top: -4px;
+        width: 16px;
+        height: 16px;
     }
 
     .hero__intro{
-        margin-top: 6px;
+        margin-top: 16px;
         padding: 3px 8px 4px;
         font-size: 11px;
         letter-spacing: .12em;
@@ -2224,14 +2225,14 @@ img{
     }
 
     .hero__petal--one{
-        width: 136px;
-        height: 136px;
-        left: -4px;
+        width: 148px;
+        height: 148px;
+        left: -14px;
         top: auto;
-        bottom: 10px;
+        bottom: 8px;
         opacity: .84;
-        animation: mobilePetalDrift 7.8s ease-in-out infinite;
-        z-index: 1;
+        animation: mobilePetalDrift 10.5s cubic-bezier(.42,0,.18,1) infinite;
+        z-index: 2;
     }
 
     .hero__petal--two{
@@ -2242,7 +2243,7 @@ img{
         bottom: auto;
         transform: rotate(180deg);
         opacity: .82;
-        animation: mobilePetalDriftMirror 8.6s ease-in-out infinite;
+        animation: mobilePetalDriftMirror 11.5s cubic-bezier(.42,0,.18,1) infinite;
     }
 
     .storyGrid{
@@ -2255,30 +2256,62 @@ img{
     .section--contacts .container{
         display: grid;
         align-content: center;
-        min-height: calc(100svh - 84px);
+        min-height: calc(100svh - 56px);
+    }
+
+    .section--place .container,
+    .section--day .container,
+    .section--contacts .container{
+        min-height: calc(100svh - 92px);
+    }
+
+    .section--day{
+        padding: 24px 0 20px;
+    }
+
+    .section--day .container{
+        min-height: calc(100svh - 108px);
+    }
+
+    .section--contacts{
+        padding: 24px 0 20px;
+    }
+
+    .section--contacts .container{
+        min-height: calc(100svh - 108px);
+        align-content: center;
+    }
+
+    .section--story .container{
+        align-content: center;
+    }
+
+    .section--story{
+        min-height: 100svh;
+        padding: 28px 0 24px;
     }
 
     .storyLead{
-        gap: 12px;
-        padding: 20px 16px 18px;
-        border-radius: 24px;
+        gap: 8px;
+        padding: 10px 10px 8px;
+        border-radius: 20px;
     }
 
     .storyLead h2{
-        font-size: clamp(32px, 10vw, 42px);
-        line-height: .98;
+        font-size: clamp(28px, 8.8vw, 36px);
+        line-height: .96;
     }
 
     .storyLead .lead{
-        font-size: 14px;
-        line-height: 1.62;
+        font-size: 12px;
+        line-height: 1.36;
     }
 
     .inviteList p{
-        padding: 12px 12px 12px 34px;
-        border-radius: 16px;
-        font-size: 13px;
-        line-height: 1.55;
+        padding: 8px 8px 8px 26px;
+        border-radius: 14px;
+        font-size: 11px;
+        line-height: 1.32;
     }
 
     .inviteList p::before{
@@ -2287,8 +2320,8 @@ img{
     }
 
     .storyGallery{
-        gap: 8px;
-        padding: 6px 0 0 10px;
+        gap: 4px;
+        padding: 0;
     }
 
     .storyGallery::after{
@@ -2296,8 +2329,8 @@ img{
     }
 
     .storyCard{
-        padding: 5px;
-        border-radius: 18px;
+        padding: 3px;
+        border-radius: 14px;
     }
 
     .storyCard::after{
@@ -2308,35 +2341,51 @@ img{
     }
 
     .storyCard img{
-        border-radius: 14px;
+        border-radius: 10px;
     }
 
     .storyCard figcaption{
-        margin: 8px 4px 4px;
-        font-size: 21px;
+        margin: 5px 4px 1px;
+        font-size: 16px;
     }
 
     .storyCard:nth-child(2){
-        transform: translateY(12px);
+        transform: translateY(6px);
+    }
+
+    .storyCard--small{
+        aspect-ratio: 1 / 1.02;
     }
 
     .splitSection{
-        gap: 16px;
+        gap: 10px;
     }
 
     .splitSection__content{
-        gap: 12px;
-        padding: 20px 16px 18px;
-        border-radius: 24px;
+        gap: 8px;
+        padding: 10px 10px 8px;
+        border-radius: 18px;
     }
 
     .locationMarquee{
+        margin-bottom: 10px;
+    }
+
+    .locationMarquee--day{
+        margin-bottom: 14px;
+    }
+
+    .locationMarquee--contacts{
         margin-bottom: 14px;
     }
 
     .locationMarquee__track{
-        gap: 14px;
         padding: 8px 0;
+    }
+
+    .locationMarquee__group{
+        gap: 14px;
+        padding-right: 14px;
     }
 
     .locationMarquee__track span{
@@ -2344,14 +2393,20 @@ img{
     }
 
     .locationTitle{
-        font-size: 22px;
+        font-size: 18px;
         line-height: 1.04;
     }
 
+    .splitSection__content .lead{
+        margin-top: 10px;
+        font-size: 12px;
+        line-height: 1.36;
+    }
+
     .locationNote{
-        padding: 7px 10px;
-        font-size: 11px;
-        line-height: 1.42;
+        padding: 5px 8px;
+        font-size: 9px;
+        line-height: 1.24;
     }
 
     .locationPhoto{
@@ -2372,11 +2427,11 @@ img{
     }
 
     .map-card{
-        border-radius: 22px;
+        border-radius: 20px;
     }
 
     .map-frame iframe{
-        height: 220px;
+        height: 178px;
     }
 
     .map-overlay__title{
@@ -2388,57 +2443,70 @@ img{
         letter-spacing: .18em;
     }
 
+    .section--place .container{ align-content: center; }
+
     .section--day .container{
         width: min(var(--container), calc(100% - 16px));
+        align-content: center;
     }
 
     .dayMap{
-        gap: 5px;
-        padding: 0;
+        gap: 8px;
+        padding: 2px 0 0;
     }
 
     .dayStop{
-        gap: 2px;
-        padding: 8px 8px 8px 18px;
-        border-radius: 12px;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 10px 10px 11px;
+        border-radius: 16px;
         width: 100%;
     }
 
+    .dayStop::before{
+        width: 40px;
+        height: 14px;
+        top: -6px;
+    }
+
     .dayStop__time{
-        font-size: 14px;
+        justify-self: start;
+        min-height: 32px;
+        padding: 4px 9px;
+        font-size: 16px;
         line-height: 1;
     }
 
     .dayStop__body{
-        gap: 2px;
-        padding-right: 12px;
+        gap: 4px;
+        padding-right: 0;
     }
 
     .dayStop__body h3{
-        font-size: 12px;
-        line-height: 1.08;
+        font-size: 16px;
+        line-height: 1.02;
     }
 
     .dayStop__body p{
-        font-size: 9px;
-        line-height: 1.3;
+        font-size: 11px;
+        line-height: 1.28;
     }
 
     .contactsCard{
-        gap: 10px;
-        padding: 16px 14px;
-        border-radius: 22px;
+        gap: 6px;
+        padding: 10px 8px;
+        border-radius: 16px;
     }
 
     .contactsCard > .lead{
-        font-size: 12px;
-        line-height: 1.48;
+        font-size: 11px;
+        line-height: 1.34;
     }
 
     .contactsSheet{
         margin-top: 2px;
-        padding: 10px;
-        border-radius: 20px;
+        padding: 7px;
+        border-radius: 16px;
     }
 
     .contactsSheet::before{
@@ -2447,8 +2515,8 @@ img{
     }
 
     .contactEntry{
-        gap: 10px;
-        padding: 16px 14px 18px;
+        gap: 7px;
+        padding: 11px 10px 12px;
     }
 
     .contactEntry__head{
@@ -2480,13 +2548,13 @@ img{
 }
 
 @keyframes mobilePetalDrift{
-    0%,100%{ transform: translateY(0) rotate(0deg); }
-    50%{ transform: translateY(-6px) rotate(4deg); }
+    0%,100%{ transform: translate3d(0,0,0) rotate(-2deg) scale(1); }
+    50%{ transform: translate3d(6px,-6px,0) rotate(0deg) scale(1.012); }
 }
 
 @keyframes mobilePetalDriftMirror{
-    0%,100%{ transform: translateY(0) rotate(180deg); }
-    50%{ transform: translateY(-6px) rotate(184deg); }
+    0%,100%{ transform: translate3d(0,0,0) rotate(178deg) scale(1); }
+    50%{ transform: translate3d(-6px,6px,0) rotate(180deg) scale(1.014); }
 }
 
 @keyframes mobileBloomFloat{
