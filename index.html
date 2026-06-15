@@ -13,6 +13,8 @@
     <section class="sm-lead sm-section-bg sm-section-light">
       <div class="sm-section-decor"></div>
       <div class="sm-decor sm-decor-line sm-left-bottom item-animation item-atop"></div>
+      <img class="sm-lead-lemon sm-lead-lemon--single" src="./IMG_20260403_105744_434.png" alt="" aria-hidden="true">
+      <img class="sm-lead-lemon sm-lead-lemon--branch" src="./IMG_20260403_105740_921.png" alt="" aria-hidden="true">
       <div class="sm-container">
         <div class="sm-lead-date item-animation item-atop">
           <span class="sm-lead-date-section" data-sm-day></span>
@@ -126,7 +128,6 @@
     </section>
 
     <section class="sm-dresscode sm-section-bg sm-section-light" id="dresscode">
-      <div class="sm-section-decor"></div>
       <div class="sm-container">
         <div class="sm-dresscode__heading">
           <div class="sm-decor sm-decor02 item-animation item-aright"></div>
@@ -139,71 +140,58 @@
       </div>
     </section>
 
-    <div class="sm-section-wrap sm-section-bg sm-section-dark">
-      <div class="sm-section-decor background-no-paint"></div>
-      <section class="sm-time">
-        <div class="sm-decor sm-decor-line sm-right-top item-animation item-abottom"></div>
-        <div class="sm-decor sm-decor-line sm-left-bottom item-animation item-atop"></div>
-        <div class="sm-container">
-          <div class="sm-box background-paint-background">
-            <h2 class="sm-title item-animation item-atop" data-sm-text="TIMER_TITLE"></h2>
-            <h3 class="sm-subtitle item-animation item-atop" data-sm-text="TIMER_SUBTITLE"></h3>
-            <div class="sm-time__box background-paint-background-before background-paint-background-after">
-              <div class="sm-time__item">
-                <div class="sm-time__item_number item-animation item-aright" id="days"></div>
-                <p class="sm-time__item__title" id="days-title">Дней</p>
-              </div>
-              <div class="sm-time__item">
-                <div class="sm-time__item_number item-animation item-aright" id="hours"></div>
-                <p class="sm-time__item__title" id="hours-title">Часов</p>
-              </div>
-              <div class="sm-time__item">
-                <div class="sm-time__item_number item-animation item-aleft" id="minutes"></div>
-                <p class="sm-time__item__title" id="minutes-title">Минут</p>
-              </div>
-              <div class="sm-time__item">
-                <div class="sm-time__item_number item-animation item-aleft" id="seconds"></div>
-                <p class="sm-time__item__title" id="seconds-title">Секунд</p>
-              </div>
-            </div>
-          </div>
+    <div class="sm-lemon-marquee" aria-hidden="true">
+      <div class="sm-lemon-marquee__track">
+        <div class="sm-lemon-marquee__group">
+          <img src="./cicle.png" alt="">
+          <img src="./cicle.png" alt="">
+          <img src="./cicle.png" alt="">
+          <img src="./cicle.png" alt="">
+          <img src="./cicle.png" alt="">
         </div>
-      </section>
-
-      <section class="sm-wishes sm-section-type-1">
-        <div class="sm-container">
-          <h2 class="sm-title item-animation item-atop" data-sm-text="WISH_TITLE"></h2>
-          <h3 class="sm-subtitle item-animation item-atop" data-sm-text="WISH_SUBTITLE"></h3>
-          <div class="sm-slider-wrap item-animation item-atop">
-            <div class="sm-slider sm-wishes__content-slider">
-              <div class="sm-wishes__content-item is-active" data-slide-index="0">
-                <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_0"></div>
-              </div>
-              <div class="sm-wishes__content-item" data-slide-index="1">
-                <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_1"></div>
-              </div>
-              <div class="sm-wishes__content-item" data-slide-index="2">
-                <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_2"></div>
-              </div>
-            </div>
-            <div class="sm-wishes__pagination-wrapper">
-              <button class="sm-arrow sm-arrow-prev" type="button" data-wish-prev>
-                <img src="./assets/arrow.svg" alt="Предыдущее пожелание">
-              </button>
-              <div class="sm-wishes__pagination">
-                <span data-current-slide>1</span>
-                <span>/</span>
-                <span data-total-slides>3</span>
-              </div>
-              <button class="sm-arrow sm-arrow-next" type="button" data-wish-next>
-                <img src="./assets/arrow.svg" alt="Следующее пожелание">
-              </button>
-            </div>
-          </div>
-          <a href="#" class="sm-btn item-animation item-abottom is-hidden" data-sm-href="WISH_WISHLIST">Смотреть список подарков</a>
+        <div class="sm-lemon-marquee__group">
+          <img src="./cicle.png" alt="">
+          <img src="./cicle.png" alt="">
+          <img src="./cicle.png" alt="">
+          <img src="./cicle.png" alt="">
+          <img src="./cicle.png" alt="">
         </div>
-      </section>
+      </div>
     </div>
+
+    <section class="sm-wishes sm-section-type-1">
+      <div class="sm-container">
+        <h2 class="sm-title item-animation item-atop" data-sm-text="WISH_TITLE"></h2>
+        <h3 class="sm-subtitle item-animation item-atop" data-sm-text="WISH_SUBTITLE"></h3>
+        <div class="sm-slider-wrap item-animation item-atop">
+          <div class="sm-slider sm-wishes__content-slider">
+            <div class="sm-wishes__content-item is-active" data-slide-index="0">
+              <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_0"></div>
+            </div>
+            <div class="sm-wishes__content-item" data-slide-index="1">
+              <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_1"></div>
+            </div>
+            <div class="sm-wishes__content-item" data-slide-index="2">
+              <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_2"></div>
+            </div>
+          </div>
+          <div class="sm-wishes__pagination-wrapper">
+            <button class="sm-arrow sm-arrow-prev" type="button" data-wish-prev>
+              <img src="./assets/arrow.svg" alt="Предыдущее пожелание">
+            </button>
+            <div class="sm-wishes__pagination">
+              <span data-current-slide>1</span>
+              <span>/</span>
+              <span data-total-slides>3</span>
+            </div>
+            <button class="sm-arrow sm-arrow-next" type="button" data-wish-next>
+              <img src="./assets/arrow.svg" alt="Следующее пожелание">
+            </button>
+          </div>
+        </div>
+        <a href="#" class="sm-btn item-animation item-abottom is-hidden" data-sm-href="WISH_WISHLIST">Смотреть список подарков</a>
+      </div>
+    </section>
 
     <section class="sm-contact sm-section-bg sm-section-light">
       <div class="sm-section-decor"></div>
