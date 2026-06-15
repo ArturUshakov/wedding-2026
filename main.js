@@ -3,13 +3,13 @@ const SITE_DATA = {
   MAIN_TEXT_CALENDAR: "Save the date!",
   GROOM: "Артур",
   BRIDE: "Дарья",
-  COVER_PHOTO: "/userdata/189005/b36a904db219f2a9ebd46d0f41ac500a/images/cover_photo_1770083371-2227.webp",
-  HELLO_TITLE: "Дорогие друзья!",
+  COVER_PHOTO: "./assets/double.png",
+  HELLO_TITLE: "Дорогие<br>Друзья",
   HELLO_TEXT: "Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!",
   LOCATION_TITLE: "Место проведения",
   LOCATION_SUBTITLE: "Save the place!",
   LOCATION_TEXT: "<p>Банкетный зал “Дача”, ул. Придорожная 22</p>",
-  LOCATION_PHOTO: "/userdata/189005/b36a904db219f2a9ebd46d0f41ac500a/images/location_photo_1769801828-6198.webp",
+  LOCATION_PHOTO: "./assets/double.png",
   LOCATION_MAP: "https://yandex.ru/maps/org/dacha/188248980856/?ll=39.370572%2C46.347123&z=16.52",
   TIMING_TITLE: "Тайминг",
   TIMING_SUBTITLE: "Of the day",
@@ -35,12 +35,12 @@ const SITE_DATA = {
   CONTACTS_TITLE: "Контакты",
   CONTACTS_TEXT: "<p>По всем вопросам, связанным с мероприятием, вы можете обратиться к нашим любимым мамам</p>",
   CONTACTS_NAME: "Юлия и Виктория",
-  CONTACTS_PHOTO_ONE: "/userdata/189005/b36a904db219f2a9ebd46d0f41ac500a/images/contacts_photo_one_1770036900-7766.webp",
+  CONTACTS_PHOTO_ONE: "./assets/double.png",
   GROOM_TEL: "+79282684282   +79615000271",
   CONTACT_LINK: "",
   ANKETA_TITLE: "Анкета гостя",
   ANKETA_TEXT: "Пожалуйста, подтвердите ваше присутствие на нашей свадьбе до",
-  ANKETA_PHOTO: "/userdata/189005/b36a904db219f2a9ebd46d0f41ac500a/images/cover_photo_1770083371-2227.webp",
+  ANKETA_PHOTO: "./assets/double.png",
   BEFORE_DATE: "07.02.2026",
   ANKETA_QUESTION: "Планируете ли вы присутствовать?",
   ANKETA_ANSWER1: "С удовольствием приду!",
@@ -49,7 +49,7 @@ const SITE_DATA = {
   ANKETA_DRINKS: ["Шампанское", "Белое вино", "Красное вино", "Виски", "Водка", "Джин", "Коньяк", "Сидр", "Не пью алкоголь"],
   BYE_TITLE: "С любовью",
   BYE_SUBTITLE: "До скорой встречи!",
-  BYE_PHOTO_ONE: "/userdata/189005/b36a904db219f2a9ebd46d0f41ac500a/images/bye_photo_one_1770083040-2518.webp"
+  BYE_PHOTO_ONE: "./assets/double.png"
 };
 
 const MONTHS_GENITIVE = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
@@ -59,6 +59,7 @@ const WEEK_DAYS = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"];
 function asAbsoluteUrl(path) {
   if (!path) return "";
   if (/^https?:\/\//.test(path)) return path;
+  if (/^\.{0,2}\//.test(path) || !path.startsWith("/")) return path;
   return `https://wedwed.ru${path.startsWith("/") ? path : `/${path}`}`;
 }
 
@@ -196,25 +197,6 @@ function buildDresscodeColors() {
   });
 }
 
-function buildDrinks() {
-  const list = document.querySelector("[data-drinks-list]");
-  if (!list) return;
-  list.innerHTML = "";
-
-  SITE_DATA.ANKETA_DRINKS.forEach((drink, index) => {
-    const wrap = document.createElement("div");
-    wrap.className = "sm-form__drinks-check";
-    wrap.innerHTML = `
-      <label class="sm-form_checkbox">
-        <input class="sm-form_checkbox_input" type="checkbox" name="drinks" value="${drink}" id="drink-${index}">
-        <span class="sm-form_checkbox_box"></span>
-        <div data-sm-alcoitem>${drink}</div>
-      </label>
-    `;
-    list.appendChild(wrap);
-  });
-}
-
 function initTimer() {
   const target = parseDate(SITE_DATA.MAIN_DATE);
   const nodes = {
@@ -275,46 +257,6 @@ function initWishesSlider() {
   render();
 }
 
-function setModalState(modal, open) {
-  modal.classList.toggle("sm-open", open);
-  document.body.classList.toggle("lock", open);
-}
-
-function initModals() {
-  const questionnaire = document.querySelector(".sm-questionnaire");
-  const thankYou = document.querySelector("#thankYouMessage");
-  if (!questionnaire || !thankYou) return;
-
-  document.querySelectorAll(".open-modal").forEach((button) => {
-    button.addEventListener("click", () => setModalState(questionnaire, true));
-  });
-
-  [...document.querySelectorAll(".sm-modal-close")].forEach((button) => {
-    button.addEventListener("click", () => {
-      const modal = button.closest(".sm-modal");
-      if (modal) setModalState(modal, false);
-    });
-  });
-
-  questionnaire.addEventListener("click", (event) => {
-    if (event.target === questionnaire) setModalState(questionnaire, false);
-  });
-
-  thankYou.addEventListener("click", (event) => {
-    if (event.target === thankYou) setModalState(thankYou, false);
-  });
-
-  const form = document.querySelector("[data-rsvp-form]") || questionnaire.querySelector("form");
-  if (form) {
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      setModalState(questionnaire, false);
-      setModalState(thankYou, true);
-      form.reset();
-    });
-  }
-}
-
 function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -329,46 +271,27 @@ function initScrollAnimations() {
 }
 
 function initDecorMotion() {
-  const decorNodes = [...document.querySelectorAll(
-    ".sm-decor01, .sm-decor02, .sm-decor03, .sm-decor-flower01, .sm-decor-flower02, .sm-decor-flower04, .sm-decor-line"
-  )];
+  const items = [...document.querySelectorAll(".item-rotate-scroll")];
+  if (!items.length) return;
 
-  if (!decorNodes.length) return;
+  let lastScrollY = window.scrollY || window.pageYOffset || 0;
+  let currentRotation = 0;
 
-  const animated = decorNodes.map((node, index) => ({
-    node,
-    baseTransform: getComputedStyle(node).transform === "none" ? "" : getComputedStyle(node).transform,
-    phase: index * 0.85,
-    drift: node.classList.contains("sm-decor-line") ? 4 : 7,
-    rotation: node.classList.contains("sm-decor-line") ? 0.8 : 1.8,
-    speed: node.classList.contains("sm-decor-line") ? 0.0009 : 0.0014,
-    scrollFactor: node.classList.contains("item-rotate-scroll") ? 0.2 : 0
-  }));
+  const render = () => {
+    const currentScrollY = window.scrollY || window.pageYOffset || 0;
+    const scrollDelta = currentScrollY - lastScrollY;
+    currentRotation += scrollDelta * 0.2;
 
-  let frameId = 0;
-
-  const render = (now) => {
-    const scrollY = window.scrollY || window.pageYOffset || 0;
-
-    animated.forEach((item) => {
-      const bob = Math.sin(now * item.speed + item.phase) * item.drift;
-      const twist = Math.cos(now * item.speed * 0.75 + item.phase) * item.rotation;
-      const scrollRotation = scrollY * item.scrollFactor;
-      const base = item.baseTransform ? `${item.baseTransform} ` : "";
-
-      item.node.style.transform = `${base}translate3d(0, ${bob}px, 0) rotate(${twist + scrollRotation}deg)`;
+    items.forEach((item) => {
+      item.style.transform = `rotate(${currentRotation}deg)`;
+      item.style.transition = "transform 0.1s ease-out";
     });
 
-    frameId = window.requestAnimationFrame(render);
+    lastScrollY = currentScrollY;
   };
 
-  frameId = window.requestAnimationFrame(render);
-
-  window.addEventListener("beforeunload", () => {
-    if (frameId) {
-      window.cancelAnimationFrame(frameId);
-    }
-  }, { once: true });
+  window.addEventListener("scroll", render, { passive: true });
+  render();
 }
 
 function initSmoothScroll() {
@@ -389,10 +312,8 @@ function init() {
   fillDateData();
   buildCalendar();
   buildDresscodeColors();
-  buildDrinks();
   initTimer();
   initWishesSlider();
-  initModals();
   initScrollAnimations();
   initDecorMotion();
   initSmoothScroll();

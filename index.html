@@ -4,16 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="only light">
-  <title>Роман и Александра</title>
+  <title>Артур и Дарья</title>
   <meta name="description" content="Свадебное приглашение">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <main class="sm-page">
-    <div class="sm-mob-btn">
-      <button class="sm-btn open-modal" type="button">Подтвердить присутствие</button>
-    </div>
-
     <section class="sm-lead sm-section-bg sm-section-light">
       <div class="sm-section-decor"></div>
       <div class="sm-decor sm-decor-line sm-left-bottom item-animation item-atop"></div>
@@ -57,7 +53,7 @@
       <div class="sm-decor sm-decor-line sm-right-top item-animation item-abottom"></div>
       <div class="sm-decor sm-decor-line sm-left-bottom item-animation item-atop"></div>
       <div class="sm-container">
-        <div class="sm-decor sm-decor-flower01 item-animation item-aleft"></div>
+        <div class="sm-decor sm-decor-flower01 item-rotate-scroll"></div>
         <div class="sm-section__text">
           <div class="sm-decor sm-decor02 item-animation item-aright"></div>
           <h2 class="sm-title item-animation item-atop" data-sm-text="HELLO_TITLE"></h2>
@@ -124,23 +120,6 @@
             <div class="sm-timing__item__time sm-title-font" data-sm-text="TIMING_4_0"></div>
             <div class="sm-timing__item__title sm-text-font" data-sm-text="TIMING_4_1"></div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sm-dresscode sm-section-bg sm-section-light">
-      <div class="sm-section-decor"></div>
-      <div class="sm-container">
-        <div class="sm-title_wrap">
-          <div class="sm-decor sm-decor02 item-animation item-aleft"></div>
-          <div class="sm-decor sm-decor03 item-animation item-aright"></div>
-          <h2 class="sm-title item-animation item-atop">
-            <span data-sm-text="DRESSCODE_TITLE"></span>
-          </h2>
-          <div class="sm-text sm-text-font item-animation item-atop">
-            <span data-sm-text="DRESSCODE_TEXT"></span>
-          </div>
-          <div class="sm-dress-code__colors item-animation item-atop" data-dresscode-colors></div>
         </div>
       </div>
     </section>
@@ -231,71 +210,11 @@
           <span data-sm-text="CONTACTS_NAME" class="item-animation item-aright"></span><br>
           <a href="tel:" data-sm-tel="GROOM_TEL" class="item-animation item-aleft"></a><br>
         </div>
-        <a data-sm-href="CONTACT_LINK" class="sm-btn item-animation item-abottom is-hidden" data-sm-contact-mes>Связаться</a>
       </div>
     </section>
 
     <div class="sm-section-wrap sm-section-bg sm-section-dark">
       <div class="sm-section-decor"></div>
-      <section class="sm-questionnaire sm-modal">
-        <div class="sm-decor sm-decor-line sm-right-top item-animation item-abottom"></div>
-        <button class="sm-modal-close sm-quest-modal-close" type="button">X</button>
-        <div class="sm-container background-paint-background">
-          <div class="sm-questionnaire-image sm-only-mobile item-animation item-atop">
-            <img src="" data-sm-src="ANKETA_PHOTO" alt="Анкета">
-          </div>
-          <div class="sm-box background-paint-background text-paint-border">
-            <div class="sm-questionnaire__head">
-              <div class="sm-title item-animation item-atop">
-                <span data-sm-text="ANKETA_TITLE"></span>
-              </div>
-              <div class="sm-text item-animation item-atop" data-sm-text="ANKETA_TEXT"></div>
-              <div class="sm-questionnaire__date sm-title-font item-animation item-atop">
-                <span data-sm-bday></span> <span data-sm-bmonth-rod></span> <span data-sm-bfyear></span>
-              </div>
-            </div>
-          </div>
-          <div class="sm-questionnaire-form item-animation item-atop">
-            <form class="sm-form background-paint-background" data-rsvp-form>
-              <div class="sm-form__block">
-                <div class="sm-form__block__title">Ваше имя и фамилия</div>
-                <input class="sm-form__input" type="text" placeholder="Имя и Фамилия" name="name" required>
-              </div>
-
-              <div class="sm-form__block">
-                <div class="sm-form__block__title" data-sm-text="ANKETA_QUESTION"></div>
-                <div class="sm-form__item">
-                  <label class="sm-form_checkbox">
-                    <input class="sm-form_checkbox_input" type="radio" name="choice" value="1" required>
-                    <span class="sm-form_checkbox_box"></span>
-                    <span data-sm-text="ANKETA_ANSWER1"></span>
-                  </label>
-                  <label class="sm-form_checkbox">
-                    <input class="sm-form_checkbox_input" type="radio" name="choice" value="2">
-                    <span class="sm-form_checkbox_box"></span>
-                    <span data-sm-text="ANKETA_ANSWER2"></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="sm-form__block">
-                <div class="sm-form__block__title">Если вы будете не одни, заполните поле ниже, пожалуйста</div>
-                <input class="sm-form__input" type="text" placeholder="Имя и фамилия вашего спутника/спутницы" name="company">
-              </div>
-
-              <div class="sm-form__block">
-                <div class="sm-form__block__title" data-sm-text="ANKETA_DRINKS_QUESTION"></div>
-                <div class="sm-form__drinks" data-drinks-list></div>
-              </div>
-
-              <div class="sm-form__block sm-form__block-submit">
-                <button class="sm-btn" type="submit">Подтвердить</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
       <section class="sm-footer">
         <div class="sm-decor sm-decor-line sm-left-bottom item-animation item-atop"></div>
         <div class="sm-container">
@@ -317,26 +236,6 @@
           </div>
         </div>
       </section>
-    </div>
-
-    <div class="sm-thanks sm-modal sm-section-bg sm-section-light" id="thankYouMessage">
-      <button class="sm-modal-close" type="button">X</button>
-      <div class="sm-decor sm-decor-line sm-left-bottom item-animation item-atop"></div>
-      <div class="sm-container">
-        <div class="sm-thanks__content">
-          <div class="sm-thanks-date sm-title-font">
-            <div class="sm-decor sm-decor01"></div>
-            <div class="sm-decor sm-decor02"></div>
-            <div class="sm-thanks-date-section" data-sm-day></div>
-            <div class="sm-thanks-date-section" data-sm-month></div>
-            <div class="sm-thanks-date-section" data-sm-year></div>
-          </div>
-          <div class="sm-thanks-title sm-title-font">Спасибо<br>за ваш ответ</div>
-        </div>
-        <div class="sm-thanks__image">
-          <img src="" data-sm-src="COVER_PHOTO" alt="Спасибо">
-        </div>
-      </div>
     </div>
   </main>
 
