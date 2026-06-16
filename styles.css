@@ -1000,3 +1000,51 @@ body {
   top: 70.5% !important;
   transform: translate(-50%, -50%) scaleX(-1) rotate(-8deg);
 }
+
+/* Final fix: cover heart orientation and vertical position */
+.sm-lead .sm-lead-image > img.sm-lead-heart {
+  left: 32% !important;
+  right: auto !important;
+  top: 74% !important;
+  transform: translate(-50%, -50%) scaleX(-1) rotate(-8deg);
+}
+
+@keyframes heart-beat {
+  0%,
+  18%,
+  100% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-8deg) scale(1);
+    filter: drop-shadow(0 4px 4px rgba(74, 30, 18, 0.28));
+  }
+
+  7% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-6deg) scale(1.13, 1.1);
+    filter: drop-shadow(0 6px 7px rgba(74, 30, 18, 0.36));
+  }
+
+  11% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-8deg) scale(0.97);
+  }
+
+  15% {
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-7deg) scale(1.075, 1.055);
+  }
+}
+
+@media (max-width: 500px) {
+  .sm-lead .sm-lead-image > img.sm-lead-heart {
+    left: 32% !important;
+    right: auto !important;
+    top: 74% !important;
+    width: clamp(34px, 10.5vw, 42px) !important;
+  }
+}
+
+@media (min-width: 501px) {
+  .sm-lead .sm-lead-image > img.sm-lead-heart {
+    left: 32% !important;
+    right: auto !important;
+    top: 74% !important;
+    width: 42px !important;
+  }
+}
