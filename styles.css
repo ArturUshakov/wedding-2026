@@ -462,21 +462,21 @@ body {
   0%,
   18%,
   100% {
-    transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-8deg) scale(1);
     filter: drop-shadow(0 4px 4px rgba(74, 30, 18, 0.28));
   }
 
   7% {
-    transform: translate(-50%, -50%) rotate(-6deg) scale(1.13, 1.1);
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-6deg) scale(1.13, 1.1);
     filter: drop-shadow(0 6px 7px rgba(74, 30, 18, 0.36));
   }
 
   11% {
-    transform: translate(-50%, -50%) rotate(-8deg) scale(0.97);
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-8deg) scale(0.97);
   }
 
   15% {
-    transform: translate(-50%, -50%) rotate(-7deg) scale(1.075, 1.055);
+    transform: translate(-50%, -50%) scaleX(-1) rotate(-7deg) scale(1.075, 1.055);
   }
 }
 
@@ -992,4 +992,11 @@ body {
     font-size: 18px;
     line-height: 1.5;
   }
+}
+
+.sm-lead .sm-lead-image > img.sm-lead-heart {
+  left: 32% !important;
+  right: auto !important;
+  top: 70.5% !important;
+  transform: translate(-50%, -50%) scaleX(-1) rotate(-8deg);
 }
