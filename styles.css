@@ -441,7 +441,7 @@ body {
 .sm-lead .sm-lead-image > img.sm-lead-heart {
   position: absolute !important;
   top: 70.5% !important;
-  left: 32% !important;
+  right: 32% !important;
   z-index: 5 !important;
   display: block !important;
   width: 42px !important;
@@ -452,7 +452,7 @@ body {
   object-fit: contain !important;
   pointer-events: none;
   filter: drop-shadow(0 4px 4px rgba(74, 30, 18, 0.28));
-  transform: translate(-50%, -50%) rotate(-8deg);
+  transform: translate(50%, -50%) rotate(8deg);
   transform-origin: 50% 78%;
   animation: heart-beat 1.85s ease-in-out infinite;
   will-change: transform, filter;
@@ -693,5 +693,303 @@ body {
   .sm-lead-lemon,
   .sm-lemon-marquee__track {
     animation: none !important;
+  }
+}
+
+.sm-desktop-lock {
+  display: none;
+}
+
+.sm-lead .sm-lead-names .sm-decor02 {
+  transform: scaleX(-1) rotate(18deg);
+  transform-origin: center;
+}
+
+.sm-calendar__date {
+  display: none !important;
+}
+
+.sm-datetime .sm-text p + p,
+.sm-location .sm-text p + p,
+.sm-dresscode .sm-text p + p {
+  margin-top: 14px;
+}
+
+.sm-location__image::before,
+.sm-location__image::after {
+  display: none !important;
+}
+
+.sm-wishes__grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.sm-wishes__card {
+  padding: 24px 20px;
+  border: 1px solid rgba(105, 116, 81, 0.2);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 10px 30px rgba(52, 61, 42, 0.06);
+}
+
+.sm-wishes__card-title {
+  margin: 0 0 10px;
+  color: #697451;
+  font-family: var(--title-font-family);
+  font-size: 28px;
+  line-height: 1;
+  text-align: left;
+}
+
+.sm-wishes__card .sm-wishes__content-slide {
+  max-width: none;
+  margin: 0;
+  text-align: left;
+  line-height: 1.55;
+}
+
+.sm-footer__image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sm-footer__image .sm-img {
+  display: block;
+  position: relative;
+  height: auto !important;
+}
+
+.sm-footer__image img {
+  display: block;
+  position: static !important;
+  width: 100%;
+  height: auto !important;
+  max-width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 34px 34px 0 0;
+}
+
+@media (max-width: 500px) {
+  .sm-page {
+    overflow-x: hidden;
+  }
+
+  .sm-lead .sm-lead-names .sm-decor02 {
+    right: -14px !important;
+    left: auto !important;
+    transform: scaleX(-1) rotate(24deg);
+  }
+
+  .sm-datetime {
+    padding: 70px 0 60px;
+  }
+
+  .sm-datetime .sm-container {
+    padding-top: 72px;
+    padding-bottom: 74px;
+  }
+
+  .sm-datetime .sm-title {
+    font-size: 52px;
+    line-height: 0.95;
+  }
+
+  .sm-datetime .sm-subtitle {
+    margin-top: 10px;
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  .sm-datetime .sm-text {
+    max-width: 332px;
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .sm-datetime .sm-calendar__wrapper {
+    margin-top: 28px;
+  }
+
+  .sm-datetime .sm-calendar__box {
+    width: min(272px, calc(100vw - 48px));
+    max-width: 272px;
+    margin: 0 auto;
+    padding: 32px 22px 20px;
+  }
+
+  .sm-datetime .sm-calendar__month {
+    font-size: 22px;
+  }
+
+  .sm-location {
+    padding: 74px 0 86px;
+  }
+
+  .sm-location:before,
+  .sm-location .sm-ico {
+    display: none !important;
+  }
+
+  .sm-location .sm-container {
+    padding-top: 74px;
+    padding-bottom: 82px;
+  }
+
+  .sm-location .sm-title {
+    margin-top: 0;
+    font-size: 54px;
+  }
+
+  .sm-location .sm-subtitle {
+    margin-top: 10px;
+    color: #6a7358;
+    font-family: var(--text-font-family);
+    font-size: 18px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .sm-location__image {
+    min-width: 0;
+    margin-top: 24px;
+  }
+
+  .sm-location__image .sm-img {
+    width: min(210px, 58vw);
+    margin: 0 auto;
+  }
+
+  .sm-location__image img {
+    width: 100%;
+    height: auto;
+    border-radius: 28px;
+    box-shadow: 0 12px 30px rgba(52, 61, 42, 0.14);
+  }
+
+  .sm-location .sm-text {
+    max-width: 330px;
+    margin: 24px auto 0;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .sm-location .sm-btn {
+    margin-top: 24px;
+  }
+
+  .sm-timing {
+    padding: 78px 0 64px;
+  }
+
+  .sm-timing .sm-title {
+    font-size: 52px;
+    line-height: 0.95;
+  }
+
+  .sm-timing__items {
+    margin-top: 34px;
+  }
+
+  .sm-timing__item__title {
+    font-size: 18px;
+    line-height: 1.35;
+  }
+
+  .sm-dresscode .sm-text {
+    font-size: 17px;
+  }
+
+  .sm-wishes {
+    padding: 86px 0 68px;
+  }
+
+  .sm-wishes .sm-container {
+    padding-top: 70px;
+    padding-bottom: 0;
+  }
+
+  .sm-wishes .sm-title {
+    font-size: 54px;
+    line-height: 0.95;
+  }
+
+  .sm-wishes__card-title {
+    font-size: 26px;
+  }
+
+  .sm-wishes__card .sm-wishes__content-slide {
+    font-size: 17px;
+  }
+
+  .sm-footer .sm-container {
+    padding-top: 52px;
+    padding-bottom: 64px;
+  }
+
+  .sm-footer .sm-text {
+    font-size: 18px;
+  }
+
+  .sm-footer .sm-footer__names {
+    margin: 22px 0 28px;
+    font-size: 56px;
+    line-height: 0.98;
+  }
+
+  .sm-footer__image {
+    max-width: 320px;
+  }
+}
+
+@media (min-width: 701px) {
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top, rgba(243, 220, 97, 0.18), transparent 34%),
+      #fdf8f2;
+  }
+
+  .sm-page {
+    display: none !important;
+  }
+
+  .sm-desktop-lock {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  .sm-desktop-lock__inner {
+    max-width: 420px;
+    padding: 40px 36px;
+    border: 1px solid rgba(105, 116, 81, 0.18);
+    border-radius: 36px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 20px 60px rgba(52, 61, 42, 0.08);
+    text-align: center;
+  }
+
+  .sm-desktop-lock__title {
+    color: #5d6846;
+    font-family: var(--title-font-family);
+    font-size: 46px;
+    line-height: 0.96;
+  }
+
+  .sm-desktop-lock__text {
+    margin-top: 16px;
+    color: #59604e;
+    font-size: 18px;
+    line-height: 1.5;
   }
 }

@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <div class="sm-desktop-lock" aria-hidden="true">
+    <div class="sm-desktop-lock__inner">
+      <div class="sm-desktop-lock__title">Приглашение открывается только с телефона</div>
+      <div class="sm-desktop-lock__text">Откройте ссылку на смартфоне</div>
+    </div>
+  </div>
   <main class="sm-page">
     <section class="sm-lead sm-section-bg sm-section-light">
       <div class="sm-section-decor"></div>
@@ -65,11 +71,6 @@
         </div>
         <div class="sm-calendar__wrapper item-animation item-abottom">
           <div class="sm-decor sm-decor02 item-animation item-aleft"></div>
-          <div class="sm-calendar__date">
-            <span class="item-animation item-aleft" data-sm-day></span>
-            <span class="item-animation item-aright" data-sm-month></span>
-            <span class="item-animation item-aleft" data-sm-year></span>
-          </div>
           <div class="sm-calendar__box">
             <div class="sm-calendar__month" data-sm-tmonth></div>
             <div class="sm-calendar" data-calendar></div>
@@ -105,7 +106,6 @@
       <div class="sm-container">
         <div class="sm-decor sm-decor-flower02 item-animation item-aleft"></div>
         <h2 class="sm-title item-animation item-atop" data-sm-text="TIMING_TITLE"></h2>
-        <h2 class="sm-subtitle item-animation item-atop" data-sm-text="TIMING_SUBTITLE"></h2>
         <div class="sm-timing__items">
           <div class="sm-timing__item item-animation item-aleft">
             <div class="sm-timing__item__time sm-title-font" data-sm-text="TIMING_1_0"></div>
@@ -162,57 +162,19 @@
     <section class="sm-wishes sm-section-type-1">
       <div class="sm-container">
         <h2 class="sm-title item-animation item-atop" data-sm-text="WISH_TITLE"></h2>
-        <h3 class="sm-subtitle item-animation item-atop" data-sm-text="WISH_SUBTITLE"></h3>
-        <div class="sm-slider-wrap item-animation item-atop">
-          <div class="sm-slider sm-wishes__content-slider">
-            <div class="sm-wishes__content-item is-active" data-slide-index="0">
-              <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_0"></div>
-            </div>
-            <div class="sm-wishes__content-item" data-slide-index="1">
-              <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_1"></div>
-            </div>
-            <div class="sm-wishes__content-item" data-slide-index="2">
-              <div class="sm-wishes__content-slide" data-sm-text="WISH_TEXT_ITEMS_2"></div>
-            </div>
-          </div>
-          <div class="sm-wishes__pagination-wrapper">
-            <button class="sm-arrow sm-arrow-prev" type="button" data-wish-prev>
-              <img src="./assets/arrow.svg" alt="Предыдущее пожелание">
-            </button>
-            <div class="sm-wishes__pagination">
-              <span data-current-slide>1</span>
-              <span>/</span>
-              <span data-total-slides>3</span>
-            </div>
-            <button class="sm-arrow sm-arrow-next" type="button" data-wish-next>
-              <img src="./assets/arrow.svg" alt="Следующее пожелание">
-            </button>
-          </div>
-        </div>
-        <a href="#" class="sm-btn item-animation item-abottom is-hidden" data-sm-href="WISH_WISHLIST">Смотреть список подарков</a>
-      </div>
-    </section>
-
-    <section class="sm-contact sm-section-bg sm-section-light">
-      <div class="sm-section-decor"></div>
-      <div class="sm-container">
-        <div class="sm-decor sm-decor03 item-animation item-aleft"></div>
-        <div class="sm-decor sm-decor03 item-animation item-aright"></div>
-        <div class="sm-decor sm-decor-flower02 item-animation item-aleft"></div>
-        <div class="sm-decor sm-decor-flower04 item-rotate-scroll"></div>
-        <div class="sm-contact__box">
-          <h2 class="sm-title sm-title-font item-animation item-atop" data-sm-text="CONTACTS_TITLE"></h2>
-          <div class="sm-contact_photo item-animation item-abottom">
-            <div class="sm-photo">
-              <img src="" data-sm-src="CONTACTS_PHOTO_ONE" alt="Контакты">
-            </div>
-          </div>
-          <p class="sm-text item-animation item-atop" data-sm-text="CONTACTS_TEXT"></p>
-        </div>
-        <div class="sm-contact__info sm-title-font">
-          <span data-sm-text="CONTACTS_NAME" class="item-animation item-aright"></span><br>
-          <a href="tel:" data-sm-tel="GROOM_TEL" class="item-animation item-aleft"></a><br>
-          <a href="tel:" data-sm-tel="BRIDE_TEL" class="item-animation item-aright"></a><br>
+        <div class="sm-wishes__grid item-animation item-atop">
+          <article class="sm-wishes__card">
+            <h3 class="sm-wishes__card-title" data-sm-text="WISH_CARD_1_TITLE"></h3>
+            <div class="sm-wishes__content-slide" data-sm-text="WISH_CARD_1_TEXT"></div>
+          </article>
+          <article class="sm-wishes__card">
+            <h3 class="sm-wishes__card-title" data-sm-text="WISH_CARD_2_TITLE"></h3>
+            <div class="sm-wishes__content-slide" data-sm-text="WISH_CARD_2_TEXT"></div>
+          </article>
+          <article class="sm-wishes__card">
+            <h3 class="sm-wishes__card-title" data-sm-text="WISH_CARD_3_TITLE"></h3>
+            <div class="sm-wishes__content-slide" data-sm-text="WISH_CARD_3_TEXT"></div>
+          </article>
         </div>
       </div>
     </section>

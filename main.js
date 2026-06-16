@@ -4,15 +4,15 @@ const SITE_DATA = {
   GROOM: "Артур",
   BRIDE: "Дарья",
   COVER_PHOTO: "./assets/double.png",
-  HELLO_TITLE: "Уважаемые<br>гости!",
-  HELLO_TEXT: "<p>Настал момент, когда мы больше не можем терпеть пустоту на 14-й странице наших паспортов! Именно поэтому мы решили узаконить свою любовь. Будем счастливы, если в этот день вы разделите с нами эту радость и станете частью нашего торжества.</p>",
-  LOCATION_TITLE: "Когда и где",
+  HELLO_TITLE: "Дорогие<br>гости!",
+  HELLO_TEXT: "<p>Настал момент, когда мы больше не можем терпеть пустоту на 14-й странице наших паспортов. Именно поэтому мы решили узаконить свою любовь.</p><p>Будем счастливы, если в этот день вы разделите с нами эту радость и станете частью нашего торжества.</p>",
+  LOCATION_TITLE: "Локация",
   LOCATION_SUBTITLE: "Центральный ЗАГС г. Воронеж",
-  LOCATION_TEXT: "<p>Сбор гостей у ЗАГСа начнётся в 13:30, а церемония регистрации — в 14:00. Ждём вас по адресу: Воронеж, площадь Ленина, 11.</p><p>Вход во Дворец бракосочетания — через кованые ворота с боковой стороны здания.</p>",
-  LOCATION_PHOTO: "./assets/double.png",
+  LOCATION_TEXT: "<p>Сбор гостей у ЗАГСа начнётся в 13:30, а церемония регистрации — в 14:00.</p><p>Ждём вас по адресу: Воронеж, площадь Ленина, 11.</p><p>Вход во Дворец бракосочетания — через кованые ворота с боковой стороны здания.</p>",
+  LOCATION_PHOTO: "./assets/location-zags.png",
   LOCATION_MAP: "https://yandex.ru/maps/?text=Воронеж%2C%20площадь%20Ленина%2C%2011",
-  TIMING_TITLE: "Как пройдёт этот день",
-  TIMING_SUBTITLE: "Маршрут дня",
+  TIMING_TITLE: "План дня",
+  TIMING_SUBTITLE: "",
   TIMING_1_0: "13:30",
   TIMING_1_1: "Сбор гостей у ЗАГСа",
   TIMING_2_0: "14:00",
@@ -22,20 +22,23 @@ const SITE_DATA = {
   TIMING_4_0: "22:00",
   TIMING_4_1: "Конец торжества",
   DRESSCODE_TITLE: "Дресс-код",
-  DRESSCODE_TEXT: "<p>Для нас главное — ваше присутствие. Будем рады, если в своих нарядах вы поддержите палитру нашей свадьбы.</p>",
+  DRESSCODE_TEXT: "<p>Мы рады сообщить, что дресс-кода на нашей свадьбе не будет. Тем не менее, мы просим воздержаться от ярких цветов и броских принтов.</p><p>Но если вы хотите поддержать цветовую гамму нашей свадьбы, мы будем рады.</p>",
   DRESSCODE_COLORS: ["#242520", "#F3DC61", "#AEBD7B", "#D3B88F"],
   TIMER_TITLE: "До свадьбы осталось",
   TIMER_SUBTITLE: "Waiting for you!",
-  WISH_TITLE: "Пожелания",
-  WISH_SUBTITLE: "Our wishes",
-  WISH_TEXT_ITEMS_0: "<p>Свои тёплые слова и пожелания приносите в сердцах, а подарки — в конверте.</p>",
-  WISH_TEXT_ITEMS_1: "<p>Чтобы мы не грустили, что букеты завянут, просим принести вместо них одну любимую книгу.</p>",
-  WISH_TEXT_ITEMS_2: "<p>Вместо букета также можно выбрать что-то для нашего дома.</p>",
+  WISH_TITLE: "Детали",
+  WISH_SUBTITLE: "",
+  WISH_CARD_1_TITLE: "Подарки",
+  WISH_CARD_1_TEXT: "<p>Свои тёплые слова и пожелания приносите в сердцах, а подарки — в конверте.</p>",
+  WISH_CARD_2_TITLE: "Цветы",
+  WISH_CARD_2_TEXT: "<p>Вместо цветов можно подарить любимую книгу или что-то для нашего дома. Нам будет особенно приятно сохранить это надолго.</p>",
+  WISH_CARD_3_TITLE: "Трансфер",
+  WISH_CARD_3_TEXT: "<p>После церемонии транспорт будет вас ожидать и довезёт до места банкета.</p>",
   WISH_WISHLIST: "",
-  CONTACTS_TITLE: "Если что-то понадобится",
-  CONTACTS_TEXT: "<p>На всякий случай оставим здесь наши номера. Если что-то понадобится до свадьбы или в сам день, можно написать напрямую нам.</p>",
-  CONTACTS_NAME: "Артур и Дарья",
-  CONTACTS_PHOTO_ONE: "./assets/double.png",
+  CONTACTS_TITLE: "",
+  CONTACTS_TEXT: "",
+  CONTACTS_NAME: "",
+  CONTACTS_PHOTO_ONE: "",
   GROOM_TEL: "+7 910 321 05 99",
   BRIDE_TEL: "+7 920 581 32 73",
   CONTACT_LINK: "",
@@ -50,7 +53,7 @@ const SITE_DATA = {
   ANKETA_DRINKS: ["Шампанское", "Белое вино", "Красное вино", "Виски", "Водка", "Джин", "Коньяк", "Сидр", "Не пью алкоголь"],
   BYE_TITLE: "С любовью",
   BYE_SUBTITLE: "До скорой встречи!",
-  BYE_PHOTO_ONE: "./assets/double.png"
+  BYE_PHOTO_ONE: "./assets/final-couch-new.png"
 };
 
 const MONTHS_GENITIVE = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
@@ -227,37 +230,6 @@ function initTimer() {
   window.setInterval(render, 1000);
 }
 
-function initWishesSlider() {
-  const slides = [...document.querySelectorAll(".sm-wishes__content-item")];
-  const prev = document.querySelector("[data-wish-prev]") || document.querySelector(".sm-arrow-prev");
-  const next = document.querySelector("[data-wish-next]") || document.querySelector(".sm-arrow-next");
-  const current = document.querySelector("[data-current-slide]") || document.querySelector("#current-slide");
-  const total = document.querySelector("[data-total-slides]") || document.querySelector("#count-slides");
-  if (!slides.length || !prev || !next || !current || !total) return;
-
-  let index = 0;
-  total.textContent = slides.length;
-
-  const render = () => {
-    slides.forEach((slide, slideIndex) => {
-      slide.classList.toggle("is-active", slideIndex === index);
-    });
-    current.textContent = index + 1;
-  };
-
-  prev.addEventListener("click", () => {
-    index = (index - 1 + slides.length) % slides.length;
-    render();
-  });
-
-  next.addEventListener("click", () => {
-    index = (index + 1) % slides.length;
-    render();
-  });
-
-  render();
-}
-
 function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -314,7 +286,6 @@ function init() {
   buildCalendar();
   buildDresscodeColors();
   initTimer();
-  initWishesSlider();
   initScrollAnimations();
   initDecorMotion();
   initSmoothScroll();
