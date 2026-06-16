@@ -1,15 +1,15 @@
 const SITE_DATA = {
   MAIN_DATE: "22.08.2026",
-  MAIN_TEXT_CALENDAR: "Save the date!",
+  MAIN_TEXT_CALENDAR: "",
   GROOM: "Артур",
   BRIDE: "Дарья",
-  COVER_PHOTO: "./assets/double.png",
+  COVER_PHOTO: "./assets/double-mobile.webp",
   HELLO_TITLE: "Дорогие<br>гости!",
   HELLO_TEXT: "<p>Настал момент, когда мы больше не можем терпеть пустоту на 14-й странице наших паспортов. Именно поэтому мы решили узаконить свою любовь.</p><p>Будем счастливы, если в этот день вы разделите с нами эту радость и станете частью нашего торжества.</p>",
   LOCATION_TITLE: "Локация",
   LOCATION_SUBTITLE: "Центральный ЗАГС г. Воронеж",
   LOCATION_TEXT: "<p>Сбор гостей у ЗАГСа начнётся в 13:30, а церемония регистрации — в 14:00.</p><p>Ждём вас по адресу: Воронеж, площадь Ленина, 11.</p><p>Вход во Дворец бракосочетания — через кованые ворота с боковой стороны здания.</p>",
-  LOCATION_PHOTO: "./assets/location-zags.png",
+  LOCATION_PHOTO: "./assets/location-zags-mobile.webp",
   LOCATION_MAP: "https://yandex.ru/maps/?text=Воронеж%2C%20площадь%20Ленина%2C%2011",
   TIMING_TITLE: "План дня",
   TIMING_SUBTITLE: "",
@@ -53,7 +53,7 @@ const SITE_DATA = {
   ANKETA_DRINKS: ["Шампанское", "Белое вино", "Красное вино", "Виски", "Водка", "Джин", "Коньяк", "Сидр", "Не пью алкоголь"],
   BYE_TITLE: "С любовью",
   BYE_SUBTITLE: "До скорой встречи!",
-  BYE_PHOTO_ONE: "./assets/final-couch-new.png"
+  BYE_PHOTO_ONE: "./assets/final-couch-mobile.webp"
 };
 
 const MONTHS_GENITIVE = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
