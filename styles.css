@@ -63,16 +63,8 @@ body {
   background-image: url("./assets/flower01.svg");
 }
 
-.sm-decor-flower02 {
-  background-image: url("./assets/flower02.svg");
-}
-
 .sm-decor-flower04 {
   background-image: url("./assets/flower04.svg");
-}
-
-.sm-location .sm-ico img {
-  content: url("./assets/pin.gif");
 }
 
 .sm-lead-and {
